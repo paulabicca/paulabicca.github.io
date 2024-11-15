@@ -1,0 +1,13 @@
+[pt-br]
+languageName = "Português"
+languagedirection = "ltr"  
+title = "Paula Bicca"
+weight = 1  
+ contentDir = "content/pt-br"
+
+[en]
+languageName = "English"
+languagedirection = "ltr"
+title = "Paula Bicca"
+weight = 2  
+ contentDir = "content/en"
