@@ -11,11 +11,12 @@ menu:
 ---
 
 ## Hey! I’m Paula, nice to meet you :)
-My journey in development started in 2017. I’ve always loved writing, especially stories, but it was only in 2024 that I decided to start a blog. The idea came after I wrote a post on LinkedIn that exceeded 5000 characters, and I was forced to shorten it... That’s when I thought, “Why not start a blog?”
+My journey in the world of development began in 2017. I've always loved writing, especially stories, but it wasn't until 2024 that I decided to start a blog. The idea came after I wrote a LinkedIn post that exceeded 5,000 characters, and I had to shorten it... That's when I thought, "Why not start a blog?"
 
-I decided I would write about everything I like and find interesting in the tech world. But it won’t always be just about that! Sometimes, I’ll share reflections on what it means to be a woman (and black) in the tech industry.
+I decided to write about everything I enjoy and find interesting in the world of development. But it won’t be just about development! I’ll also share reflections on what it’s like to be a woman in tech, as well as other topics that make me think or inspire me.
+I can promise you’ll find something worth reading here.
 
-Besides coding and writing, I also love reading. So, if you have book recommendations (preferably horror, please!), feel free to reach out. :)
+Besides coding and writing, I also love reading. So, if you have any book recommendations (especially horror, please!), feel free to reach out. :)
 
 Email: paula.bicca@gmail.com
 
