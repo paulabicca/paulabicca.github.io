@@ -21,3 +21,4 @@ name = "LinkedIn"
 url = "https://www.linkedin.com/in/paulabicca93/"
 
 [social.params]
+icon = "brand-linkedin"
