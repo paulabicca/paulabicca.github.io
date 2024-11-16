@@ -8,6 +8,14 @@
 #newtab = true
 
 [[social]]
+identifier = "email"
+name = "Email"
+url = "mailto:paula.bicca@gmail.com"
+
+[social.params]
+icon = "mail"
+
+[[social]]
 identifier = "github"
 name = "GitHub"
 url = "https://github.com/paulabicca"
@@ -22,3 +30,4 @@ url = "https://www.linkedin.com/in/paulabicca93/"
 
 [social.params]
 icon = "brand-linkedin"
+
