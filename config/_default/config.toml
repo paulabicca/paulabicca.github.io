@@ -14,7 +14,7 @@ defaultContentLanguageInSubdir = true
 hasCJKLanguage = false
 
 # Change it to your Disqus shortname before using
-disqusShortname = "hugo-theme-stack"
+# disqusShortname = "hugo-theme-stack"
 
 [pagination]
 pagerSize = 5
