@@ -10,7 +10,7 @@ tags:
     - frontend
 categories:
     - accessibility
-    - WCAG
+    - development
 ---
 
 Did you know that the first accessibility law in Brazil was enacted in 2000? The **Law No. 10.098**, dated December 19, 2000, was a starting point for promoting greater inclusion. Even so, despite being over two decades old, accessibility, especially on the web, continues to be a major challenge.

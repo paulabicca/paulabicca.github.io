@@ -8,9 +8,10 @@ tags:
     - WCAG
     - W3C
     - frontend
+    - web
 categories:
     - acessibilidade
-    - WCAG
+    - desenvolvimento
 ---
 
 
