@@ -77,7 +77,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "gitalk"
+provider = "utterances"
 
 [comments.disqusjs]
 shortname = ""
@@ -87,9 +87,9 @@ admin = ""
 adminLabel = ""
 
 [comments.utterances]
-repo = ""
+repo = "paulabicca/paulabicca.github.io"
 issueTerm = "pathname"
-label = ""
+label = "Comentários"
 
 [comments.remark42]
 host = ""
@@ -139,11 +139,11 @@ reactionsEnabled = 1
 emitMetadata = 0
 
 [comments.gitalk]
-owner = "paulabicca"
-admin = ["paulabicca"]
-repo = "paulabicca.github.io"
-clientID = "Ov23liA0pTP7QUvR6neA"
-clientSecret = "$792d4edac1efedc73f358f57578a174507ba9b0d"
+owner = ""
+admin = ""
+repo = ""
+clientID = ""
+clientSecret = ""
 distractionFreeMode= false 
 
 [comments.cusdis]
