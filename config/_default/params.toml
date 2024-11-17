@@ -139,11 +139,11 @@ reactionsEnabled = 1
 emitMetadata = 0
 
 [comments.gitalk]
-owner = "${{GITALK_CLIENT_OWNER}}"
-admin = "${{GITALK_CLIENT_ADMIN}}"
-repo = "${{GITALK_CLIENT_REPO}}"
-clientID = "${{GITALK_CLIENT_ID}}"
-clientSecret = "${{GITALK_CLIENT_SECRET}}"
+owner = "paulabicca"
+admin = ["paulabicca"]
+repo = "paulabicca.github.io"
+clientID = "Ov23liA0pTP7QUvR6neA"
+clientSecret = "$792d4edac1efedc73f358f57578a174507ba9b0d"
 distractionFreeMode= false 
 
 [comments.cusdis]
