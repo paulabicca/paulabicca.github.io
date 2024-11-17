@@ -141,9 +141,10 @@ emitMetadata = 0
 [comments.gitalk]
 owner = ""
 admin = ""
-public_repo = ""
+repo = ""
 clientID = ""
 clientSecret = ""
+distractionFreeMode= false 
 
 [comments.cusdis]
 host = ""

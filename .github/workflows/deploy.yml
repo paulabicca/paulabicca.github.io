@@ -1,4 +1,4 @@
-name: Deploy to Github Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -13,6 +13,13 @@ jobs:
     permissions:
       contents: write
 
+    env:
+      GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
+      GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
+      GITALK_CLIENT_OWNER: ${{ secrets.GITALK_CLIENT_OWNER }}
+      GITALK_CLIENT_REPO: ${{ secrets.GITALK_CLIENT_REPO }}
+      GITALK_CLIENT_ADMIN: ${{ secrets.GITALK_CLIENT_ADMIN }}
+
     steps:
       # Checkout repository
       - uses: actions/checkout@v4
@@ -26,15 +33,6 @@ jobs:
           path: resources
           key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md') }}
 
-      # Set up environment variables for Gitalk
-      - name: Set up environment variables
-        run: |
-          export GITALK_CLIENT_ID=${{ secrets.GITALK_CLIENT_ID }}
-          export GITALK_CLIENT_SECRET=${{ secrets.GITALK_CLIENT_SECRET }}
-          export GITALK_CLIENT_OWNER=${{ secrets.GITALK_CLIENT_OWNER }}
-          export GITALK_CLIENT_REPO=${{ secrets.GITALK_CLIENT_REPO }}
-          export GITALK_CLIENT_ADMIN=${{ secrets.GITALK_CLIENT_ADMIN }}
-
       # Install Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -44,7 +42,14 @@ jobs:
 
       # Build the Hugo site
       - name: Build
-        run: hugo --minify --gc
+        run: hugo --minify --gc --environment production
+
+      # Cache updated Hugo resources
+      - name: Save Cache
+        uses: actions/cache@v4
+        with:
+          path: resources
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md') }}
 
       # Deploy the site to GitHub Pages
       - name: Deploy 🚀
