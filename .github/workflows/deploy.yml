@@ -1,64 +1,56 @@
 name: Deploy to Github Pages
 
 on:
-    push:
-        branches: [master]
-    pull_request:
-        branches: [master]
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        permissions:
-            # Give the default GITHUB_TOKEN write permission to commit and push the
-            # added or changed files to the repository.
-            contents: write
+    permissions:
+      contents: write
 
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-            - name: Cache Hugo resources
-                run: |
-                            export GITALK_CLIENT_ID=${{ secrets.GITALK_CLIENT_ID }}
-                            export GITALK_CLIENT_SECRET=${{ secrets.GITALK_CLIENT_SECRET }}
-                            export GITALK_CLIENT_OWNER=${{ secrets.GITALK_CLIENT_OWNER }}
-                            export GITALK_CLIENT_REPO=${{ secrets.GITALK_CLIENT_REPO }}
-                            export GITALK_CLIENT_ADMIN=${{ secrets.GITALK_CLIENT_ADMIN }}
-                            hugo --minify
-            
-              uses: actions/cache@v4
-              env:
-                  cache-name: cache-hugo-resources
-                  GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
-                  GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
-                  GITALK_CLIENT_OWNER: ${{ secrets.GITALK_CLIENT_OWNER }}
-                  GITALK_CLIENT_REPO: ${{ secrets.GITALK_CLIENT_REPO }}
-                  GITALK_CLIENT_ADMIN: ${{ secrets.GITALK_CLIENT_ADMIN }}
-              with:
-                  path: resources
-                  key: ${{ env.cache-name }}
+      # Cache Hugo resources
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: resources
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*.md') }}
 
-            - uses: actions/setup-go@v5
-              with:
-                  go-version: "^1.17.0"
-            - run: go version
+      # Set up environment variables for Gitalk
+      - name: Set up environment variables
+        run: |
+          export GITALK_CLIENT_ID=${{ secrets.GITALK_CLIENT_ID }}
+          export GITALK_CLIENT_SECRET=${{ secrets.GITALK_CLIENT_SECRET }}
+          export GITALK_CLIENT_OWNER=${{ secrets.GITALK_CLIENT_OWNER }}
+          export GITALK_CLIENT_REPO=${{ secrets.GITALK_CLIENT_REPO }}
+          export GITALK_CLIENT_ADMIN=${{ secrets.GITALK_CLIENT_ADMIN }}
 
-            - name: Setup Hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                  hugo-version: "latest"
-                  extended: true
+      # Install Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
 
-            - name: Build
-              run: hugo --minify --gc
+      # Build the Hugo site
+      - name: Build
+        run: hugo --minify --gc
 
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@v4
-              with:
-                  branch: gh-pages
-                  folder: public
-                  clean: true
-                  single-commit: true
+      # Deploy the site to GitHub Pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: public
+          clean: true
+          single-commit: true
