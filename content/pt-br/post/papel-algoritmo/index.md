@@ -6,12 +6,12 @@ tags:
     - algoritmo
     - redes sociais
     - tiktok
-    - saude mental
-    - padroes de beleza
+    - saúde mental
+    - padrões de beleza
     - autoaceitação
     - impacto social
 categories:
-    - reflexao
+    - reflexão
     - sociedade
 
 ---

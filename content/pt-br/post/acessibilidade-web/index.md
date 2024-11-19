@@ -11,7 +11,8 @@ tags:
     - web
 categories:
     - acessibilidade
-    - desenvolvimento
+    - Programação
+    - front-End
 ---
 
 
