@@ -49,7 +49,7 @@ _As informações apresentadas neste post foram obtidas no ekathimerini.com, que
 
 
 **Referências**  
-- _BBC. (2015). Google apologises for Photos app's racist blunder. Disponível em: https://www.bbc.com/news/technology-33347866_
+- _BBC. (2015). Google apologises for Photos app's racist blunder. Disponível [aqui](https://www.bbc.com/news/technology-33347866)_
 - _Ekathimerini. (2023). Google’s photo app still can’t find gorillas. And neither can Apple’s. Disponível [aqui](https://www.ekathimerini.com/nytimes/1212118/googles-photo-app-still-cant-find-gorillas-and-neither-can-apples/)_
 - _The New York Times. (2023). Google’s Photo App Still Can’t Find Gorillas. And Neither Can Apple’s. Disponível [aqui](https://www.nytimes.com/2023/05/22/technology/ai-photo-labels-google-apple.html#:~:text=Yet%20Google%2C%20whose%20Android%20software,a%20person%20as%20an%20animal)_
 
