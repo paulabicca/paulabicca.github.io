@@ -1,6 +1,7 @@
 ---
 title: "Thinness as a Trend and the Role of the Algorithm: How Far Does the Responsibility Go? "
 description: A reflection on youth, thinness, and the influence of algorithms on social media and beauty standards.
+slug: thinness-as-a-Trend-and-the-role-of-the-algorithm
 date: 2024-11-16 00:00:00+0000
 tags: 
     - algorithm

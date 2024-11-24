@@ -1,7 +1,7 @@
 ---
 title: Shall We Talk About Web Accessibility?
 description: A quick guide to getting started in the world of web accessibility
-slug: web-accessibility
+slug: shall-we-talk-about-web-accessibility
 date: 2024-11-15 20:00:00+0000
 tags: 
     - accessibility

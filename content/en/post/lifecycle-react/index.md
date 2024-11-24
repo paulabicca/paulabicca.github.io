@@ -1,6 +1,7 @@
 ---
 title: "Mastering the Lifecycle in React with useEffect and useLayoutEffect"
 description: Learn how the lifecycle of a React component relates to the use of the useEffect and useLayoutEffect hooks to create more efficient and well-structured applications.
+slug: mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect
 date: 2024-11-20 00:00:00+0000
 tags: 
     - Hooks

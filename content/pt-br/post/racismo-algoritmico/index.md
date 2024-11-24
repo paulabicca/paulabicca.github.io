@@ -1,6 +1,7 @@
 ---
 title: "Negros e Algoritmos: A Urgente Necessidade de Diversidade na Tecnologia"
-description: No Dia da Consciência Negra, refletimos sobre a importância da diversidade na tecnologia e como ela pode combater preconceitos nos algoritmos.
+description: No Dia da Consciência Negra, veja como a falta de diversidade nos algoritmos de IA pode reforçar preconceitos
+slug: negros-algoritmos-a-urgente-necessidade-de-diversidade-na-tecnologia
 date: 2024-11-20 00:00:00+0000
 tags: 
     - algoritmo
@@ -10,7 +11,6 @@ tags:
 categories:
     - Diversidade 
     - sociedade
-    - Dia da Consciência Negra 
 
 ---
 
