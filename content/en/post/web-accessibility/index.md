@@ -85,6 +85,14 @@ Now that you know what WCAG is and its levels, how can you test and implement ac
 - **[NVDA](https://www.nvaccess.org/download/)** (Windows): Free and widely used. 
 - **[Orca Screen Reader](https://help.gnome.org/users/orca/stable/index.html.en)** (Linux): Pre-installed on most Linux distributions but may require adjustments to voice settings.
 
+**_Updates_**  
+While researching to write another post, I found some more screen readers tips:
+- **[ChromeVox](https://support.google.com/chromebook/answer/7031755)** (Chromebooks): It comes pre-installed on Chromebooks, making it ideal for those who use Google Chrome.
+
+- **[VoiceOver](https://www.apple.com/accessibility/vision/)** (macOS e iOS):  Integrated into the system, highly reliable for Apple users.
+
+- **[TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback)** (Android): Native screen reader for Android devices.
+
 ---
 
 # The Next Step is Yours! It’s Ours!
