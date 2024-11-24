@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Frontend on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/tags/frontend/</link><description>Recent content in Frontend on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Tue, 19 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/tags/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>Dominando o Ciclo de Vida no React com useEffect e useLayoutEffect</title><link>https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/</link><pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/</guid><description>&lt;p>As primeiras coisas que aprendi com React foram sobre Hooks, especialmente &lt;code>useState&lt;/code> e &lt;code>useEffect&lt;/code>. No início, porém, eu os utilizava sem entender exatamente como deveria, o que gerou alguns problemas – especialmente com o &lt;code>useEffect&lt;/code>. Por exemplo, já esqueci de adicionar dependências no &lt;code>useEffect&lt;/code> e acabei criando um loop infinito.&lt;/p>
+&lt;p>Naquela época, ninguém me explicou como evitar esses erros, então hoje quero compartilhar algumas dicas para usar o &lt;code>useEffect&lt;/code> corretamente, especialmente no contexto do ciclo de vida dos componentes.&lt;/p>
+&lt;p>Neste artigo, vamos explorar como o &lt;code>useEffect&lt;/code> (e, em alguns casos, o &lt;code>useLayoutEffect&lt;/code>) pode ser usado para lidar com as etapas do ciclo de vida dos componentes no React: montagem, atualização e desmontagem.&lt;/p>
+&lt;hr>
+&lt;h2 id="primeiro-o-que-é-useeffect">&lt;strong>Primeiro, o que é useEffect?&lt;/strong>
+&lt;/h2>&lt;p>O &lt;code>useEffect&lt;/code> é um dos hooks do React, e sua principal função é lidar com efeitos colaterais em componentes funcionais.&lt;br>
+Mas você deve estar se perguntando: O que são efeitos colaterais? Eu te explico!
+São operações que não estão diretamente relacionadas ao processo de renderização do componente, mas que ainda assim são necessárias. Exemplos comuns incluem chamadas a APIs, atualizações manuais do DOM ou até tarefas de limpeza, como cancelar requisições.&lt;/p>
+&lt;p>&lt;strong>Como o useEffect funciona?&lt;/strong>&lt;br>
+Ele recebe dois parâmetros principais:&lt;/p>
+&lt;ul>
+&lt;li>Uma função de efeito, que contém o código que será executado quando o componente for montado, atualizado ou desmontado.&lt;/li>
+&lt;li>Uma array de dependências, que é opcional, e define quando o efeito deve ser executado.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;O efeito foi executado!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="então-o-que-é-o-ciclo-de-vida-no-react">&lt;strong>Então, o que é o ciclo de vida no React?&lt;/strong>
+&lt;/h2>&lt;p>O ciclo de vida descreve as fases pelas quais um componente React passa, desde sua criação até sua remoção do DOM. Essas fases podem ser divididas em três momentos principais:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Montagem (Mounting)&lt;/strong>: Quando o componente é adicionado à tela.&lt;/li>
+&lt;li>&lt;strong>Atualização (Updating)&lt;/strong>: Quando algo no componente muda, como estado ou propriedades.&lt;/li>
+&lt;li>&lt;strong>Desmontagem (Unmounting)&lt;/strong>: Quando o componente é removido do DOM.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="montagem-mounting">&lt;strong>Montagem (Mounting)&lt;/strong>
+&lt;/h2>&lt;p>A etapa de montagem acontece quando o componente é adicionado à página pela primeira vez. Antes da introdução dos hooks, usávamos o método de ciclo de vida &lt;code>componentDidMount&lt;/code> para executar código logo após o componente ser inserido no DOM.&lt;/p>
+&lt;p>Com a chegada do &lt;code>useEffect&lt;/code>, basta passar um array de dependências vazio para simular esse comportamento. O código será executado apenas uma vez, após o componente ser montado.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">MyComponent&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente montado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Aqui você pode fazer requisições ou configurar eventos.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span> &lt;span class="c1">// Sem dependências, executa apenas na montagem.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Hello&lt;/span> &lt;span class="nx">World&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="atualização-updating">&lt;strong>Atualização (Updating)&lt;/strong>
+&lt;/h2>&lt;p>Um componente é atualizado sempre que há uma mudança de estado ( &lt;code>state&lt;/code>) ou propriedades ( &lt;code>props&lt;/code>). Antes dos hooks, usávamos métodos como &lt;code>componentDidUpdate&lt;/code> para lidar com essa fase. Hoje, o &lt;code>useEffect&lt;/code> nos permite monitorar mudanças em variáveis específicas, graças ao array de dependências.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente atualizado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">]);&lt;/span> &lt;span class="c1">// O useEffect será executado toda vez que &amp;#34;data&amp;#34; mudar.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Se não passarmos um array de dependências, o &lt;code>useEffect&lt;/code> será executado em toda atualização, o que pode levar a comportamentos indesejados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="desmontagem-unmounting">&lt;strong>Desmontagem (Unmounting)&lt;/strong>
+&lt;/h2>&lt;p>A etapa de desmontagem ocorre quando o componente é removido do DOM. Antes, utilizávamos o método &lt;code>componentWillUnmount&lt;/code> para realizar tarefas de limpeza, como remover event listeners ou cancelar requisições.&lt;/p>
+&lt;p>Agora, usamos o &lt;code>useEffect&lt;/code> com um retorno dentro da função, que é executado automaticamente durante a desmontagem.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">timer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">setInterval&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Executando...&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clearInterval&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timer&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// Limpeza realizada ao desmontar o componente
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente desmontado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="então-uselayouteffect">&lt;strong>Então useLayoutEffect&lt;/strong>
+&lt;/h2>&lt;p>Assim que você abre a documentação do react você recebe esse aviso:&lt;/p>
+&lt;p>&lt;img src="https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img.png"
+width="923"
+height="175"
+srcset="https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img_hu4509675830437182664.png 480w, https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img_hu13302993813922473418.png 1024w"
+loading="lazy"
+alt="Imagem mostrando um aviso sobre o uso do useLayoutEffect, alertando que seu uso excessivo pode prejudicar o desempenho da aplicação."
+class="gallery-image"
+data-flex-grow="527"
+data-flex-basis="1265px"
+>&lt;/p>
+&lt;p>Ou seja, use-o com cuidado. Com isso em mente, vamos explorar o que é o &lt;code>useLayoutEffect&lt;/code>!&lt;/p>
+&lt;p>O &lt;code>useLayoutEffect&lt;/code> é um hook do React semelhante ao &lt;code>useEffect&lt;/code>, até mesmo na sua maneira de declaração. Mas com diferenças importantes em relação ao momento em que o código é executado. Ele é usado para rodar efeitos síncronos antes que o navegador realize a pintura da tela. Isso significa que qualquer alteração feita no DOM dentro do &lt;code>useLayoutEffect&lt;/code> será aplicada de forma imediata, garantindo que o usuário veja as mudanças antes da próxima atualização visual.&lt;/p>
+&lt;p>&lt;strong>Quando você deve usar?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Medir ou modificar o layout do DOM&lt;/strong>: Por exemplo, calcular o tamanho ou posição de um elemento antes que o navegador exiba a página.&lt;/li>
+&lt;li>&lt;strong>Sincronizar estados ou estilos diretamente com mudanças no DOM&lt;/strong>: Especialmente quando alterações dependem de medidas precisas.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>E dentro do Ciclo de vida? Onde ele fica?&lt;/strong>&lt;br>
+Dentro do ciclo de vida do React, o &lt;code>useLayoutEffect&lt;/code> se encaixa principalmente nas fases de montagem e atualização. Ele faz mais sentido nessas etapas, caso você precise garantir que as alterações no DOM sejam aplicadas antes da pintura da tela. A seguir, você verá uma explicação mais detalhada sobre o seu uso nessas fases.&lt;/p>
+&lt;p>&lt;strong>1. Montagem (Mounting):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Quando o componente é montado, o &lt;code>useLayoutEffect&lt;/code> é executado após a renderização, mas antes da pintura da tela. Isso é útil quando você precisa fazer ajustes no layout ou medir elementos do DOM (como tamanhos ou posições) antes que o usuário veja qualquer alteração.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. Atualização (Updating):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Durante as atualizações do componente (quando o estado ou as propriedades mudam), o &lt;code>useLayoutEffect&lt;/code> também é chamado depois da renderização, mas antes da pintura da tela. Se você precisa fazer algo no DOM (como recalcular o tamanho de um elemento ou atualizar um estilo) baseado em mudanças de estado, o &lt;code>useLayoutEffect&lt;/code> garantirá que o layout seja ajustado antes que a tela seja renderizada novamente.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="armadilhas-comuns-e-boas-práticas">&lt;strong>Armadilhas Comuns e Boas Práticas&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Evite efeitos sem dependências&lt;/strong>: Um useEffect sem dependências será executado em todas as atualizações, o que pode gerar loops infinitos ou degradação de desempenho.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Lembre-se da limpeza em desmontagem&lt;/strong>: Sempre retorne uma função de limpeza no useEffect para evitar comportamentos inesperados, como intervalos ou event listeners não removidos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Utilize o array de dependências corretamente&lt;/strong>: Verifique se todas as variáveis usadas dentro do useEffect estão listadas como dependências. O ESLint pode ajudar nisso.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Uso excessivo ou desnecessário&lt;/strong>: O useLayoutEffect é mais pesado do que o useEffect, pois ele é executado sincronamente após todas as mutações do DOM. Isso pode impactar o desempenho, especialmente em componentes com muitos renders. Use-o apenas quando for realmente necessário.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Priorize useEffect sempre que possível:&lt;/strong> Talvez eu esteja sendo repetitiva, mas é importante, eu prometo! Na maioria das vezes, useEffect é a escolha ideal para a maioria das operações assíncronas. Use useLayoutEffect apenas quando precisar interagir com o layout do DOM de forma síncrona.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="reflexões-finais-e-próximos-passos">&lt;strong>Reflexões Finais e Próximos Passos&lt;/strong>
+&lt;/h2>&lt;p>Entender o ciclo de vida de um componente React é essencial, tanto para saber o que você está fazendo quanto para criar aplicações robustas e eficientes. Os hooks useEffect e useLayoutEffect são grandes aliados nesse processo, mas é importante saber quando usar cada um e evitar armadilhas comuns. Ao seguir boas práticas, você assegura que seus componentes sejam bem estruturados e fáceis de manter.
+E se bateu dúvida sobre algo? Sua melhor amiga sempre vai ser a documentação.&lt;/p>
+&lt;p>Versão pt-br (nem tudo foi traduzido): &lt;a class="link" href="https://pt-br.react.dev/" target="_blank" rel="noopener"
+>https://pt-br.react.dev/&lt;/a>&lt;/p>
+&lt;p>Versão en: &lt;a class="link" href="https://react.dev/" target="_blank" rel="noopener"
+>https://react.dev/&lt;/a>&lt;/p>
+&lt;p>&lt;strong>E você, tem alguma dica ou dúvida sobre o ciclo de vida? Sobre &lt;code>UseEffect&lt;/code> ou &lt;code>useLayoutEffect&lt;/code>? Deixa nos comentários e vamos trocar ideias!&lt;/strong>&lt;/p></description></item><item><title>Vamos Falar de Acessibilidade na Web?</title><link>https://paulabicca.github.io/pt-br/p/vamos-falar-de-acessibilidade-na-web/</link><pubDate>Fri, 15 Nov 2024 20:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/vamos-falar-de-acessibilidade-na-web/</guid><description>&lt;p>Você sabia que a primeira lei de acessibilidade no Brasil foi sancionada em 2000? A &lt;strong>Lei Nº 10.098&lt;/strong>, de 19 de dezembro de 2000, foi um marco inicial para promover mais inclusão. Ainda assim, mesmo com mais de duas décadas de história, acessibilidade, especialmente na web, continua sendo um grande desafio.&lt;/p>
+&lt;p>Quantas vezes você já parou para se perguntar: &lt;strong>&amp;ldquo;Será que meu site pode ser acessado por todos?&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;p>A realidade é que, na maioria das vezes, a acessibilidade não é discutida porque as informações simplesmente não chegam às pessoas. E sem conhecimento, é impossível mudar. Então, que tal começar agora? Vamos explorar um pouco sobre acessibilidade na web.&lt;/p>
+&lt;hr>
+&lt;h2 id="mas-o-que-é-acessibilidade-na-web">Mas o que é Acessibilidade na Web?
+&lt;/h2>&lt;p>A acessibilidade na web vai muito além de atender pessoas com deficiências. Trata-se de projetar experiências digitais que sejam &lt;strong>universais&lt;/strong>, ou seja, acessíveis a todos. Isso inclui pessoas com:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Deficiências auditivas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cognitivas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Neurológicas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Físicas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Visuais&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>De fala&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Mas os benefícios não param por aí. A acessibilidade também ajuda:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Usuários de dispositivos móveis&lt;/strong>, como celulares ou smartwatches.&lt;/li>
+&lt;li>&lt;strong>Idosos&lt;/strong>, com habilidades alteradas pelo envelhecimento.&lt;/li>
+&lt;li>&lt;strong>Usuários com limitações temporárias&lt;/strong>, como um braço quebrado ou óculos perdidos.&lt;/li>
+&lt;li>&lt;strong>Quem enfrenta situações desafiadoras&lt;/strong>, como usar o celular sob luz solar intensa ou em um ambiente barulhento.&lt;/li>
+&lt;li>&lt;strong>Aqueles com conexões lentas ou caras&lt;/strong>, que precisam de conteúdo leve e otimizado.&lt;/li>
+&lt;/ul>
+&lt;p>Acessibilidade é sobre inclusão universal, e todos nós nos beneficiamos dela.&lt;/p>
+&lt;hr>
+&lt;h2 id="descomplicando-wcag-e-seus-níveis">Descomplicando: WCAG e Seus Níveis
+&lt;/h2>&lt;p>As &lt;strong>Diretrizes de Acessibilidade de Conteúdo da Web (WCAG)&lt;/strong> foram criadas pela &lt;strong>Iniciativa de Acessibilidade da Web (WAI)&lt;/strong> do &lt;strong>W3C&lt;/strong>. Elas fornecem orientações claras para tornar sites, aplicativos e outros conteúdos digitais mais acessíveis.&lt;/p>
+&lt;h3 id="níveis-de-conformidade">Níveis de Conformidade
+&lt;/h3>&lt;p>As WCAG têm três níveis de conformidade que ajudam a medir o nível de acessibilidade:&lt;/p>
+&lt;h3 id="nível-a-o-básico">&lt;strong>Nível A&lt;/strong>: O Básico
+&lt;/h3>&lt;p>São os critérios essenciais para garantir o mínimo de acessibilidade:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Alternativas de Texto&lt;/strong>: Imagens devem ter descrições (&lt;code>alt&lt;/code>) que expliquem seu conteúdo.&lt;/li>
+&lt;li>&lt;strong>Controle do Conteúdo&lt;/strong>: Usuários precisam conseguir pausar ou parar animações, vídeos e outros elementos em movimento.&lt;/li>
+&lt;li>&lt;strong>Navegação por Teclado&lt;/strong>: Todo o site deve ser utilizável apenas com o teclado.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nível-aa-acessibilidade-avançada">&lt;strong>Nível AA&lt;/strong>: Acessibilidade Avançada
+&lt;/h3>&lt;p>Vai além do básico e cobre mais barreiras, como:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Contraste de Cor&lt;/strong>: Um contraste mínimo de 4.5:1 entre texto e fundo.&lt;/li>
+&lt;li>&lt;strong>Rótulos e Instruções&lt;/strong>: Campos de formulário devem ser claramente identificados.&lt;/li>
+&lt;li>&lt;strong>Textos Redimensionáveis&lt;/strong>: Conteúdo deve ser legível mesmo quando ampliado em 200%.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nível-aaa-padrão-ideal">&lt;strong>Nível AAA&lt;/strong>: Padrão Ideal
+&lt;/h3>&lt;p>Esse é o nível mais alto, exigindo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Contraste Avançado&lt;/strong>: Contraste mínimo de 7:1 para texto e fundo.&lt;/li>
+&lt;li>&lt;strong>Linguagem Simples&lt;/strong>: Conteúdo claro e direto, ideal para pessoas com dificuldades cognitivas.&lt;/li>
+&lt;li>&lt;strong>Legendas para Áudio ao Vivo&lt;/strong>: Necessárias em transmissões como webinars.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="ferramentas-para-começar">Ferramentas Para Começar
+&lt;/h2>&lt;p>Agora que você sabe o que é WCAG e seus níveis, como testar e implementar acessibilidade? Aqui estão algumas ferramentas úteis:&lt;/p>
+&lt;h3 id="extensões-para-navegadores">&lt;strong>Extensões para Navegadores&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/accessible-web-helper/gdnpkbipbholkoaggmlblpbmgemddbgb" target="_blank" rel="noopener"
+>Accessible Web Helper&lt;/a>&lt;/strong>: Gera relatórios e verifica contraste de cores.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener"
+>axe DevTools&lt;/a>&lt;/strong>: Testa acessibilidade diretamente no DevTools do navegador.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn" target="_blank" rel="noopener"
+>Siteimprove Accessibility Checker&lt;/a>&lt;/strong>: Simples e eficiente, ideal para iniciantes (admito minha preferência por esse. Foi o primeiro que eu conheci)&lt;/li>
+&lt;/ul>
+&lt;h3 id="leitores-de-tela">&lt;strong>Leitores de Tela&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener"
+>NVDA&lt;/a>&lt;/strong> (Windows) : Gratuito e amplamente utilizado.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://help.gnome.org/users/orca/stable/index.html.en" target="_blank" rel="noopener"
+>Orca Screen Reader&lt;/a>&lt;/strong> (Linux): Vem pré-instalado na maior parte das distribuições Linux, mas pode exigir ajustes nas configurações de voz.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Atualizações&lt;/em>&lt;/strong>&lt;br>
+Pesquisando para escrever sobre outra post, encontrei mais algumas dicas de leitores de tela:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://support.google.com/chromebook/answer/7031755" target="_blank" rel="noopener"
+>ChromeVox&lt;/a>&lt;/strong> (Chromebooks): Já vem pré-instalado nos Chromebooks, sendo ideal para quem utiliza o Google Chrome.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://www.apple.com/accessibility/vision/" target="_blank" rel="noopener"
+>VoiceOver&lt;/a>&lt;/strong> (macOS e iOS): Integrado ao sistema, bastante confiável para usuários Apple.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback" target="_blank" rel="noopener"
+>TalkBack&lt;/a>&lt;/strong> (Android): Leitor de tela nativo para dispositivos Android.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="o-próximo-passo-é-seu-é-nosso">O Próximo Passo é Seu! É nosso!
+&lt;/h1>&lt;p>Agora é hora de agir. Revise seus projetos, explore as ferramentas, leia a &lt;a class="link" href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener"
+>documentação&lt;/a> e comece a aplicar as boas práticas de acessibilidade. Lembre-se: desenvolver com acessibilidade é desenvolver para todos.&lt;/p>
+&lt;p>Se você gostou deste conteúdo ou tem dúvidas sobre como começar, deixe um comentário. Vamos juntos tornar a web mais inclusiva :)&lt;/p></description></item></channel></rss>

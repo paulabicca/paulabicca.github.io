@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ReactJS on Paula Bicca</title><link>https://paulabicca.github.io/en/categories/reactjs/</link><description>Recent content in ReactJS on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 20 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/en/categories/reactjs/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering the Lifecycle in React with useEffect and useLayoutEffect</title><link>https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/</link><pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/</guid><description>&lt;p>The first things I learned with React were about Hooks, especially &lt;code>useState&lt;/code> and &lt;code>useEffect&lt;/code>. However, in the beginning, I used them without fully understanding how I should, which led to some issues – especially with &lt;code>useEffect&lt;/code>. For example, I once forgot to add dependencies in &lt;code>useEffect&lt;/code>, which resulted in an infinite loop.&lt;/p>
+&lt;p>Back then, no one explained how to avoid these mistakes, so today I want to share some tips on how to use &lt;code>useEffect&lt;/code> correctly, especially in the context of the component lifecycle.&lt;/p>
+&lt;p>In this article, we will explore how &lt;code>useEffect&lt;/code> (and, in some cases, &lt;code>useLayoutEffect&lt;/code>) can be used to handle the stages of a component&amp;rsquo;s lifecycle in React: mounting, updating, and unmounting.&lt;/p>
+&lt;hr>
+&lt;h2 id="first-what-is-useeffect">&lt;strong>First, what is useEffect?&lt;/strong>
+&lt;/h2>&lt;p>&lt;code>useEffect&lt;/code> is one of React&amp;rsquo;s hooks, and its main function is to handle side effects in functional components.
+But you might be wondering: What are side effects? Let me explain!
+Side effects are operations that are not directly related to the rendering process of the component, but are still necessary. Common examples include API calls, manual DOM updates, or even cleanup tasks like canceling requests.&lt;/p>
+&lt;p>&lt;strong>How does useEffect work?&lt;/strong>&lt;br>
+It takes two main parameters:&lt;/p>
+&lt;ul>
+&lt;li>A function that contains the code to be executed when the component is mounted, updated, or unmounted.&lt;/li>
+&lt;li>An optional dependency array that defines when the effect should be executed.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;The effect has been executed!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="so-what-is-the-lifecycle-in-react">&lt;strong>So, what is the lifecycle in React?&lt;/strong>
+&lt;/h2>&lt;p>The lifecycle describes the phases a React component goes through, from its creation to its removal from the DOM. These phases can be divided into three main stages:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Mounting&lt;/strong>: When the component is added to the screen.&lt;/li>
+&lt;li>&lt;strong>Updating&lt;/strong>: When something in the component changes, such as state or props.&lt;/li>
+&lt;li>&lt;strong>Unmounting&lt;/strong>: When the component is removed from the DOM.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="mounting">&lt;strong>Mounting&lt;/strong>
+&lt;/h2>&lt;p>The mounting stage occurs when the component is added to the page for the first time. Before the introduction of hooks, we used the &lt;code>componentDidMount&lt;/code> lifecycle method to execute code right after the component was inserted into the DOM.&lt;/p>
+&lt;p>With the arrival of &lt;code>useEffect&lt;/code>, you can simply pass an empty dependency array to simulate this behavior. The code will be executed only once, after the component is mounted.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">MyComponent&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component mounted!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Here you can make requests or set up events.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span> &lt;span class="c1">// No dependencies, executes only on mount.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Hello&lt;/span> &lt;span class="nx">World&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="updating">&lt;strong>Updating&lt;/strong>
+&lt;/h2>&lt;p>A component is updated whenever there is a change in its state (&lt;code>state&lt;/code>) or props (&lt;code>props&lt;/code>). Before hooks, we used methods like &lt;code>componentDidUpdate&lt;/code> to handle this phase. Today, &lt;code>useEffect&lt;/code> allows us to monitor changes in specific variables, thanks to the dependency array.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component updated!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">]);&lt;/span> &lt;span class="c1">// The useEffect will run every time &amp;#34;data&amp;#34; changes.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>If we don&amp;rsquo;t pass a dependency array, &lt;code>useEffect&lt;/code> will execute on every update, which can lead to undesirable behavior.&lt;/li>
+&lt;/ul>
+&lt;h2 id="unmounting">&lt;strong>Unmounting&lt;/strong>
+&lt;/h2>&lt;p>The unmounting stage occurs when the component is removed from the DOM. Previously, we used the componentWillUnmount method to perform cleanup tasks, such as removing event listeners or canceling requests.&lt;/p>
+&lt;p>Now, we use &lt;code>useEffect&lt;/code> with a return statement inside the function, which is automatically executed during unmounting.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">timer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">setInterval&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Executando...&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clearInterval&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timer&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// Cleanup performed when the component unmounts
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component unmounted!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="so-uselayouteffect">&lt;strong>So, useLayoutEffect&lt;/strong>
+&lt;/h2>&lt;p>As soon as you open the React documentation, you’ll see this warning:&lt;/p>
+&lt;p>&lt;img src="https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img.png"
+width="967"
+height="188"
+srcset="https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img_hu8577468520204877599.png 480w, https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img_hu937473452895861307.png 1024w"
+loading="lazy"
+alt="An image showing a warning about the use of useLayoutEffect, alerting that excessive use may harm the applications performance."
+class="gallery-image"
+data-flex-grow="514"
+data-flex-basis="1234px"
+>&lt;/p>
+&lt;p>In other words, use it with caution. With that in mind, let&amp;rsquo;s explore what &lt;code>useLayoutEffect&lt;/code> is!!&lt;/p>
+&lt;p>&lt;code>useLayoutEffect&lt;/code> is a React hook similar to &lt;code>useEffect&lt;/code>, even in how it is declared. However, there are important differences in when the code is executed. It is used to run synchronous effects before the browser performs the screen painting. This means any changes made to the DOM within &lt;code>useLayoutEffect&lt;/code> will be applied immediately, ensuring the user sees the updates before the next visual frame.&lt;/p>
+&lt;p>&lt;strong>When should you use it?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Measuring or modifying the DOM layout&lt;/strong>: For example, calculating the size or position of an element before the browser renders the page.&lt;/li>
+&lt;li>&lt;strong>Synchronizing states or styles directly with changes in the DOM&lt;/strong>: Especially when updates rely on precise measurements.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>And within the Lifecycle? Where does it fit?&lt;/strong>&lt;br>
+Within the React lifecycle, &lt;code>useLayoutEffect&lt;/code> primarily fits into the mounting and updating phases. It makes the most sense in these stages if you need to ensure that changes to the DOM are applied before the screen is painted. Below, you&amp;rsquo;ll find a more detailed explanation of its use during these phases.&lt;/p>
+&lt;p>&lt;strong>1. Mounting:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>When the component is mounted, &lt;code>useLayoutEffect&lt;/code> is executed after rendering but before the screen is painted. This is useful when you need to adjust the layout or measure DOM elements (such as sizes or positions) before the user sees any changes.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. Updating:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>During component updates (when state or props change), &lt;code>useLayoutEffect&lt;/code> is also called after rendering but before the screen is painted. If you need to perform actions on the DOM (like recalculating an element&amp;rsquo;s size or updating a style) based on state changes, &lt;code>useLayoutEffect&lt;/code> ensures the layout is adjusted before the screen is re-rendered.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="common-pitfalls-and-best-practices">&lt;strong>Common Pitfalls and Best Practices&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Avoid effects without dependencies&lt;/strong>: A useEffect without dependencies will run on every update, which can lead to infinite loops or performance degradation.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Remember cleanup on unmount&lt;/strong>: Always return a cleanup function from useEffect to avoid unexpected behavior, such as intervals or event listeners not being removed.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Use the dependency array correctly&lt;/strong>: Ensure that all variables used within useEffect are listed as dependencies. ESLint can help with this.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Excessive or unnecessary use&lt;/strong>: useLayoutEffect is heavier than useEffect, as it runs synchronously after all DOM mutations. This can impact performance, especially in components with many renders. Use it only when truly necessary.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Prioritize useEffect whenever possible&lt;/strong>: I might be repeating myself, but it’s important, I promise! Most of the time, useEffect is the ideal choice for most asynchronous operations. Use useLayoutEffect only when you need to interact with the DOM layout synchronously.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="final-thoughts-and-next-steps">&lt;strong>Final Thoughts and Next Steps&lt;/strong>
+&lt;/h2>&lt;p>Understanding the lifecycle of a React component is essential, both to know what you&amp;rsquo;re doing and to create robust and efficient applications. The &lt;code>UseEffect&lt;/code> and &lt;code>useLayoutEffect&lt;/code> hooks are great allies in this process, but it&amp;rsquo;s important to know when to use each and avoid common pitfalls. By following best practices, you ensure that your components are well-structured and easy to maintain. And if you&amp;rsquo;re ever unsure about something, your best friend will always be the documentation.&lt;/p>
+&lt;p>Learn more about React: &lt;a class="link" href="https://react.dev/" target="_blank" rel="noopener"
+>https://react.dev/&lt;/a>&lt;/p>
+&lt;p>&lt;strong>How about you, do you have any tips or questions about the lifecycle? About &lt;code>UseEffect&lt;/code> or &lt;code>useLayoutEffect&lt;/code>? Leave a comment and let&amp;rsquo;s exchange ideas!&lt;/strong>&lt;/p></description></item></channel></rss>
