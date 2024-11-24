@@ -17,13 +17,13 @@ categories:
 
 Já aconteceu de você resolver um bug na branch errada ou precisar reutilizar uma solução sem levar tudo junto? É aqui que o cherry-pick entra em cena! Esse comando do Git é o equivalente a escolher a fruta perfeita numa árvore: você pega exatamente o que precisa, sem o “pacote completo”.
 
-Imagine recuperar aquele código perdido ou levar uma solução para outra branch sem refazer tudo. Curioso? Então vamos explorar como o cherry-pick pode te salvar desse problema ✨️
+Imagine recuperar aquele código perdido ou levar uma solução para outra branch sem refazer tudo. Curioso? Então vamos explorar como o cherry-pick pode te salvar desse problema!
 
 ---
 
 ## **O que é Cherry-Pick?**
 
-O comando git cherry-pick permite aplicar um commit específico de uma branch em outra. Em vez de trazer todo o histórico, como no merge ou rebase, ele foca apenas no que você apontar.
+O comando git `cherry-pick` permite aplicar um commit específico de uma branch em outra. Em vez de trazer todo o histórico, como no merge ou rebase, ele foca apenas no que você apontar.
 
 Funciona assim: você localiza o hash do commit desejado, e o Git transporta as mudanças para a branch atual. Ideal para situações pontuais em que você precisa de ajustes sem bagunçar o fluxo de trabalho.
 
@@ -34,15 +34,15 @@ Por que usar? Para evitar retrabalho, recuperar mudanças perdidas ou garantir q
 
 ## **Quando o Cherry-Pick é a Melhor Opção?**
 
-**1. Recuperar um commit específico para outra branch:**
+**1. Recuperar um commit específico para outra branch**  
 Você corrigiu um bug, mas percebeu que estava na branch errada. Sem desespero! Basta aplicar o commit na branch correta.
 
 
-**2. Incorporar soluções entre branches sem um merge completo:**
+**2. Incorporar soluções entre branches sem um merge completo**  
 Precisa de uma funcionalidade pronta, mas não quer carregar toda a bagagem de outra branch? Cherry-pick resolve.
 
 
-**3. Erro ao fazer commit direto na main:**
+**3. Erro ao fazer commit direto na main**  
 Um commit acidental na main pode ser levado para a branch correta rapidamente, mantendo o histórico limpo.
 
 ---
@@ -61,11 +61,15 @@ Date:   Tue Nov 21 14:32:01 2024
 
 ```
 
-**Passo 2: Aplique o commit na branch atual**
+**Passo 2: Aplique o commit na branch desejada**
 
 Agora, vá para a branch onde você quer aplicar esse commit.
-Sempre verifique se você está na branch correta. Por exemplo, se você deseja trazer um commit da da branch `development` para a branch `feature-login`, verifique se está nela com um git log. 
+Sempre verifique se você está na branch correta. Por exemplo, se você deseja trazer um commit da da branch `development` para a branch `feature-login`, verifique se está nela com um `git log`. 
 
+```bash
+git cherry-pick <hash-do-commit> 
+
+```
 
 **Passo 3: Resolva conflitos (se houver)**  
 
@@ -94,7 +98,7 @@ Se tudo deu certo, o cherry-pick trouxe exatamente o que você precisava para a 
 
 ## **Cuidados e Boas Práticas**
 
-- **Contexto é tudo:** Entende se você realmente precisa de cherry-pick na branch atual. Para cenários maiores use o merge ou rebase são escolhas mais organizadas.
+- **Contexto é tudo:** Entende se você realmente precisa de cherry-pick na branch atual. Para cenários maiores use o merge ou rebase que são escolhas mais organizadas.
 
 - **Organização primeiro:** Não use cherry-pick como “jeitinho” para corrigir má gestão de branches.
 
@@ -102,7 +106,7 @@ Se tudo deu certo, o cherry-pick trouxe exatamente o que você precisava para a 
 
 ---
 
-## **Recursos adicionais**
+## **Ferramentas e Documentação**
 
 O cherry-pick é uma ferramenta super utíl que torna possível corrigir erros, reutilizar código e otimizar fluxos de trabalho.
 
