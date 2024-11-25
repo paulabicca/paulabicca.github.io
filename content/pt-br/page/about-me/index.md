@@ -23,12 +23,14 @@ Email: paula.bicca@gmail.com
 
 ## Minhas Habilidades 🖥️
 
-- 🖥️ **Front-End:** React, JavaScript, HTML5, CSS3, Sass  
-- 📱 **Design Responsivo:** Mobile First, Flexbox, Grid Layout  
-- 🔗 **Integração:** Fetch API, RESTful APIs, Axios  
-- 🎯 **Ferramentas:** Git, GitHub, GitLab, Visual Studio Code  
-- 📊 **Processos Ágeis:** Scrum  
-- 🎨 **Design e Prototipagem:** Figma  
-- 🌐 **Acessibilidade Web:** WCAG, Testes de Acessibilidade  
-- 🔧 **CMS:** Drupal  
+- 🖥️ **Desenvolvimento Web:** React, JavaScript, HTML5
+- 🎨 **Estilização:** CSS3, Sass, Styled-Components
+- 📱 **Design Responsivo:** Mobile First, Flexbox, Grid Layout
+- 🔗 **Integração:** Fetch API, RESTful APIs, Axios
+- 🎯 **Ferramentas:** Git, GitHub, GitLab, Visual Studio Code, Azure, Jira
+- 📊 **Processos Ágeis:** Scrum
+- 🎨 **Design e Prototipagem:** Figma
+- 🌐 **Acessibilidade Web:** WCAG, Testes de Acessibilidade
+- 🔧 **CMS:** Drupal
 - 🧪 **Testes Unitários:** Jest, Testing Library
+- 🛠️ **Práticas e Padrões:** SOLID, Clean Code
