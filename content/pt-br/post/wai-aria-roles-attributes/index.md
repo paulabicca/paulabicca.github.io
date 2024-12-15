@@ -24,7 +24,7 @@ Quando falamos sobre desenvolvimento web, o **HTML semântico** e o **WAI-ARIA**
 
 Primeiro, vamos falar sobre **HTML semântico**. O que isso significa? Basicamente, é o uso de tags HTML que têm um significado claro e bem definido, tanto para o navegador quanto para os usuários. Ao usar elementos semânticos, você está criando um código que não só faz mais sentido para os desenvolvedores, mas também melhora a experiência dos usuários, especialmente aqueles com deficiência.
 
-Por exemplo, em vez de usar  `<div> ` e adicionar atributos de estilo para que ela se comporte como um botão, você deve usar a tag  `<button> `, que já é semanticamente definida para essa função. Isso ajuda na acessibilidade e torna o código mais fácil de entender.
+Por exemplo, em vez de usar  `<div>` e adicionar atributos de estilo para que ela se comporte como um botão, você deve usar a tag  `<button>`, que já é semanticamente definida para essa função. Isso ajuda na acessibilidade e torna o código mais fácil de entender.
 
 Exemplo de HTML Semântico:
 
@@ -93,7 +93,7 @@ A seguir, apresento alguns **atributos ARIA** comuns que podem ser muito úteis 
 
 
 ### Funções ARIA: Roles 
-Por padrão, muitos elementos **HTML semânticos** já têm funções definidas. Por exemplo, um  `<input type="radio"> ` tem a função de "radio". Elementos não semânticos, como  `<div> ` e  `<span> `, precisam do atributo role para definir sua função.
+Por padrão, muitos elementos **HTML semânticos** já têm funções definidas. Por exemplo, um  `<input type="radio">` tem a função de "radio". Elementos não semânticos, como  `<div>` e  `<span>`, precisam do atributo role para definir sua função.
 
 A seguir, apresento alguns roles comuns que podem ser muito úteis no seu dia a dia de desenvolvimento. Para uma lista completa, consulte a documentação [aqui](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
 

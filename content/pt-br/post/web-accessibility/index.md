@@ -88,12 +88,12 @@ Agora que você sabe o que é WCAG e seus níveis, como testar e implementar ace
 - **[NVDA](https://www.nvaccess.org/download/)** (Windows) : Gratuito e amplamente utilizado.  
 - **[Orca Screen Reader](https://help.gnome.org/users/orca/stable/index.html.en)** (Linux): Vem pré-instalado na maior parte das distribuições Linux, mas pode exigir ajustes nas configurações de voz.  
 
+---
+
 **_Atualizações_**  
 Pesquisando para escrever sobre outra post, encontrei mais algumas dicas de leitores de tela:
 - **[ChromeVox](https://support.google.com/chromebook/answer/7031755)** (Chromebooks): Já vem pré-instalado nos Chromebooks, sendo ideal para quem utiliza o Google Chrome.
-
 - **[VoiceOver](https://www.apple.com/accessibility/vision/)** (macOS e iOS):  Integrado ao sistema, bastante confiável para usuários Apple.
-
 - **[TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback)** (Android):  Leitor de tela nativo para dispositivos Android.
 
 ---
