@@ -64,5 +64,5 @@ const prefersReducedMotion = window.matchMedia(
 [Experimente na prática no CodePen!](https://codepen.io/paulabicca/pen/zxONOym)  
 (_Não se esqueça de desativar os "Efeitos de animação" nas configurações do seu sistema operacional._)
 
-## **Porque você deveria começar a usar prefers-reduced-motion?**
+## **Por que você deveria começar a usar prefers-reduced-motion?**
 Incorporar o `prefers-reduced-motion` em seu site não é apenas uma questão técnica, mas um compromisso com a inclusão. Ao permitir que os usuários escolham como querem interagir com sua página, você proporciona uma experiência mais confortável e acessível para todos. Além disso, essa prática melhora a conformidade com as diretrizes de acessibilidade, garantindo que sua página seja acessível para um público maior, incluindo pessoas com condições que tornam animações excessivas um desafio. Portanto, sempre que possível, implemente soluções que respeitem a preferência por menos movimento, promovendo uma web mais inclusiva e menos cansativa para todos.
