@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Paula Bicca</title><link>https://paulabicca.github.io/en/post/</link><description>Recent content in Posts on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 16 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/en/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Why You Should Start Using prefers-reduced-motion</title><link>https://paulabicca.github.io/en/p/why-you-should-start-using-prefers-reduced-motion/</link><pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/why-you-should-start-using-prefers-reduced-motion/</guid><description>&lt;p>On the web, animations and visual effects are popular tools to make pages more dynamic and engaging. However, for some users—especially those sensitive to rapid or excessive motion—these features can cause discomfort, such as nausea or dizziness.&lt;/p>
+&lt;p>Fortunately, we can use &lt;code>prefers-reduced-motion&lt;/code>,, which allows us to adjust or disable animations, offering a smoother alternative for those who prefer a more stable browsing experience. In this text, we’ll explore what &lt;code>prefers-reduced-motion&lt;/code>, is, how to implement it on your site, and how users (including you, if desired) can adjust their preferences for a more comfortable experience.&lt;/p>
+&lt;h2 id="what-is-prefers-reduced-motion">&lt;strong>What is prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>&lt;code>prefers-reduced-motion&lt;/code> is a CSS feature that allows developers to adjust the browsing experience for users who prefer to reduce or eliminate animations and motion in the interface. This is especially important for those who feel uncomfortable with excessive motion on the screen, such as visual effects or autoplaying videos.&lt;/p>
+&lt;p>The &amp;ldquo;reduce motion&amp;rdquo; setting can be enabled directly in the user’s system preferences. When enabled, the browser communicates this preference, allowing developers to adapt the page content—whether by disabling animations or reducing their intensity. This can range from turning off autoplay videos to restructuring interface interactions, making them more stable and simplified for those who prefer less motion.&lt;/p>
+&lt;h2 id="how-to-adjust-your-preferences">&lt;strong>How to Adjust Your Preferences&lt;/strong>
+&lt;/h2>&lt;p>The &amp;ldquo;reduce motion&amp;rdquo; setting can be enabled directly in your device settings. Here’s how to modify your preferences on different systems:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Windows 10:&lt;/strong> Settings &amp;gt; Ease of Access &amp;gt; Video &amp;gt; Show animations in Windows.&lt;/li>
+&lt;li>&lt;strong>Windows 11:&lt;/strong> Settings &amp;gt; Accessibility &amp;gt; Visual Effects &amp;gt; Animation effects.&lt;/li>
+&lt;li>&lt;strong>macOS:&lt;/strong> System Preferences &amp;gt; Accessibility &amp;gt; Display &amp;gt; Reduce Motion.&lt;/li>
+&lt;li>&lt;strong>iOS:&lt;/strong> Settings &amp;gt; Accessibility &amp;gt; Motion.&lt;/li>
+&lt;li>&lt;strong>Android 9+:&lt;/strong> Settings &amp;gt; Accessibility &amp;gt; Remove Animations.&lt;/li>
+&lt;/ul>
+&lt;h2 id="why-is-prefers-reduced-motion-important-for-accessibility">&lt;strong>Why is prefers-reduced-motion Important for Accessibility?&lt;/strong>
+&lt;/h2>&lt;p>Implementing this feature is a crucial aspect of web accessibility, particularly under the AAA criterion of the WCAG (Web Content Accessibility Guidelines), specifically item 2.3.3: Animation from Interactions. Learn more about it &lt;a class="link" href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39" target="_blank" rel="noopener"
+>here&lt;/a>.&lt;/p>
+&lt;p>Some users, especially those with vestibular conditions, may experience unwanted side effects from animations, such as dizziness or nausea. For example, in pages with parallax scrolling (where the background moves at a different pace than the main content), the extra motion can trigger these issues, even if the scrolling itself is user-controlled.&lt;/p>
+&lt;p>By integrating &lt;code>prefers-reduced-motion&lt;/code>, you provide a more comfortable alternative for these users, ensuring a more inclusive experience.&lt;/p>
+&lt;h2 id="how-to-implement-prefers-reduced-motion-in-css">&lt;strong>How to Implement prefers-reduced-motion in CSS&lt;/strong>
+&lt;/h2>&lt;p>Implementing &lt;code>prefers-reduced-motion&lt;/code> in CSS is simple. Just add a media query that detects the user’s preference and applies alternative styles when the setting is enabled. Here’s an example:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">media&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="nt">prefers-reduced-motion&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">reduce&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">notification&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">animation&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">transition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/wBwgwYo" target="_blank" rel="noopener"
+>Try it out on CodePen!&lt;/a>&lt;br>
+(&lt;em>(Don’t forget to disable “Animation effects” in your system settings.)&lt;/em>)&lt;/p>
+&lt;h2 id="how-to-implement-prefers-reduced-motion-in-javascript">&lt;strong>How to Implement prefers-reduced-motion in JavaScript&lt;/strong>
+&lt;/h2>&lt;p>In JavaScript, you can use the &lt;code>window.matchMedia&lt;/code> property to detect the user’s preference for reduced motion and modify the page behavior accordingly. Here’s how:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">prefersReducedMotion&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">matchMedia&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;(prefers-reduced-motion: reduce)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/zxONOym" target="_blank" rel="noopener"
+>Try it out on CodePen!&lt;/a>&lt;br>
+(&lt;em>(Don’t forget to disable “Animation effects” in your system settings.)&lt;/em>)&lt;/p>
+&lt;h2 id="why-you-should-start-using-prefers-reduced-motion">&lt;strong>Why You Should Start Using prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>Incorporating &lt;code>prefers-reduced-motion&lt;/code> into your site isn’t just a technical decision—it’s a commitment to inclusion. By allowing users to choose how they interact with your page, you provide a more comfortable and accessible experience for everyone.&lt;/p>
+&lt;p>Additionally, this practice enhances compliance with accessibility guidelines, ensuring your page is accessible to a wider audience, including those with conditions that make excessive animations challenging. Whenever possible, implement solutions that respect the preference for less motion, fostering a more inclusive and less exhausting web for all.&lt;/p></description></item><item><title>WAI-ARIA &amp; semantic HTML: Partners in Accessibility</title><link>https://paulabicca.github.io/en/p/wai-aria-semantic-html-partners-in-accessibility/</link><pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/wai-aria-semantic-html-partners-in-accessibility/</guid><description>&lt;p>When it comes to web development, &lt;strong>semantic HTML&lt;/strong> and &lt;strong>WAI-ARIA&lt;/strong> are like two inseparable partners, working together to make your site more accessible and easier to understand. You probably already know about &lt;strong>semantic HTML&lt;/strong>, but what is &lt;strong>WAI-ARIA&lt;/strong>? Let&amp;rsquo;s unravel both in a simple and uncomplicated way&lt;/p>
+&lt;hr>
+&lt;h2 id="semantic-html-the-basics-of-structure">Semantic HTML: The Basics of Structure
+&lt;/h2>&lt;p>First, let&amp;rsquo;s talk about &lt;strong>semantic HTML&lt;/strong>. What does this mean? Basically, it&amp;rsquo;s the use of HTML tags that have a clear and well-defined meaning, both for the browser and for users. By using semantic elements, you are creating code that not only makes more sense to developers, but also improves the experience of users, especially those with disabilities.&lt;/p>
+&lt;p>For example, instead of using &lt;code>&amp;lt;div&amp;gt;&lt;/code> and adding style attributes to make it behave like a button, you should use the &lt;code>&amp;lt;button&amp;gt;&lt;/code> tag, which is already semantically defined for this function. This helps with accessibility and makes the code easier to understand.&lt;/p>
+&lt;p>Example of Semantic HTML:&lt;/p>
+&lt;p>&lt;strong>Avoid:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">role&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;button&amp;#34;&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Send&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Prefer:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Send&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Opting for &lt;strong>semantic HTML&lt;/strong>, such as &lt;code>&amp;lt;button&amp;gt;&lt;/code>, not only improves accessibility, but also offers other benefits:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Better performance on mobile devices:&lt;/strong> Semantic HTML is lighter and makes it easier to create responsive layouts.&lt;/li>
+&lt;li>&lt;strong>Better SEO:&lt;/strong> Search engines give more relevance to semantic elements such as titles and links, making it easier to index your content.&lt;/li>
+&lt;li>&lt;strong>Ease of development:&lt;/strong> The code is cleaner, more intuitive and easier to understand.&lt;/li>
+&lt;/ul>
+&lt;p>Now let&amp;rsquo;s look at some examples.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>Generic Example&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Semantic Example&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Description&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;header&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Defines the header of a page or section.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;nav&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;nav&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Defines a navigation block.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;article&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;article&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Represents independent content, such as a post.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;section&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;section&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Defines a section or piece of content with a title.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;footer&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Represents the footer of a page or section.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;main&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Defines the main content of the page.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;aside&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;aside&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Represents related but non-essential content.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;heading&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1&amp;gt;&lt;/code>, &lt;code>&amp;lt;h2&amp;gt;&lt;/code>, &lt;code>&amp;lt;h3&amp;gt;&lt;/code>, etc.&lt;/td>
+&lt;td>Defines headings and subheadings, structuring the content.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;button&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;button&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Represents an action button.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="wai-aria-giving-accessibility-a-hand">WAI-ARIA: Giving Accessibility a Hand
+&lt;/h2>&lt;p>Now, &lt;strong>WAI-ARIA&lt;/strong> (Accessible Rich Internet Applications) comes into the picture. It&amp;rsquo;s like an extra assistant, helping to make your site accessible when &lt;strong>semantic HTML&lt;/strong> isn&amp;rsquo;t enough to describe the functionality of an element, such as in dynamic applications or more complex interfaces. The &lt;strong>WAI-ARIA&lt;/strong> provides &amp;ldquo;extra information&amp;rdquo; for assistive technologies, such as screen readers, to ensure that all users, regardless of their limitations, can interact with the content efficiently.&lt;/p>
+&lt;p>Now that you know what &lt;strong>WAI-ARIA&lt;/strong> is, let&amp;rsquo;s talk about two of its attributes: &lt;strong>aria&lt;/strong> and &lt;strong>role&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h3 id="aria-attributes">ARIA Attributes
+&lt;/h3>&lt;p>&lt;strong>ARIA attributes&lt;/strong> are used to provide additional information to assistive technologies, such as screen readers, when standard HTML is not sufficient to clearly describe the functionality or state of an element.&lt;/p>
+&lt;p>Below are some common &lt;strong>ARIA attributes&lt;/strong> that can be very useful in your day-to-day development. For a complete list, check the documentation &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes" target="_blank" rel="noopener"
+>here&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Examples of ARIA Attributes:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ARIA Attributes&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Example&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>aria-label&lt;/strong>&lt;/td>
+&lt;td>Provides a descriptive text for interface elements without visible text.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-label=&amp;quot;Close&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-hidden&lt;/strong>&lt;/td>
+&lt;td>Hides an element from screen readers without affecting its visibility.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-hidden=&amp;quot;true&amp;quot;&amp;gt;This content will not be read by the screen reader&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-description&lt;/strong>&lt;/td>
+&lt;td>Provides a more detailed description of an element.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-description=&amp;quot;This button submits the form&amp;quot;&amp;gt;Enviar&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>contenteditable&lt;/strong>&lt;/td>
+&lt;td>Indicates that a field is editable, useful when using a &lt;code>&amp;lt;div&amp;gt;&lt;/code> instead of an &lt;code>&amp;lt;input&amp;gt;&lt;/code>.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div contenteditable=&amp;quot;true&amp;quot;&amp;gt;Edit this text&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-required&lt;/strong>&lt;/td>
+&lt;td>Marks a form field as required.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-required=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-invalid&lt;/strong>&lt;/td>
+&lt;td>Indicates that a field contains an invalid value.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-invalid=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-expanded&lt;/strong>&lt;/td>
+&lt;td>Specifies whether a menu or accordion is expanded or collapsed.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-expanded=&amp;quot;false&amp;quot;&amp;gt;Menu&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-labelledby&lt;/strong>&lt;/td>
+&lt;td>References another element to provide an accessible name.&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1 id=&amp;quot;header&amp;quot;&amp;gt;Title&amp;lt;/h1&amp;gt;&amp;lt;div aria-labelledby=&amp;quot;header&amp;quot;&amp;gt;Content associated with the title&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-details&lt;/strong>&lt;/td>
+&lt;td>Provides additional information or a more detailed description of an element.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-details=&amp;quot;info&amp;quot;&amp;gt;More information&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="aria-roles">ARIA Roles
+&lt;/h3>&lt;p>By default, many semantic &lt;strong>HTML elements&lt;/strong> already have predefined roles. For example, an &lt;code>&amp;lt;input type=&amp;quot;radio&amp;quot;&amp;gt;&lt;/code> has the role of &amp;ldquo;radio.&amp;rdquo; Non-semantic elements like &lt;code>&amp;lt;div&amp;gt;&lt;/code> and &lt;code>&amp;lt;span&amp;gt;&lt;/code> require the role attribute to define their function.&lt;/p>
+&lt;p>Below are some common roles that can be very useful in your day-to-day development. For a complete list, check the documentation &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles" target="_blank" rel="noopener"
+>here&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Role Examples:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>ARIA Roles&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;th>Example&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;alert&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Communicates an important and usually time-sensitive message to the user.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;alert&amp;quot;&amp;gt;Error: required field not filled in.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;definition&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indicates that the element contains the definition of a term or concept.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;definition&amp;quot;&amp;gt;Accessibility: the practice of making the web accessible to everyone.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;search&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Defines the search area of the page.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;search&amp;quot;&amp;gt;Search box&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;modal&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indicates that the element is a modal.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;modal&amp;quot;&amp;gt;This is a modal&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;dialog&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indicates that the element is a dialog window.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;dialog&amp;quot;&amp;gt;This is a dialog window&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="lets-put-it-into-practice">Let&amp;rsquo;s Put It into Practice?
+&lt;/h2>&lt;p>And there it is! Now you know how &lt;strong>semantic HTML&lt;/strong> and &lt;strong>WAI-ARIA&lt;/strong> can work together to improve your website&amp;rsquo;s accessibility. Using &lt;strong>semantic HTML&lt;/strong> is like building a house with a solid and well-planned structure, while &lt;strong>WAI-ARIA&lt;/strong> is that final touch that ensures everyone can access and interact with it, regardless of limitations. By applying these practices, you not only make your website more inclusive, but also optimize the user experience and help improve SEO.&lt;/p>
+&lt;p>Web accessibility is more than just a good practice — it&amp;rsquo;s a commitment to a fairer and more accessible digital world for everyone.&lt;/p>
+&lt;p>Now that you know the basics, how about starting to apply these concepts in your next project? Remember: every small step counts!&lt;/p></description></item><item><title>How Cherry-pick can save you</title><link>https://paulabicca.github.io/en/p/how-cherry-pick-can-save-you/</link><pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/how-cherry-pick-can-save-you/</guid><description>&lt;p>Have you ever solved a bug on the wrong branch or needed to reuse a solution without taking everything with you? This is where cherry-pick comes in! This Git command is the equivalent of picking the perfect fruit from a tree: you get exactly what you need, without the &amp;ldquo;whole package&amp;rdquo;.&lt;/p>
+&lt;p>Imagine recovering that lost code or taking a solution to another branch without redoing everything. Curious? Then let&amp;rsquo;s explore how cherry-picking can save you from this problem!&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-cherry-pick">&lt;strong>What is Cherry-Pick?&lt;/strong>
+&lt;/h2>&lt;p>The git &lt;code>cherry-pick&lt;/code> command allows you to apply a specific commit from one branch to another. Instead of bringing up the entire history, as in merge or rebase, it focuses only on what you point to.&lt;/p>
+&lt;p>It works like this: you locate the hash of the commit you want, and Git transports the changes to the current branch. Ideal for one-off situations where you need to make adjustments without messing up the workflow.&lt;/p>
+&lt;p>Why use it? To avoid rework, recover lost changes or ensure that corrections are in the right branches.&lt;/p>
+&lt;hr>
+&lt;h2 id="when-is-the-cherry-pick-the-best-option">&lt;strong>When is the Cherry-Pick the Best Option?&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>1. Recovering a specific commit to another branch&lt;/strong>&lt;br>
+You&amp;rsquo;ve fixed a bug, but realized you were on the wrong branch. No need to despair! Just apply the commit to the correct branch.&lt;/p>
+&lt;p>&lt;strong>2. Incorporate solutions between branches without a full merge&lt;/strong>
+Need a feature ready, but don&amp;rsquo;t want to carry all the baggage of another branch? Cherry-pick it.&lt;/p>
+&lt;p>&lt;strong>3. Error committing directly to main&lt;/strong>&lt;br>
+An accidental commit to main can be moved to the correct branch quickly, keeping the history clean.&lt;/p>
+&lt;hr>
+&lt;h2 id="how-to-use-cherry-pick-in-practice">&lt;strong>How to Use Cherry-Pick in Practice&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>Step 1: Find the commit hash&lt;/strong>&lt;br>
+First, locate the commit you want to apply. Use the &lt;code>git log&lt;/code> command or a graphical interface to find the hash.&lt;/p>
+&lt;p>If you don&amp;rsquo;t know what a commit hash is, here&amp;rsquo;s an example to help:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">commit e0c3d682014f6b2bf8d2814512bc8c00c2968b40 &lt;span class="o">(&lt;/span>origin/development&lt;span class="o">)&lt;/span> &lt;span class="c1"># Isso é um hash&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Author: Jane Doe &amp;lt;jane.doe@gmail.com&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Tue Nov &lt;span class="m">21&lt;/span> 14:32:01 &lt;span class="m">2024&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Step 2: Apply the commit to the desired branch&lt;/strong>&lt;/p>
+&lt;p>Now go to the branch where you want to apply this commit. Always check that you are on the correct branch. For example, if you want to bring a commit from the &lt;code>development&lt;/code> branch to the &lt;code>feature-login&lt;/code> branch, make sure you&amp;rsquo;re there with a &lt;code>git log&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick &amp;lt;hash-do-commit&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Step 3: Resolve conflicts (if any)&lt;/strong>&lt;/p>
+&lt;p>If the commit causes conflicts, Git will show you which files need to be adjusted. Resolve the conflicts manually by editing the files indicated.&lt;/p>
+&lt;p>After resolving, end the process with:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --continue
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>If you need to cancel the cherry-pick for any reason, use it:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --abort
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Step 4: Confirm the result&lt;/strong>&lt;/p>
+&lt;p>Finally, check that the commit has been applied correctly. Use the git log command to check that the commit appears in the history of the current branch.&lt;/p>
+&lt;p>If all went well, the cherry-pick brought exactly what you needed to the feature-login branch!&lt;/p>
+&lt;hr>
+&lt;h2 id="best-practices">&lt;strong>Best Practices&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Context is everything:&lt;/strong> Make sure you really need to use cherry-pick on the current branch. For larger scenarios, use merge or rebase, which are more organized choices.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Organization first:&lt;/strong> Don&amp;rsquo;t use cherry-pick as a &amp;ldquo;shortcut&amp;rdquo; to fix poor branch management.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Frequent conflicts:&lt;/strong> Collaborate with your team to avoid rework and reduce conflict points.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="tools-and-documentation">&lt;strong>Tools and Documentation&lt;/strong>
+&lt;/h2>&lt;p>Cherry-pick is a super useful tool that allows you to fix bugs, reuse code, and optimize workflows.&lt;/p>
+&lt;p>Want to dive deeper into the topic? Check out the &lt;a class="link" href="https://git-scm.com/docs/git-cherry-pick" target="_blank" rel="noopener"
+>official Git documentation&lt;/a>. It&amp;rsquo;s comprehensive and will make you an expert on the subject..&lt;/p>
+&lt;p>And to make your life even easier, why not use some VS Code extensions? Here are a few that can help you perform a cherry-pick without complications:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>GitLens&lt;/strong>: Provides a detailed view of commits and history, making it easier to identify the right commit.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Git Graph&lt;/strong>: Displays the repository history in a highly intuitive graph, perfect for locating that specific hash.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>GitKraken&lt;/strong> (external tool, but worth mentioning): For those who prefer user-friendly graphical interfaces over the command line.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Now it&amp;rsquo;s your turn: have you ever faced a situation where cherry-pick could have saved your day? Share your story in the comments!&lt;/p></description></item><item><title>Mastering the Lifecycle in React with useEffect and useLayoutEffect</title><link>https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/</link><pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/</guid><description>&lt;p>The first things I learned with React were about Hooks, especially &lt;code>useState&lt;/code> and &lt;code>useEffect&lt;/code>. However, in the beginning, I used them without fully understanding how I should, which led to some issues – especially with &lt;code>useEffect&lt;/code>. For example, I once forgot to add dependencies in &lt;code>useEffect&lt;/code>, which resulted in an infinite loop.&lt;/p>
+&lt;p>Back then, no one explained how to avoid these mistakes, so today I want to share some tips on how to use &lt;code>useEffect&lt;/code> correctly, especially in the context of the component lifecycle.&lt;/p>
+&lt;p>In this article, we will explore how &lt;code>useEffect&lt;/code> (and, in some cases, &lt;code>useLayoutEffect&lt;/code>) can be used to handle the stages of a component&amp;rsquo;s lifecycle in React: mounting, updating, and unmounting.&lt;/p>
+&lt;hr>
+&lt;h2 id="first-what-is-useeffect">&lt;strong>First, what is useEffect?&lt;/strong>
+&lt;/h2>&lt;p>&lt;code>useEffect&lt;/code> is one of React&amp;rsquo;s hooks, and its main function is to handle side effects in functional components.
+But you might be wondering: What are side effects? Let me explain!
+Side effects are operations that are not directly related to the rendering process of the component, but are still necessary. Common examples include API calls, manual DOM updates, or even cleanup tasks like canceling requests.&lt;/p>
+&lt;p>&lt;strong>How does useEffect work?&lt;/strong>&lt;br>
+It takes two main parameters:&lt;/p>
+&lt;ul>
+&lt;li>A function that contains the code to be executed when the component is mounted, updated, or unmounted.&lt;/li>
+&lt;li>An optional dependency array that defines when the effect should be executed.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;The effect has been executed!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="so-what-is-the-lifecycle-in-react">&lt;strong>So, what is the lifecycle in React?&lt;/strong>
+&lt;/h2>&lt;p>The lifecycle describes the phases a React component goes through, from its creation to its removal from the DOM. These phases can be divided into three main stages:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Mounting&lt;/strong>: When the component is added to the screen.&lt;/li>
+&lt;li>&lt;strong>Updating&lt;/strong>: When something in the component changes, such as state or props.&lt;/li>
+&lt;li>&lt;strong>Unmounting&lt;/strong>: When the component is removed from the DOM.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="mounting">&lt;strong>Mounting&lt;/strong>
+&lt;/h2>&lt;p>The mounting stage occurs when the component is added to the page for the first time. Before the introduction of hooks, we used the &lt;code>componentDidMount&lt;/code> lifecycle method to execute code right after the component was inserted into the DOM.&lt;/p>
+&lt;p>With the arrival of &lt;code>useEffect&lt;/code>, you can simply pass an empty dependency array to simulate this behavior. The code will be executed only once, after the component is mounted.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">MyComponent&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component mounted!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Here you can make requests or set up events.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span> &lt;span class="c1">// No dependencies, executes only on mount.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Hello&lt;/span> &lt;span class="nx">World&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="updating">&lt;strong>Updating&lt;/strong>
+&lt;/h2>&lt;p>A component is updated whenever there is a change in its state (&lt;code>state&lt;/code>) or props (&lt;code>props&lt;/code>). Before hooks, we used methods like &lt;code>componentDidUpdate&lt;/code> to handle this phase. Today, &lt;code>useEffect&lt;/code> allows us to monitor changes in specific variables, thanks to the dependency array.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component updated!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">]);&lt;/span> &lt;span class="c1">// The useEffect will run every time &amp;#34;data&amp;#34; changes.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>If we don&amp;rsquo;t pass a dependency array, &lt;code>useEffect&lt;/code> will execute on every update, which can lead to undesirable behavior.&lt;/li>
+&lt;/ul>
+&lt;h2 id="unmounting">&lt;strong>Unmounting&lt;/strong>
+&lt;/h2>&lt;p>The unmounting stage occurs when the component is removed from the DOM. Previously, we used the componentWillUnmount method to perform cleanup tasks, such as removing event listeners or canceling requests.&lt;/p>
+&lt;p>Now, we use &lt;code>useEffect&lt;/code> with a return statement inside the function, which is automatically executed during unmounting.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">timer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">setInterval&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Executando...&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clearInterval&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timer&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// Cleanup performed when the component unmounts
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Component unmounted!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="so-uselayouteffect">&lt;strong>So, useLayoutEffect&lt;/strong>
+&lt;/h2>&lt;p>As soon as you open the React documentation, you’ll see this warning:&lt;/p>
+&lt;p>&lt;img src="https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img.png"
+width="967"
+height="188"
+srcset="https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img_hu8577468520204877599.png 480w, https://paulabicca.github.io/en/p/mastering-the-lifecycle-in-react-with-useeffect-and-uselayouteffect/imgs/warning-img_hu937473452895861307.png 1024w"
+loading="lazy"
+alt="An image showing a warning about the use of useLayoutEffect, alerting that excessive use may harm the applications performance."
+class="gallery-image"
+data-flex-grow="514"
+data-flex-basis="1234px"
+>&lt;/p>
+&lt;p>In other words, use it with caution. With that in mind, let&amp;rsquo;s explore what &lt;code>useLayoutEffect&lt;/code> is!!&lt;/p>
+&lt;p>&lt;code>useLayoutEffect&lt;/code> is a React hook similar to &lt;code>useEffect&lt;/code>, even in how it is declared. However, there are important differences in when the code is executed. It is used to run synchronous effects before the browser performs the screen painting. This means any changes made to the DOM within &lt;code>useLayoutEffect&lt;/code> will be applied immediately, ensuring the user sees the updates before the next visual frame.&lt;/p>
+&lt;p>&lt;strong>When should you use it?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Measuring or modifying the DOM layout&lt;/strong>: For example, calculating the size or position of an element before the browser renders the page.&lt;/li>
+&lt;li>&lt;strong>Synchronizing states or styles directly with changes in the DOM&lt;/strong>: Especially when updates rely on precise measurements.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>And within the Lifecycle? Where does it fit?&lt;/strong>&lt;br>
+Within the React lifecycle, &lt;code>useLayoutEffect&lt;/code> primarily fits into the mounting and updating phases. It makes the most sense in these stages if you need to ensure that changes to the DOM are applied before the screen is painted. Below, you&amp;rsquo;ll find a more detailed explanation of its use during these phases.&lt;/p>
+&lt;p>&lt;strong>1. Mounting:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>When the component is mounted, &lt;code>useLayoutEffect&lt;/code> is executed after rendering but before the screen is painted. This is useful when you need to adjust the layout or measure DOM elements (such as sizes or positions) before the user sees any changes.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. Updating:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>During component updates (when state or props change), &lt;code>useLayoutEffect&lt;/code> is also called after rendering but before the screen is painted. If you need to perform actions on the DOM (like recalculating an element&amp;rsquo;s size or updating a style) based on state changes, &lt;code>useLayoutEffect&lt;/code> ensures the layout is adjusted before the screen is re-rendered.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="common-pitfalls-and-best-practices">&lt;strong>Common Pitfalls and Best Practices&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Avoid effects without dependencies&lt;/strong>: A useEffect without dependencies will run on every update, which can lead to infinite loops or performance degradation.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Remember cleanup on unmount&lt;/strong>: Always return a cleanup function from useEffect to avoid unexpected behavior, such as intervals or event listeners not being removed.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Use the dependency array correctly&lt;/strong>: Ensure that all variables used within useEffect are listed as dependencies. ESLint can help with this.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Excessive or unnecessary use&lt;/strong>: useLayoutEffect is heavier than useEffect, as it runs synchronously after all DOM mutations. This can impact performance, especially in components with many renders. Use it only when truly necessary.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Prioritize useEffect whenever possible&lt;/strong>: I might be repeating myself, but it’s important, I promise! Most of the time, useEffect is the ideal choice for most asynchronous operations. Use useLayoutEffect only when you need to interact with the DOM layout synchronously.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="final-thoughts-and-next-steps">&lt;strong>Final Thoughts and Next Steps&lt;/strong>
+&lt;/h2>&lt;p>Understanding the lifecycle of a React component is essential, both to know what you&amp;rsquo;re doing and to create robust and efficient applications. The &lt;code>UseEffect&lt;/code> and &lt;code>useLayoutEffect&lt;/code> hooks are great allies in this process, but it&amp;rsquo;s important to know when to use each and avoid common pitfalls. By following best practices, you ensure that your components are well-structured and easy to maintain. And if you&amp;rsquo;re ever unsure about something, your best friend will always be the documentation.&lt;/p>
+&lt;p>Learn more about React: &lt;a class="link" href="https://react.dev/" target="_blank" rel="noopener"
+>https://react.dev/&lt;/a>&lt;/p>
+&lt;p>&lt;strong>How about you, do you have any tips or questions about the lifecycle? About &lt;code>UseEffect&lt;/code> or &lt;code>useLayoutEffect&lt;/code>? Leave a comment and let&amp;rsquo;s exchange ideas!&lt;/strong>&lt;/p></description></item><item><title>Thinness as a Trend and the Role of the Algorithm: How Far Does the Responsibility Go?</title><link>https://paulabicca.github.io/en/p/thinness-as-a-trend-and-the-role-of-the-algorithm/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/thinness-as-a-trend-and-the-role-of-the-algorithm/</guid><description>&lt;p>The first version of this post was what motivated me to create this blog. You can check out a shortened version of it &lt;a class="link" href="https://www.linkedin.com/posts/paulabicca93_tecnologia-algoritmo-mulheres-activity-7262461647829532672-eOik?utm_source=share&amp;amp;utm_medium=member_desktop" target="_blank" rel="noopener"
+>here&lt;/a> (This version is in pt-br).
+When I posted the first entry on the blog, I decided this would be the second one, especially because, during this time, I watched a movie that connects a lot with the theme.&lt;/p>
+&lt;p>A few weeks ago, I watched &lt;strong>Death Becomes Her&lt;/strong>, a film that tells the story of two women willing to do anything to reclaim the beauty and youth they once had. Recently, I saw &lt;strong>The Substance&lt;/strong>, which follows the journey of an actress whose career crumbles as aging sets in. Desperate, she takes a mysterious substance that transforms her into a new version of herself.&lt;/p>
+&lt;p>These films made me think of a trend that has been circulating on TikTok. In this trend, girls, teenagers, and women share extreme practices, like spending the day only eating gelatin or even celebrating stomach aches, because they believe it will help them lose weight.&lt;/p>
+&lt;p>&lt;strong>What do these three things have in common?&lt;/strong>&lt;/p>
+&lt;p>The endless pursuit of youth and thinness. In both the movies and the trend, it&amp;rsquo;s clear that many women are willing to do almost anything to become younger, thinner, and therefore &amp;ldquo;more beautiful and desirable.&amp;rdquo;&lt;/p>
+&lt;p>This thought leads me to question: how much of this is the algorithm&amp;rsquo;s fault? Should it be held responsible? And more importantly, can it be held accountable?&lt;/p>
+&lt;p>According to the platform&amp;rsquo;s guidelines, the minimum age for using TikTok is 13 (or 14 in South Korea, Indonesia, and Quebec). It&amp;rsquo;s common to find children much younger on there, exposed to harmful content and beauty standards. And the impact of this content isn’t limited to children; it also affects teenagers and adult women who feel constant pressure to meet the thin and beautiful standards promoted on social media.&lt;/p>
+&lt;p>Although TikTok’s content guidelines prohibit the display of harmful weight control practices (like low-calorie diets and the use of weight-loss drugs), this content spreads widely and uncontrollably. In the U.S., for example, there is a version of TikTok for users under 13, which includes additional protections such as interaction restrictions and content evaluations for that age group. However, these protections don’t prevent harmful content from reaching other age groups, including teenagers and adults.&lt;/p>
+&lt;h2 id="the-responsibility-of-the-algorithm">The Responsibility of the Algorithm
+&lt;/h2>&lt;p>Like many other social networks, TikTok uses recommendation algorithms designed to keep users engaged by delivering content based on their interests and browsing behavior. In other words, the more you interact with beauty and diet content, the more the algorithm delivers similar posts.&lt;/p>
+&lt;h2 id="how-can-we-improve-this-scenario">How Can We Improve This Scenario?
+&lt;/h2>&lt;p>t’s important for social networks to invest in more responsible algorithms that filter out harmful content to protect the mental and physical health of users, especially younger ones. Additionally, educating users to recognize and question these standards is essential. Partnerships with mental health organizations and regulatory bodies to strengthen safety and digital health could be key steps.&lt;/p>
+&lt;p>As a society, we can promote a culture of acceptance and well-being by creating positive content and pushing for stricter and more responsible moderation on social media platforms. Society and platforms must work together to reduce the aesthetic pressure, prioritizing well-being and self-acceptance over unattainable standards.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>What do you think about this topic?&lt;/strong> Have you ever stopped to think about the impact of the algorithm on our lives? Leave a comment with your opinion or share an experience you’ve had about this. Let’s talk and think together about how we can create a healthier and more inclusive internet!&lt;/p></description></item><item><title>Shall We Talk About Web Accessibility?</title><link>https://paulabicca.github.io/en/p/shall-we-talk-about-web-accessibility/</link><pubDate>Fri, 15 Nov 2024 20:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/shall-we-talk-about-web-accessibility/</guid><description>&lt;p>Did you know that the first accessibility law in Brazil was enacted in 2000? The &lt;strong>Law No. 10.098&lt;/strong>, dated December 19, 2000, was a starting point for promoting greater inclusion. Even so, despite being over two decades old, accessibility, especially on the web, continues to be a major challenge.&lt;/p>
+&lt;p>How many times have you stopped to ask yourself: &lt;strong>&amp;ldquo;Can my site be accessed by everyone?&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;p>The reality is that, most of the time, accessibility is not discussed because the information simply doesn&amp;rsquo;t reach people. And without knowledge, it&amp;rsquo;s impossible to make changes. So, how about starting now? Let&amp;rsquo;s explore a little about web accessibility.&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-web-accessibility">What is Web Accessibility?
+&lt;/h2>&lt;p>Web accessibility goes far beyond catering to people with disabilities. It&amp;rsquo;s about designing digital experiences that are universal, &lt;strong>meaning accessible to everyone&lt;/strong>. This includes people with:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Hearing disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cognitive disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Neurological disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Physical disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Visual disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Speech disabilities&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>But the benefits don&amp;rsquo;t stop there. Accessibility also helps:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mobile device users, such as those using cell phones or smartwatches.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Elderly people, whose abilities change with aging.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Users with temporary limitations, like a broken arm or lost glasses.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>People facing challenging situations, like using their phone in intense sunlight or in a noisy environment.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Those with slow or expensive connections, who need light and optimized content.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Accessibility is about universal inclusion, and we all benefit from it.&lt;/p>
+&lt;hr>
+&lt;h2 id="simplifying-wcag-and-its-levels">Simplifying: WCAG and Its Levels
+&lt;/h2>&lt;p>The &lt;strong>Web Content Accessibility Guidelines (WCAG)&lt;/strong> were created by the &lt;strong>Web Accessibility Initiative (WAI)&lt;/strong> of the &lt;strong>W3C&lt;/strong>. They provide clear guidelines to make websites, apps, and other digital content more accessible.&lt;/p>
+&lt;h3 id="compliance-levels">Compliance Levels
+&lt;/h3>&lt;p>The WCAG have three levels of compliance to help measure accessibility:&lt;/p>
+&lt;h3 id="level-a-the-basics">&lt;strong>Level A&lt;/strong>: The Basics
+&lt;/h3>&lt;p>These are the essential criteria to ensure basic accessibility:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Text Alternatives: Images must have descriptions (&lt;code>alt&lt;/code>) explaining their content.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Content Control: Users must be able to pause or stop animations, videos, and other moving elements.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Keyboard Navigation: The entire site must be usable with just the keyboard.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="level-aa-advanced-accessibility">&lt;strong>Level AA&lt;/strong>: Advanced Accessibility
+&lt;/h3>&lt;p>Goes beyond the basics and addresses more barriers, such as:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Color Contrast: A minimum contrast of 4.5:1 between text and background.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Labels and Instructions: Form fields must be clearly labeled.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Resizable Text: Content must be legible even when enlarged by 200%.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="level-aaa-ideal-standard">&lt;strong>Level AAA&lt;/strong>: Ideal Standard
+&lt;/h3>&lt;p>This is the highest level, requiring:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Advanced Contrast: A minimum contrast of 7:1 for text and background.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Simple Language: Clear and direct content, ideal for people with cognitive difficulties.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Live Audio Captions: Required for live broadcasts such as webinars.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="tools-to-get-started">Tools to Get Started
+&lt;/h2>&lt;p>Now that you know what WCAG is and its levels, how can you test and implement accessibility? Here are some useful tools:&lt;/p>
+&lt;h3 id="browser-extensions">&lt;strong>Browser Extensions&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/accessible-web-helper/gdnpkbipbholkoaggmlblpbmgemddbgb" target="_blank" rel="noopener"
+>Accessible Web Helper&lt;/a>&lt;/strong>: Generates reports and checks color contrast.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener"
+>axe DevTools&lt;/a>&lt;/strong>: Tests accessibility directly in the browser&amp;rsquo;s DevTools.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn" target="_blank" rel="noopener"
+>Siteimprove Accessibility Checker&lt;/a>&lt;/strong>: Simple and efficient, ideal for beginners (I admit, this is my favorite. It was the first one I came across).&lt;/li>
+&lt;/ul>
+&lt;h3 id="screen-readers">&lt;strong>Screen Readers&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener"
+>NVDA&lt;/a>&lt;/strong> (Windows): Free and widely used.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://help.gnome.org/users/orca/stable/index.html.en" target="_blank" rel="noopener"
+>Orca Screen Reader&lt;/a>&lt;/strong> (Linux): Pre-installed on most Linux distributions but may require adjustments to voice settings.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Updates&lt;/em>&lt;/strong>&lt;br>
+While researching to write another post, I found some more screen readers tips:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://support.google.com/chromebook/answer/7031755" target="_blank" rel="noopener"
+>ChromeVox&lt;/a>&lt;/strong> (Chromebooks): It comes pre-installed on Chromebooks, making it ideal for those who use Google Chrome.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://www.apple.com/accessibility/vision/" target="_blank" rel="noopener"
+>VoiceOver&lt;/a>&lt;/strong> (macOS e iOS): Integrated into the system, highly reliable for Apple users.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback" target="_blank" rel="noopener"
+>TalkBack&lt;/a>&lt;/strong> (Android): Native screen reader for Android devices.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="the-next-step-is-yours-its-ours">The Next Step is Yours! It’s Ours!
+&lt;/h1>&lt;p>Now it’s time to take action. Review your projects, explore the tools, read the &lt;a class="link" href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener"
+>documentation&lt;/a> , and start applying accessibility best practices. Remember: developing with accessibility is developing for everyone.&lt;/p>
+&lt;p>If you liked this content or have questions about how to get started, leave a comment. Let’s work together to make the web more inclusive :)&lt;/p></description></item></channel></rss>

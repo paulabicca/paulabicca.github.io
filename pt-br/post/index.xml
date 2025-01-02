@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/post/</link><description>Recent content in Posts on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Porque você deveria começar a usar prefers-reduced-motion</title><link>https://paulabicca.github.io/pt-br/p/porque-voce-deveria-comecar-a-usar-prefers-reduced-motion/</link><pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/porque-voce-deveria-comecar-a-usar-prefers-reduced-motion/</guid><description>&lt;p>Na web, as animações e efeitos visuais são recursos populares para tornar as páginas mais dinâmicas e envolventes. No entanto, para alguns usuários, especialmente aqueles sensíveis a movimentos rápidos ou excessivos, esses recursos podem causar desconforto, como náusea ou tontura.&lt;br>
+Felizmente, podemos usar o &lt;code>prefers-reduced-motion&lt;/code>, que permite ajustar ou desativar animações, oferecendo uma alternativa mais suave para quem prefere uma navegação mais estável. Neste texto, vamos explorar o que é o&lt;code>prefers-reduced-motion&lt;/code>, como implementá-lo em seu site e como os usuários(e você, caso queira) podem modificar suas preferências para uma experiência mais confortável.&lt;/p>
+&lt;h2 id="o-que-é-prefers-reduced-motion">&lt;strong>O que é prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>&lt;code>prefers-reduced-motion&lt;/code> é um recurso do CSS que permite aos desenvolvedores ajustar a experiência de navegação para usuários que preferem reduzir ou eliminar animações e movimentos na interface. Isso é especialmente importante para aqueles que se sentem desconfortáveis com movimentos excessivos na tela, como efeitos visuais ou vídeos automáticos.&lt;/p>
+&lt;p>A configuração &amp;ldquo;reduzir movimento&amp;rdquo; pode ser ativada diretamente nas preferências do sistema do usuário. Quando ativada, o navegador envia essa preferência, permitindo que os desenvolvedores adaptem o conteúdo da página, seja desativando animações ou diminuindo sua intensidade. Isso pode incluir desde a desativação da reprodução automática de vídeos até a reestruturação da interação com a interface, tornando-a mais estável e simplificada para quem prefere uma navegação sem movimentos excessivos.&lt;/p>
+&lt;h2 id="como-modificar-suas-preferências">&lt;strong>Como modificar suas preferências&lt;/strong>
+&lt;/h2>&lt;p>A configuração de &amp;ldquo;reduzir movimento&amp;rdquo; pode ser ativada diretamente nas configurações do seu dispositivo. Veja como modificar as preferências em diferentes sistemas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Windows 10&lt;/strong>: Configurações &amp;gt; Facilidade de Acesso &amp;gt; Vídeo &amp;gt; Mostrar animações no Windows.&lt;/li>
+&lt;li>&lt;strong>Windows 11&lt;/strong>: Configurações &amp;gt; Acessibilidade &amp;gt; Efeitos visuais &amp;gt; Efeitos de animação.&lt;/li>
+&lt;li>&lt;strong>macOS&lt;/strong>: Preferências do Sistema &amp;gt; Acessibilidade &amp;gt; Tela &amp;gt; Reduzir movimento.&lt;/li>
+&lt;li>&lt;strong>iOS&lt;/strong>: Ajustes &amp;gt; Acessibilidade &amp;gt; Movimento.&lt;/li>
+&lt;li>&lt;strong>Android 9+&lt;/strong>: Configurações &amp;gt; Acessibilidade &amp;gt; Remover animações.&lt;/li>
+&lt;/ul>
+&lt;h2 id="por-que-usar-prefers-reduced-motion-é-importante-para-a-acessibilidade">&lt;strong>Por que usar prefers-reduced-motion é importante para a acessibilidade?&lt;/strong>
+&lt;/h2>&lt;p>Implementar essa funcionalidade é um aspecto crucial da acessibilidade web, particularmente no critério AAA da WCAG (Web Content Accessibility Guidelines), especificamente no item 2.3.3: Animação a partir de Interações. Veja mais sobre isso &lt;a class="link" href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;p>Alguns usuários, especialmente aqueles com condições vestibulares, podem sofrer efeitos colaterais indesejados de animações, como tontura ou náusea. Por exemplo, em páginas com rolagem parallax (onde o fundo se move em um ritmo diferente do conteúdo principal), o movimento extra pode ser um gatilho para esses distúrbios, mesmo que o movimento de rolagem por si só seja controlado pelo usuário.&lt;/p>
+&lt;p>Portanto, ao integrar &lt;code>prefers-reduced-motion&lt;/code>, você oferece uma alternativa mais confortável para esses usuários, garantindo uma experiência mais inclusiva.&lt;/p>
+&lt;h2 id="como-implementar-prefers-reduced-motion-em-css">&lt;strong>Como Implementar prefers-reduced-motion em CSS&lt;/strong>
+&lt;/h2>&lt;p>A implementação de &lt;code>prefers-reduced-motion&lt;/code> em CSS é simples. Basta adicionar uma consulta de mídia que detecta a preferência do usuário e aplicar estilos alternativos quando a configuração estiver ativada. Veja o exemplo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">media&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="nt">prefers-reduced-motion&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">reduce&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">notification&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">animation&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">transition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/wBwgwYo" target="_blank" rel="noopener"
+>Experimente na prática no CodePen!&lt;/a>&lt;br>
+(&lt;em>Não se esqueça de desativar os &amp;ldquo;Efeitos de animação&amp;rdquo; nas configurações do seu sistema operacional.&lt;/em>)&lt;/p>
+&lt;h2 id="como-implementar-prefers-reduced-motion-em-javascript">&lt;strong>Como Implementar prefers-reduced-motion em JavaScript&lt;/strong>
+&lt;/h2>&lt;p>No JavaScript, você pode usar a propriedade &lt;code>window.matchMedia&lt;/code> para detectar a preferência do usuário por animações reduzidas e alterar o comportamento da página com base nessa preferência. Veja como isso pode ser feito:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">prefersReducedMotion&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">matchMedia&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;(prefers-reduced-motion: reduce)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/zxONOym" target="_blank" rel="noopener"
+>Experimente na prática no CodePen!&lt;/a>&lt;br>
+(&lt;em>Não se esqueça de desativar os &amp;ldquo;Efeitos de animação&amp;rdquo; nas configurações do seu sistema operacional.&lt;/em>)&lt;/p>
+&lt;h2 id="por-que-você-deveria-começar-a-usar-prefers-reduced-motion">&lt;strong>Por que você deveria começar a usar prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>Incorporar o &lt;code>prefers-reduced-motion&lt;/code> em seu site não é apenas uma questão técnica, mas um compromisso com a inclusão. Ao permitir que os usuários escolham como querem interagir com sua página, você proporciona uma experiência mais confortável e acessível para todos. Além disso, essa prática melhora a conformidade com as diretrizes de acessibilidade, garantindo que sua página seja acessível para um público maior, incluindo pessoas com condições que tornam animações excessivas um desafio. Portanto, sempre que possível, implemente soluções que respeitem a preferência por menos movimento, promovendo uma web mais inclusiva e menos cansativa para todos.&lt;/p></description></item><item><title>HTML semântico e WAI-ARIA : mais que amigos, friends</title><link>https://paulabicca.github.io/pt-br/p/wai-aria-html-semantico-mais-que-amigos-friends/</link><pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/wai-aria-html-semantico-mais-que-amigos-friends/</guid><description>&lt;p>Quando falamos sobre desenvolvimento web, o &lt;strong>HTML semântico&lt;/strong> e o &lt;strong>WAI-ARIA&lt;/strong> são como dois parceiros inseparáveis, trabalhando juntos para tornar seu site mais acessível e fácil de entender. Você provavelmente já conhece o &lt;strong>HTML semântico&lt;/strong>, mas o que é o &lt;strong>WAI-ARIA&lt;/strong>? Vamos desvendar os dois de maneira simples e sem complicação!&lt;/p>
+&lt;hr>
+&lt;h2 id="html-semântico-o-básico-da-estrutura">HTML Semântico: O Básico da Estrutura
+&lt;/h2>&lt;p>Primeiro, vamos falar sobre &lt;strong>HTML semântico&lt;/strong>. O que isso significa? Basicamente, é o uso de tags HTML que têm um significado claro e bem definido, tanto para o navegador quanto para os usuários. Ao usar elementos semânticos, você está criando um código que não só faz mais sentido para os desenvolvedores, mas também melhora a experiência dos usuários, especialmente aqueles com deficiência.&lt;/p>
+&lt;p>Por exemplo, em vez de usar &lt;code>&amp;lt;div&amp;gt;&lt;/code> e adicionar atributos de estilo para que ela se comporte como um botão, você deve usar a tag &lt;code>&amp;lt;button&amp;gt;&lt;/code>, que já é semanticamente definida para essa função. Isso ajuda na acessibilidade e torna o código mais fácil de entender.&lt;/p>
+&lt;p>Exemplo de HTML Semântico:&lt;/p>
+&lt;p>&lt;strong>Evite:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">role&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;button&amp;#34;&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enviar&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Prefira:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enviar&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Optar por &lt;strong>HTML semântico&lt;/strong>, como &lt;code>&amp;lt;button&amp;gt;&lt;/code>, não só melhora a acessibilidade, mas também oferece outros benefícios:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Melhor desempenho em dispositivos móveis:&lt;/strong> O HTML semântico é mais leve e facilita a criação de layouts responsivos.&lt;/li>
+&lt;li>&lt;strong>Melhor SEO:&lt;/strong> Os mecanismos de busca dão mais relevância a elementos semânticos, como títulos e links, facilitando a indexação do seu conteúdo.&lt;/li>
+&lt;li>&lt;strong>Facilidade no desenvolvimento:&lt;/strong> O código é mais limpo, intuitivo e fácil de entender.&lt;/li>
+&lt;/ul>
+&lt;p>Agora vamos com alguns exemplos?&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>Exemplo Genérico&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Exemplo Semântico&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Descrição&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;header&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define o cabeçalho de uma página ou seção.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;nav&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;nav&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define um bloco de navegação.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;article&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;article&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa um conteúdo independente, como uma postagem.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;section&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;section&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define uma seção ou parte do conteúdo com um título.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;footer&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa o rodapé de uma página ou seção.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;main&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define o conteúdo principal da página.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;aside&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;aside&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa conteúdo relacionado, mas não essencial.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;heading&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1&amp;gt;&lt;/code>, &lt;code>&amp;lt;h2&amp;gt;&lt;/code>, &lt;code>&amp;lt;h3&amp;gt;&lt;/code>, etc.&lt;/td>
+&lt;td>Define títulos e subtítulos, estruturando o conteúdo.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;button&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;button&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa um botão de ação.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="wai-aria-dando-uma-mãozinha-na-acessibilidade">WAI-ARIA: Dando uma Mãozinha na Acessibilidade
+&lt;/h2>&lt;p>Agora, o &lt;strong>WAI-ARIA&lt;/strong> (Accessible Rich Internet Applications) entra em cena. Ele é como um assistente extra, ajudando a tornar o seu site acessível quando o &lt;strong>HTML semântico&lt;/strong> não é o suficiente para descrever a funcionalidade de um elemento, como em aplicativos dinâmicos ou interfaces mais complexas. O &lt;strong>WAI-ARIA&lt;/strong> oferece &amp;ldquo;informações extras&amp;rdquo; para tecnologias assistivas, como leitores de tela, para garantir que todos os usuários, independentemente de suas limitações, possam interagir com o conteúdo de forma eficiente.&lt;/p>
+&lt;p>Agora que você sabe o que é &lt;strong>WAI-ARIA&lt;/strong> vamos falar de dois atributos deles: &lt;strong>aria&lt;/strong> e &lt;strong>role&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h3 id="atributos-aria">Atributos ARIA
+&lt;/h3>&lt;p>Os &lt;strong>atributos ARIA&lt;/strong> são usados para fornecer informações adicionais a tecnologias assistivas, como leitores de tela, quando o HTML padrão não é suficiente para descrever a funcionalidade ou o estado de um elemento de forma clara.&lt;/p>
+&lt;p>A seguir, apresento alguns &lt;strong>atributos ARIA&lt;/strong> comuns que podem ser muito úteis no seu dia a dia de desenvolvimento. Para uma lista completa, consulte a documentação &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Exemplos de Atributos ARIA:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Atributo ARIA&lt;/th>
+&lt;th>Descrição&lt;/th>
+&lt;th>Exemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>aria-label&lt;/strong>&lt;/td>
+&lt;td>Fornece um texto descritivo para elementos de interface sem texto visível.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-label=&amp;quot;Fechar&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-hidden&lt;/strong>&lt;/td>
+&lt;td>Esconde um elemento para leitores de tela, sem afetar sua visibilidade.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-hidden=&amp;quot;true&amp;quot;&amp;gt;Este conteúdo não será lido pelo leitor de tela&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-description&lt;/strong>&lt;/td>
+&lt;td>Fornece uma descrição mais detalhada sobre um elemento.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-description=&amp;quot;Este botão envia o formulário&amp;quot;&amp;gt;Enviar&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>contenteditable&lt;/strong>&lt;/td>
+&lt;td>Indica que um campo é editável, útil quando usamos uma &lt;code>&amp;lt;div&amp;gt;&lt;/code> em vez de um &lt;code>&amp;lt;input&amp;gt;&lt;/code>.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div contenteditable=&amp;quot;true&amp;quot;&amp;gt;Edite este texto&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-required&lt;/strong>&lt;/td>
+&lt;td>Marca um campo de formulário como obrigatório.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-required=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-invalid&lt;/strong>&lt;/td>
+&lt;td>Indica que um campo contém um valor inválido.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-invalid=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-expanded&lt;/strong>&lt;/td>
+&lt;td>Informa se um menu ou acordeão está expandido ou contraído.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-expanded=&amp;quot;false&amp;quot;&amp;gt;Menu&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-labelledby&lt;/strong>&lt;/td>
+&lt;td>Referencia outro elemento para fornecer um nome acessível.&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1 id=&amp;quot;header&amp;quot;&amp;gt;Título&amp;lt;/h1&amp;gt;&amp;lt;div aria-labelledby=&amp;quot;header&amp;quot;&amp;gt;Conteúdo associado ao título&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-details&lt;/strong>&lt;/td>
+&lt;td>Fornece informações adicionais ou descrições mais detalhadas sobre um elemento.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-details=&amp;quot;info&amp;quot;&amp;gt;Mais informações&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="funções-aria-roles">Funções ARIA: Roles
+&lt;/h3>&lt;p>Por padrão, muitos elementos &lt;strong>HTML semânticos&lt;/strong> já têm funções definidas. Por exemplo, um &lt;code>&amp;lt;input type=&amp;quot;radio&amp;quot;&amp;gt;&lt;/code> tem a função de &amp;ldquo;radio&amp;rdquo;. Elementos não semânticos, como &lt;code>&amp;lt;div&amp;gt;&lt;/code> e &lt;code>&amp;lt;span&amp;gt;&lt;/code>, precisam do atributo role para definir sua função.&lt;/p>
+&lt;p>A seguir, apresento alguns roles comuns que podem ser muito úteis no seu dia a dia de desenvolvimento. Para uma lista completa, consulte a documentação &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Exemplos de Roles:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Função ARIA (Role)&lt;/th>
+&lt;th>Descrição&lt;/th>
+&lt;th>Exemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;alert&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Comunica uma mensagem importante e geralmente sensível ao tempo ao usuário.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;alert&amp;quot;&amp;gt;Erro: campo obrigatório não preenchido.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;definition&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento contém a definição de um termo ou conceito.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;definition&amp;quot;&amp;gt;Acessibilidade: prática de tornar a web acessível para todos.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;search&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Define a área de pesquisa da página.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;search&amp;quot;&amp;gt;Caixa de pesquisa&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;modal&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento é um modal.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;modal&amp;quot;&amp;gt;Este é um modal&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;dialog&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento é uma janela de diálogo.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;dialog&amp;quot;&amp;gt;Esta é uma janela de diálogo&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="vamos-colocar-em-prática">Vamos Colocar em Prática?
+&lt;/h2>&lt;p>E aí está! Agora você já sabe como o &lt;strong>HTML semântico&lt;/strong> e o &lt;strong>WAI-ARIA&lt;/strong> podem trabalhar juntos para melhorar a acessibilidade do seu site. Usar &lt;strong>HTML semântico&lt;/strong> é como construir uma casa com uma estrutura sólida e bem planejada, enquanto o &lt;strong>WAI-ARIA&lt;/strong> é aquele toque final que garante que todo mundo consiga acessar e interagir com ela, independentemente de limitações. Ao aplicar essas práticas, você não só torna seu site mais inclusivo, mas também otimiza a experiência do usuário e ajuda a melhorar o SEO.&lt;/p>
+&lt;p>A acessibilidade na web é mais do que uma boa prática — é um compromisso com um mundo digital mais justo e acessível para todos.&lt;/p>
+&lt;p>Agora que você já sabe o básico, que tal começar a aplicar esses conceitos no seu próximo projeto? Lembre-se: cada pequeno passo conta!&lt;/p></description></item><item><title>Como o Cherry-pick pode salvar você</title><link>https://paulabicca.github.io/pt-br/p/como-cherry-pick-pode-salvar-voce/</link><pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/como-cherry-pick-pode-salvar-voce/</guid><description>&lt;p>Já aconteceu de você resolver um bug na branch errada ou precisar reutilizar uma solução sem levar tudo junto? É aqui que o cherry-pick entra em cena! Esse comando do Git é o equivalente a escolher a fruta perfeita numa árvore: você pega exatamente o que precisa, sem o “pacote completo”.&lt;/p>
+&lt;p>Imagine recuperar aquele código perdido ou levar uma solução para outra branch sem refazer tudo. Curioso? Então vamos explorar como o cherry-pick pode te salvar desse problema!&lt;/p>
+&lt;hr>
+&lt;h2 id="o-que-é-cherry-pick">&lt;strong>O que é Cherry-Pick?&lt;/strong>
+&lt;/h2>&lt;p>O comando git &lt;code>cherry-pick&lt;/code> permite aplicar um commit específico de uma branch em outra. Em vez de trazer todo o histórico, como no merge ou rebase, ele foca apenas no que você apontar.&lt;/p>
+&lt;p>Funciona assim: você localiza o hash do commit desejado, e o Git transporta as mudanças para a branch atual. Ideal para situações pontuais em que você precisa de ajustes sem bagunçar o fluxo de trabalho.&lt;/p>
+&lt;p>Por que usar? Para evitar retrabalho, recuperar mudanças perdidas ou garantir que correções estejam nas branches certas.&lt;/p>
+&lt;hr>
+&lt;h2 id="quando-o-cherry-pick-é-a-melhor-opção">&lt;strong>Quando o Cherry-Pick é a Melhor Opção?&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>1. Recuperar um commit específico para outra branch&lt;/strong>&lt;br>
+Você corrigiu um bug, mas percebeu que estava na branch errada. Sem desespero! Basta aplicar o commit na branch correta.&lt;/p>
+&lt;p>&lt;strong>2. Incorporar soluções entre branches sem um merge completo&lt;/strong>&lt;br>
+Precisa de uma funcionalidade pronta, mas não quer carregar toda a bagagem de outra branch? Cherry-pick resolve.&lt;/p>
+&lt;p>&lt;strong>3. Erro ao fazer commit direto na main&lt;/strong>&lt;br>
+Um commit acidental na main pode ser levado para a branch correta rapidamente, mantendo o histórico limpo.&lt;/p>
+&lt;hr>
+&lt;h2 id="como-usar-cherry-pick-na-prática">&lt;strong>Como Usar Cherry-Pick na Prática&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>Passo 1: Encontre o hash do commit&lt;/strong>&lt;br>
+Primeiro, localize o commit que você deseja aplicar. Use o comando &lt;code>git log&lt;/code> ou uma interface gráfica para encontrar o hash.&lt;/p>
+&lt;p>Se você não sabe o que é um hash de commit, aqui vai um exemplo para ajudar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">commit e0c3d682014f6b2bf8d2814512bc8c00c2968b40 &lt;span class="o">(&lt;/span>origin/development&lt;span class="o">)&lt;/span> &lt;span class="c1"># Isso é um hash&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Author: Jane Doe &amp;lt;jane.doe@gmail.com&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Tue Nov &lt;span class="m">21&lt;/span> 14:32:01 &lt;span class="m">2024&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 2: Aplique o commit na branch desejada&lt;/strong>&lt;/p>
+&lt;p>Agora, vá para a branch onde você quer aplicar esse commit.
+Sempre verifique se você está na branch correta. Por exemplo, se você deseja trazer um commit da da branch &lt;code>development&lt;/code> para a branch &lt;code>feature-login&lt;/code>, verifique se está nela com um &lt;code>git log&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick &amp;lt;hash-do-commit&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 3: Resolva conflitos (se houver)&lt;/strong>&lt;/p>
+&lt;p>Se o commit causar conflitos, o Git mostrará quais arquivos precisam ser ajustados. Resolva os conflitos manualmente editando os arquivos indicados.&lt;/p>
+&lt;p>Depois de resolver, finalize o processo com:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --continue
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Se precisar cancelar o cherry-pick por algum motivo, use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --abort
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 4: Confirme o resultado&lt;/strong>&lt;/p>
+&lt;p>Por fim, confira se o commit foi aplicado corretamente. Use o comando git log para verificar se o commit aparece no histórico da branch atual.&lt;/p>
+&lt;p>Se tudo deu certo, o cherry-pick trouxe exatamente o que você precisava para a branch feature-login!&lt;/p>
+&lt;hr>
+&lt;h2 id="cuidados-e-boas-práticas">&lt;strong>Cuidados e Boas Práticas&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Contexto é tudo:&lt;/strong> Entende se você realmente precisa de cherry-pick na branch atual. Para cenários maiores use o merge ou rebase que são escolhas mais organizadas.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Organização primeiro:&lt;/strong> Não use cherry-pick como “jeitinho” para corrigir má gestão de branches.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Conflitos frequentes:&lt;/strong> Trabalhe em equipe para evitar retrabalho e reduza pontos de conflito.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="ferramentas-e-documentação">&lt;strong>Ferramentas e Documentação&lt;/strong>
+&lt;/h2>&lt;p>O cherry-pick é uma ferramenta super utíl que torna possível corrigir erros, reutilizar código e otimizar fluxos de trabalho.&lt;/p>
+&lt;p>Quer se aprofundar no assunto? Dá uma olhada na &lt;a class="link" href="https://git-scm.com/docs/git-cherry-pick" target="_blank" rel="noopener"
+>documentação oficial do Git&lt;/a>. É completíssima e vai te deixar um expert no assunto.&lt;/p>
+&lt;p>E para facilitar ainda mais a sua vida, que tal usar extensões do VS Code? Aqui estão algumas que podem te ajudar na hora de dar um cherry-pick sem complicação:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>GitLens&lt;/strong>: Traz uma visualização detalhada de commits e histórico, facilitando a identificação do commit certo.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Git Graph&lt;/strong>: Exibe o histórico do repositório em um gráfico super intuitivo, perfeito para localizar aquele hash específico.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>GitKraken&lt;/strong> (ferramenta externa, mas vale citar): Para quem prefere interfaces gráficas amigáveis ao invés da linha de comando.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Agora é sua vez: já teve uma situação em que o cherry-pick teria salvado seu dia? Me conte nos comentários!&lt;/p></description></item><item><title>Negros e Algoritmos: A Urgente Necessidade de Diversidade na Tecnologia</title><link>https://paulabicca.github.io/pt-br/p/negros-algoritmos-a-urgente-necessidade-de-diversidade-na-tecnologia/</link><pubDate>Wed, 20 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/negros-algoritmos-a-urgente-necessidade-de-diversidade-na-tecnologia/</guid><description>&lt;p>Hoje é um dia especial, um dia de reconhecimento. Como mulher negra, moradora de Porto Alegre, RS, este é o primeiro ano em que o Dia da Consciência Negra é feriado aqui. Para além de ser uma simples data no calendário, é uma homenagem aos que vieram antes de nós, uma memória de lutas e resistências. Celebramos Zumbi dos Palmares, líder do Quilombo dos Palmares, e toda a trajetória de resistência dos afrodescendentes contra a escravidão e o racismo que persistem até hoje.&lt;/p>
+&lt;p>Eu confesso que, até o dia 20 chegar, eu não tinha conseguido pensado em nada para essa data tão significativa. Mas, de repente, a ideia surgiu, sem aviso, como um estalo.&lt;/p>
+&lt;p>Anos atrás, durante uma palestra no meu estágio, ouvi pela primeira vez um assunto que me fez refletir profundamente sobre o impacto dos algoritmos nas tecnologias que usamos diariamente. A palestrante mencionou um erro importante ocorrido com o Google Photos, um incidente que levantou questões sobre a ética e a diversidade no desenvolvimento de inteligência artificial (IA). O Google Fotos foi lançado em 2015 e é um serviço de compartilhamento e armazenamento de fotos desenvolvido pelo Google. É possível rotular imagens, identificando pessoas, objetos e lugares automaticamente.
+No entanto, poucos meses após o lançamento, um erro veio à tona, destacando uma falha na implementação de IA que, até hoje, continua sendo uma ilustração evidente de como os algoritmos podem herdar vieses e preconceitos.&lt;/p>
+&lt;h2 id="a-falta-de-diversidade-nos-dados-de-treinamento">A Falta de Diversidade nos Dados de Treinamento
+&lt;/h2>&lt;p>O problema começou quando Jacky Alciné, um desenvolvedor de software de Nova York, percebeu que o Google Photos havia rotulado suas fotos, juntamente com as de seu amigo, ambos negros, como “gorilas”. Este erro não foi apenas um deslize técnico, mas um reflexo doloroso de séculos de racismo, demonstrando como a IA pode, inadvertidamente, reproduzir preconceitos já presentes na sociedade.
+Após a denúncia de Alciné no Twitter, o Google se desculpou publicamente, alegando estar “chocado e genuinamente arrependido” pelo erro. A empresa prometeu corrigir o problema, afirmando que o rótulo “gorila” não seria mais utilizado em nenhuma imagem e que tomariam medidas para melhorar tanto a parte linguística quanto o reconhecimento de imagens, com ênfase na melhoria do reconhecimento de rostos de pele escura. No entanto, o incidente trouxe à tona uma realidade incômoda: os algoritmos de IA herdam os preconceitos presentes nas bases de dados com as quais são treinados e, no caso do Google Photos, faltava uma diversidade suficiente de imagens de pessoas negras nos dados usados para o treinamento.&lt;/p>
+&lt;h2 id="o-que-mudou-desde-então">O Que Mudou Desde Então?
+&lt;/h2>&lt;p>O Google afirmou na época que o problema seria consertado, mas será que realmente foi? Uma reportagem de maio de 2023 do &lt;em>&lt;a class="link" href="https://www.nytimes.com/2023/05/22/technology/ai-photo-labels-google-apple.html#:~:text=Yet%20Google%2C%20whose%20Android%20software,a%20person%20as%20an%20animal" target="_blank" rel="noopener"
+>The New York Times&lt;/a>&lt;/em> revelou que, oito anos após o incidente, o Google ainda não resolveu o problema de forma satisfatória. Em vez de melhorar a tecnologia de reconhecimento de imagens, o Google simplesmente optou por desativar a função de identificação de gorilas. Isso, claro, limitou a capacidade do aplicativo de identificar primatas de forma geral, mas evitou o risco de cometer o mesmo erro novamente.
+O New York Times investigou sua própria coleção de imagens e descobriu que, ao pesquisar por “gorilas”, o Google Fotos não conseguiu identificar nenhum primata, mesmo quando algumas imagens contêm gorilas. Além disso, a Apple, ao ser questionada sobre um problema similar com o Apple Photos, revelou que tomou uma abordagem semelhante, desativando a capacidade de identificar gorilas nas imagens, por preocupações de que o sistema pudesse erroneamente rotular uma pessoa como um animal.&lt;/p>
+&lt;h2 id="por-que-isso-importa">Por que isso importa?
+&lt;/h2>&lt;p>O que essas falhas revelam é a dificuldade das grandes empresas de tecnologia em lidar com o preconceito e a falta de diversidade em seus algoritmos de IA. A solução adotada pelas duas gigantes, Google e Apple, de simplesmente desativar a função de identificação de gorilas, reflete uma solução paliativa, mas levanta questões ainda mais amplas sobre o papel da diversidade na criação de tecnologias justas e precisas. A decisão de limitar a funcionalidade, em vez de melhorar o sistema, ilustra como as empresas de tecnologia muitas vezes priorizam a redução de riscos em detrimento de soluções mais eficazes.
+Esse episódio mostra claramente que os algoritmos de IA não são imparciais. Eles são criados por seres humanos e treinados com dados que, muitas vezes, carecem de diversidade e precisão. Quando isso acontece, as consequências podem ser graves: um simples erro de rotulagem pode reforçar preconceitos sociais existentes e perpetuar estigmas prejudiciais. A falta de diversidade nos dados de treinamento — seja em termos de etnia, gênero ou qualquer outra característica — pode resultar em sistemas que não funcionam corretamente para todos, afetando especialmente os grupos historicamente marginalizados.&lt;/p>
+&lt;h2 id="a-diversidade-na-tecnologia-um-desafio-a-ser-superado">A Diversidade na Tecnologia: Um Desafio a Ser Superado
+&lt;/h2>&lt;p>Em um mundo cada vez mais digital e dependente de IA, a diversidade na tecnologia não é apenas uma questão ética, mas uma necessidade prática. Sem representatividade nos dados com os quais treinamos nossos algoritmos, corremos o risco de criar sistemas que excluem ou prejudicam determinados grupos. A questão vai além do Google e da Apple; ela afeta todos os desenvolvedores e profissionais de tecnologia. Precisamos garantir que nossas bases de dados de treinamento sejam amplamente representativas, não apenas em termos de etnia, mas também de gênero, idade, capacidade e muito mais. Somente assim poderemos criar soluções de IA que realmente atendam às necessidades de todos, sem reproduzir os preconceitos do passado.&lt;/p>
+&lt;h2 id="o-que-podemos-fazer-para-avançar">O Que Podemos Fazer Para Avançar?
+&lt;/h2>&lt;p>A tecnologia de reconhecimento de imagens tem avançado imensamente, mas a questão dos preconceitos e vieses permanece. A falta de diversidade nos dados de treinamento e nas equipes de desenvolvimento é um obstáculo que todos nós, como profissionais da área de tecnologia, precisamos superar. Como podemos garantir que os sistemas que criamos não apenas funcionem, mas também sejam justos e inclusivos? A resposta está na promoção de uma maior diversidade e inclusão em todos os aspectos do desenvolvimento tecnológico, desde a coleta de dados até a criação dos algoritmos.&lt;/p>
+&lt;hr>
+&lt;p>Como desenvolvedores, temos um papel crucial em moldar o futuro da tecnologia. Vamos refletir sobre como estamos criando os sistemas de IA com os quais trabalhamos. Estamos garantindo que eles sejam inclusivos e representem todos de forma justa? Se não, como podemos começar a fazer mudanças significativas? Compartilhe suas ideias e experiências, e juntos podemos trabalhar para construir um futuro mais inclusivo na tecnologia.&lt;/p>
+&lt;p>&lt;em>As informações apresentadas neste post foram obtidas no ekathimerini.com, que fez referência ao artigo original do The New York Times.&lt;/em>&lt;/p>
+&lt;p>&lt;strong>Referências&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>BBC. (2015). Google apologises for Photos app&amp;rsquo;s racist blunder. Disponível &lt;a class="link" href="https://www.bbc.com/news/technology-33347866" target="_blank" rel="noopener"
+>aqui&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>Ekathimerini. (2023). Google’s photo app still can’t find gorillas. And neither can Apple’s. Disponível &lt;a class="link" href="https://www.ekathimerini.com/nytimes/1212118/googles-photo-app-still-cant-find-gorillas-and-neither-can-apples/" target="_blank" rel="noopener"
+>aqui&lt;/a>&lt;/em>&lt;/li>
+&lt;li>&lt;em>The New York Times. (2023). Google’s Photo App Still Can’t Find Gorillas. And Neither Can Apple’s. Disponível &lt;a class="link" href="https://www.nytimes.com/2023/05/22/technology/ai-photo-labels-google-apple.html#:~:text=Yet%20Google%2C%20whose%20Android%20software,a%20person%20as%20an%20animal" target="_blank" rel="noopener"
+>aqui&lt;/a>&lt;/em>&lt;/li>
+&lt;/ul></description></item><item><title>Dominando o Ciclo de Vida no React com useEffect e useLayoutEffect</title><link>https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/</link><pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/</guid><description>&lt;p>As primeiras coisas que aprendi com React foram sobre Hooks, especialmente &lt;code>useState&lt;/code> e &lt;code>useEffect&lt;/code>. No início, porém, eu os utilizava sem entender exatamente como deveria, o que gerou alguns problemas – especialmente com o &lt;code>useEffect&lt;/code>. Por exemplo, já esqueci de adicionar dependências no &lt;code>useEffect&lt;/code> e acabei criando um loop infinito.&lt;/p>
+&lt;p>Naquela época, ninguém me explicou como evitar esses erros, então hoje quero compartilhar algumas dicas para usar o &lt;code>useEffect&lt;/code> corretamente, especialmente no contexto do ciclo de vida dos componentes.&lt;/p>
+&lt;p>Neste artigo, vamos explorar como o &lt;code>useEffect&lt;/code> (e, em alguns casos, o &lt;code>useLayoutEffect&lt;/code>) pode ser usado para lidar com as etapas do ciclo de vida dos componentes no React: montagem, atualização e desmontagem.&lt;/p>
+&lt;hr>
+&lt;h2 id="primeiro-o-que-é-useeffect">&lt;strong>Primeiro, o que é useEffect?&lt;/strong>
+&lt;/h2>&lt;p>O &lt;code>useEffect&lt;/code> é um dos hooks do React, e sua principal função é lidar com efeitos colaterais em componentes funcionais.&lt;br>
+Mas você deve estar se perguntando: O que são efeitos colaterais? Eu te explico!
+São operações que não estão diretamente relacionadas ao processo de renderização do componente, mas que ainda assim são necessárias. Exemplos comuns incluem chamadas a APIs, atualizações manuais do DOM ou até tarefas de limpeza, como cancelar requisições.&lt;/p>
+&lt;p>&lt;strong>Como o useEffect funciona?&lt;/strong>&lt;br>
+Ele recebe dois parâmetros principais:&lt;/p>
+&lt;ul>
+&lt;li>Uma função de efeito, que contém o código que será executado quando o componente for montado, atualizado ou desmontado.&lt;/li>
+&lt;li>Uma array de dependências, que é opcional, e define quando o efeito deve ser executado.&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;O efeito foi executado!&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">});&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="então-o-que-é-o-ciclo-de-vida-no-react">&lt;strong>Então, o que é o ciclo de vida no React?&lt;/strong>
+&lt;/h2>&lt;p>O ciclo de vida descreve as fases pelas quais um componente React passa, desde sua criação até sua remoção do DOM. Essas fases podem ser divididas em três momentos principais:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Montagem (Mounting)&lt;/strong>: Quando o componente é adicionado à tela.&lt;/li>
+&lt;li>&lt;strong>Atualização (Updating)&lt;/strong>: Quando algo no componente muda, como estado ou propriedades.&lt;/li>
+&lt;li>&lt;strong>Desmontagem (Unmounting)&lt;/strong>: Quando o componente é removido do DOM.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="montagem-mounting">&lt;strong>Montagem (Mounting)&lt;/strong>
+&lt;/h2>&lt;p>A etapa de montagem acontece quando o componente é adicionado à página pela primeira vez. Antes da introdução dos hooks, usávamos o método de ciclo de vida &lt;code>componentDidMount&lt;/code> para executar código logo após o componente ser inserido no DOM.&lt;/p>
+&lt;p>Com a chegada do &lt;code>useEffect&lt;/code>, basta passar um array de dependências vazio para simular esse comportamento. O código será executado apenas uma vez, após o componente ser montado.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">MyComponent&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente montado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// Aqui você pode fazer requisições ou configurar eventos.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span> &lt;span class="c1">// Sem dependências, executa apenas na montagem.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>&lt;span class="nx">Hello&lt;/span> &lt;span class="nx">World&lt;/span>&lt;span class="p">&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="atualização-updating">&lt;strong>Atualização (Updating)&lt;/strong>
+&lt;/h2>&lt;p>Um componente é atualizado sempre que há uma mudança de estado ( &lt;code>state&lt;/code>) ou propriedades ( &lt;code>props&lt;/code>). Antes dos hooks, usávamos métodos como &lt;code>componentDidUpdate&lt;/code> para lidar com essa fase. Hoje, o &lt;code>useEffect&lt;/code> nos permite monitorar mudanças em variáveis específicas, graças ao array de dependências.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente atualizado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[&lt;/span>&lt;span class="nx">data&lt;/span>&lt;span class="p">]);&lt;/span> &lt;span class="c1">// O useEffect será executado toda vez que &amp;#34;data&amp;#34; mudar.
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>Se não passarmos um array de dependências, o &lt;code>useEffect&lt;/code> será executado em toda atualização, o que pode levar a comportamentos indesejados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="desmontagem-unmounting">&lt;strong>Desmontagem (Unmounting)&lt;/strong>
+&lt;/h2>&lt;p>A etapa de desmontagem ocorre quando o componente é removido do DOM. Antes, utilizávamos o método &lt;code>componentWillUnmount&lt;/code> para realizar tarefas de limpeza, como remover event listeners ou cancelar requisições.&lt;/p>
+&lt;p>Agora, usamos o &lt;code>useEffect&lt;/code> com um retorno dentro da função, que é executado automaticamente durante a desmontagem.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-jsx" data-lang="jsx">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">import&lt;/span> &lt;span class="nx">React&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nx">useEffect&lt;/span> &lt;span class="p">}&lt;/span> &lt;span class="nx">from&lt;/span> &lt;span class="s1">&amp;#39;react&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">useEffect&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kr">const&lt;/span> &lt;span class="nx">timer&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">setInterval&lt;/span>&lt;span class="p">(()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Executando...&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="mi">1000&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">()&lt;/span> &lt;span class="p">=&amp;gt;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">clearInterval&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">timer&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// Limpeza realizada ao desmontar o componente
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;Componente desmontado!&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">},&lt;/span> &lt;span class="p">[]);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="então-uselayouteffect">&lt;strong>Então useLayoutEffect&lt;/strong>
+&lt;/h2>&lt;p>Assim que você abre a documentação do react você recebe esse aviso:&lt;/p>
+&lt;p>&lt;img src="https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img.png"
+width="923"
+height="175"
+srcset="https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img_hu4509675830437182664.png 480w, https://paulabicca.github.io/pt-br/p/dominando-ciclo-de-vida-no-react-com-useeffect-e-uselayouteffect/imgs/aviso-img_hu13302993813922473418.png 1024w"
+loading="lazy"
+alt="Imagem mostrando um aviso sobre o uso do useLayoutEffect, alertando que seu uso excessivo pode prejudicar o desempenho da aplicação."
+class="gallery-image"
+data-flex-grow="527"
+data-flex-basis="1265px"
+>&lt;/p>
+&lt;p>Ou seja, use-o com cuidado. Com isso em mente, vamos explorar o que é o &lt;code>useLayoutEffect&lt;/code>!&lt;/p>
+&lt;p>O &lt;code>useLayoutEffect&lt;/code> é um hook do React semelhante ao &lt;code>useEffect&lt;/code>, até mesmo na sua maneira de declaração. Mas com diferenças importantes em relação ao momento em que o código é executado. Ele é usado para rodar efeitos síncronos antes que o navegador realize a pintura da tela. Isso significa que qualquer alteração feita no DOM dentro do &lt;code>useLayoutEffect&lt;/code> será aplicada de forma imediata, garantindo que o usuário veja as mudanças antes da próxima atualização visual.&lt;/p>
+&lt;p>&lt;strong>Quando você deve usar?&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Medir ou modificar o layout do DOM&lt;/strong>: Por exemplo, calcular o tamanho ou posição de um elemento antes que o navegador exiba a página.&lt;/li>
+&lt;li>&lt;strong>Sincronizar estados ou estilos diretamente com mudanças no DOM&lt;/strong>: Especialmente quando alterações dependem de medidas precisas.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>E dentro do Ciclo de vida? Onde ele fica?&lt;/strong>&lt;br>
+Dentro do ciclo de vida do React, o &lt;code>useLayoutEffect&lt;/code> se encaixa principalmente nas fases de montagem e atualização. Ele faz mais sentido nessas etapas, caso você precise garantir que as alterações no DOM sejam aplicadas antes da pintura da tela. A seguir, você verá uma explicação mais detalhada sobre o seu uso nessas fases.&lt;/p>
+&lt;p>&lt;strong>1. Montagem (Mounting):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Quando o componente é montado, o &lt;code>useLayoutEffect&lt;/code> é executado após a renderização, mas antes da pintura da tela. Isso é útil quando você precisa fazer ajustes no layout ou medir elementos do DOM (como tamanhos ou posições) antes que o usuário veja qualquer alteração.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. Atualização (Updating):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Durante as atualizações do componente (quando o estado ou as propriedades mudam), o &lt;code>useLayoutEffect&lt;/code> também é chamado depois da renderização, mas antes da pintura da tela. Se você precisa fazer algo no DOM (como recalcular o tamanho de um elemento ou atualizar um estilo) baseado em mudanças de estado, o &lt;code>useLayoutEffect&lt;/code> garantirá que o layout seja ajustado antes que a tela seja renderizada novamente.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="armadilhas-comuns-e-boas-práticas">&lt;strong>Armadilhas Comuns e Boas Práticas&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Evite efeitos sem dependências&lt;/strong>: Um useEffect sem dependências será executado em todas as atualizações, o que pode gerar loops infinitos ou degradação de desempenho.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Lembre-se da limpeza em desmontagem&lt;/strong>: Sempre retorne uma função de limpeza no useEffect para evitar comportamentos inesperados, como intervalos ou event listeners não removidos.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Utilize o array de dependências corretamente&lt;/strong>: Verifique se todas as variáveis usadas dentro do useEffect estão listadas como dependências. O ESLint pode ajudar nisso.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Uso excessivo ou desnecessário&lt;/strong>: O useLayoutEffect é mais pesado do que o useEffect, pois ele é executado sincronamente após todas as mutações do DOM. Isso pode impactar o desempenho, especialmente em componentes com muitos renders. Use-o apenas quando for realmente necessário.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Priorize useEffect sempre que possível:&lt;/strong> Talvez eu esteja sendo repetitiva, mas é importante, eu prometo! Na maioria das vezes, useEffect é a escolha ideal para a maioria das operações assíncronas. Use useLayoutEffect apenas quando precisar interagir com o layout do DOM de forma síncrona.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="reflexões-finais-e-próximos-passos">&lt;strong>Reflexões Finais e Próximos Passos&lt;/strong>
+&lt;/h2>&lt;p>Entender o ciclo de vida de um componente React é essencial, tanto para saber o que você está fazendo quanto para criar aplicações robustas e eficientes. Os hooks useEffect e useLayoutEffect são grandes aliados nesse processo, mas é importante saber quando usar cada um e evitar armadilhas comuns. Ao seguir boas práticas, você assegura que seus componentes sejam bem estruturados e fáceis de manter.
+E se bateu dúvida sobre algo? Sua melhor amiga sempre vai ser a documentação.&lt;/p>
+&lt;p>Versão pt-br (nem tudo foi traduzido): &lt;a class="link" href="https://pt-br.react.dev/" target="_blank" rel="noopener"
+>https://pt-br.react.dev/&lt;/a>&lt;/p>
+&lt;p>Versão en: &lt;a class="link" href="https://react.dev/" target="_blank" rel="noopener"
+>https://react.dev/&lt;/a>&lt;/p>
+&lt;p>&lt;strong>E você, tem alguma dica ou dúvida sobre o ciclo de vida? Sobre &lt;code>UseEffect&lt;/code> ou &lt;code>useLayoutEffect&lt;/code>? Deixa nos comentários e vamos trocar ideias!&lt;/strong>&lt;/p></description></item><item><title>Magreza como tendência e o papel do algoritmo: até onde vai a responsabilidade?</title><link>https://paulabicca.github.io/pt-br/p/magreza-como-descricao-e-o-papel-do-algoritmo/</link><pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/magreza-como-descricao-e-o-papel-do-algoritmo/</guid><description>&lt;p>A primeira versão dessa publicação foi o que me motivou a criar este blog. Você pode conferir uma versão reduzida dela &lt;a class="link" href="https://www.linkedin.com/posts/paulabicca93_tecnologia-algoritmo-mulheres-activity-7262461647829532672-eOik?utm_source=share&amp;amp;utm_medium=member_desktop" target="_blank" rel="noopener"
+>aqui&lt;/a>. Quando publiquei o primeiro post no blog, decidi que este seria o segundo, especialmente porque, nesse meio tempo, assisti a um filme que se conecta bastante com o tema.&lt;/p>
+&lt;p>Algumas semanas atrás, assisti ao filme &lt;strong>A Morte Lhe Cai&lt;/strong> , que conta a história de duas mulheres dispostas a fazer qualquer coisa para recuperar a beleza e juventude que um dia tiveram. Recentemente, vi &lt;strong>A Substância&lt;/strong>, que retrata a trajetória de uma atriz cuja carreira desmorona com a chegada da velhice. Desesperada, ela toma uma substância misteriosa que traz uma nova versão de dela mesma.&lt;/p>
+&lt;p>Esses filmes me fizeram lembrar de uma trend que tem circulado no TikTok. Nela, meninas, adolescentes e mulheres compartilham práticas extremas, como passar o dia apenas comendo gelatina ou até celebrar a dor de barriga, porque isso as ajudaria a perder peso.&lt;/p>
+&lt;p>&lt;strong>O que esses 3 pontos têm em comum?&lt;/strong>&lt;/p>
+&lt;p>A eterna busca pela juventude e magreza. Nos filmes e na trend, fica evidente que muitas mulheres estão dispostas a fazer quase qualquer coisa para parecerem mais jovens, mais magras e, por consequência, &amp;ldquo;mais bonitas e desejáveis&amp;rdquo;.&lt;/p>
+&lt;p>Essa reflexão me leva a questionar: até onde a culpa é do algoritmo? Ele deve ser responsabilizado? E mais importante, ele pode ser responsabilizado?&lt;/p>
+&lt;p>Segundo as diretrizes da plataforma, a idade mínima para uso do TikTok é 13 anos (ou 14 na Coreia do Sul, Indonésia e Quebec). É comum encontrar crianças bem mais novas por lá, expostas a conteúdos e padrões estéticos muitas vezes prejudiciais. E o impacto desse conteúdo não se restringe apenas às crianças; afeta também adolescentes e mulheres adultas que sentem uma pressão constante para atingir o padrão de magreza e beleza exaltado nas redes sociais.&lt;/p>
+&lt;p>Apesar das diretrizes de conteúdo específicas do TikTok proibirem a exibição de práticas prejudiciais relacionadas ao controle de peso (como dietas de baixas calorias e uso de medicamentos para emagrecimento), esses conteúdos se disseminam de forma ampla e descontrolada. Nos Estados Unidos, por exemplo, há uma versão do TikTok para menores de 13 anos, que inclui proteções adicionais, como restrições de interação e avaliações de conteúdo apropriado para essa faixa etária. No entanto, essa proteção não impede que conteúdos nocivos alcancem outras faixas etárias, inclusive adolescentes e adultos.&lt;/p>
+&lt;h2 id="a-responsabilidade-do-algoritmo">A responsabilidade do algoritmo
+&lt;/h2>&lt;p>O TikTok, como muitas outras redes sociais, utiliza algoritmos de recomendação que são projetados para manter os usuários engajados, entregando conteúdos com base nos interesses e comportamentos de navegação de cada pessoa. Em outras palavras, quanto mais você interage com conteúdos sobre beleza e dietas, mais o algoritmo entrega publicações semelhantes.&lt;/p>
+&lt;h2 id="como-podemos-melhorar-esse-cenário">Como podemos melhorar esse cenário?
+&lt;/h2>&lt;p>É importante que as redes sociais invistam em algoritmos mais responsáveis, que filtrem conteúdos prejudiciais à saúde mental e física dos usuários, especialmente dos mais jovens. Além disso, educar os usuários para reconhecerem e questionarem esses padrões também é essencial. Parcerias com organizações de saúde mental e órgãos reguladores para reforçar a segurança e saúde digital podem ser passos importantes.&lt;/p>
+&lt;p>Como sociedade, podemos promover uma cultura de aceitação e bem-estar, criando conteúdo positivo e pressionando as redes para uma moderação mais rigorosa e responsável. A sociedade e as plataformas devem trabalhar em conjunto para reduzir essa pressão estética, priorizando o bem-estar e a autoaceitação em vez de padrões inalcançáveis.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>E você, o que acha desse tema?&lt;/strong> Já parou para pensar no impacto do algoritmo nas nossas vidas? Deixe um comentário com sua opinião ou compartilhe alguma experiência que tenha vivido sobre isso. Vamos conversar e pensar juntos em como podemos criar uma internet mais saudável e inclusiva!&lt;/p></description></item><item><title>Vamos Falar de Acessibilidade na Web?</title><link>https://paulabicca.github.io/pt-br/p/vamos-falar-de-acessibilidade-na-web/</link><pubDate>Fri, 15 Nov 2024 20:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/vamos-falar-de-acessibilidade-na-web/</guid><description>&lt;p>Você sabia que a primeira lei de acessibilidade no Brasil foi sancionada em 2000? A &lt;strong>Lei Nº 10.098&lt;/strong>, de 19 de dezembro de 2000, foi um marco inicial para promover mais inclusão. Ainda assim, mesmo com mais de duas décadas de história, acessibilidade, especialmente na web, continua sendo um grande desafio.&lt;/p>
+&lt;p>Quantas vezes você já parou para se perguntar: &lt;strong>&amp;ldquo;Será que meu site pode ser acessado por todos?&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;p>A realidade é que, na maioria das vezes, a acessibilidade não é discutida porque as informações simplesmente não chegam às pessoas. E sem conhecimento, é impossível mudar. Então, que tal começar agora? Vamos explorar um pouco sobre acessibilidade na web.&lt;/p>
+&lt;hr>
+&lt;h2 id="mas-o-que-é-acessibilidade-na-web">Mas o que é Acessibilidade na Web?
+&lt;/h2>&lt;p>A acessibilidade na web vai muito além de atender pessoas com deficiências. Trata-se de projetar experiências digitais que sejam &lt;strong>universais&lt;/strong>, ou seja, acessíveis a todos. Isso inclui pessoas com:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Deficiências auditivas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cognitivas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Neurológicas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Físicas&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Visuais&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>De fala&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Mas os benefícios não param por aí. A acessibilidade também ajuda:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Usuários de dispositivos móveis&lt;/strong>, como celulares ou smartwatches.&lt;/li>
+&lt;li>&lt;strong>Idosos&lt;/strong>, com habilidades alteradas pelo envelhecimento.&lt;/li>
+&lt;li>&lt;strong>Usuários com limitações temporárias&lt;/strong>, como um braço quebrado ou óculos perdidos.&lt;/li>
+&lt;li>&lt;strong>Quem enfrenta situações desafiadoras&lt;/strong>, como usar o celular sob luz solar intensa ou em um ambiente barulhento.&lt;/li>
+&lt;li>&lt;strong>Aqueles com conexões lentas ou caras&lt;/strong>, que precisam de conteúdo leve e otimizado.&lt;/li>
+&lt;/ul>
+&lt;p>Acessibilidade é sobre inclusão universal, e todos nós nos beneficiamos dela.&lt;/p>
+&lt;hr>
+&lt;h2 id="descomplicando-wcag-e-seus-níveis">Descomplicando: WCAG e Seus Níveis
+&lt;/h2>&lt;p>As &lt;strong>Diretrizes de Acessibilidade de Conteúdo da Web (WCAG)&lt;/strong> foram criadas pela &lt;strong>Iniciativa de Acessibilidade da Web (WAI)&lt;/strong> do &lt;strong>W3C&lt;/strong>. Elas fornecem orientações claras para tornar sites, aplicativos e outros conteúdos digitais mais acessíveis.&lt;/p>
+&lt;h3 id="níveis-de-conformidade">Níveis de Conformidade
+&lt;/h3>&lt;p>As WCAG têm três níveis de conformidade que ajudam a medir o nível de acessibilidade:&lt;/p>
+&lt;h3 id="nível-a-o-básico">&lt;strong>Nível A&lt;/strong>: O Básico
+&lt;/h3>&lt;p>São os critérios essenciais para garantir o mínimo de acessibilidade:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Alternativas de Texto&lt;/strong>: Imagens devem ter descrições (&lt;code>alt&lt;/code>) que expliquem seu conteúdo.&lt;/li>
+&lt;li>&lt;strong>Controle do Conteúdo&lt;/strong>: Usuários precisam conseguir pausar ou parar animações, vídeos e outros elementos em movimento.&lt;/li>
+&lt;li>&lt;strong>Navegação por Teclado&lt;/strong>: Todo o site deve ser utilizável apenas com o teclado.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nível-aa-acessibilidade-avançada">&lt;strong>Nível AA&lt;/strong>: Acessibilidade Avançada
+&lt;/h3>&lt;p>Vai além do básico e cobre mais barreiras, como:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Contraste de Cor&lt;/strong>: Um contraste mínimo de 4.5:1 entre texto e fundo.&lt;/li>
+&lt;li>&lt;strong>Rótulos e Instruções&lt;/strong>: Campos de formulário devem ser claramente identificados.&lt;/li>
+&lt;li>&lt;strong>Textos Redimensionáveis&lt;/strong>: Conteúdo deve ser legível mesmo quando ampliado em 200%.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nível-aaa-padrão-ideal">&lt;strong>Nível AAA&lt;/strong>: Padrão Ideal
+&lt;/h3>&lt;p>Esse é o nível mais alto, exigindo:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Contraste Avançado&lt;/strong>: Contraste mínimo de 7:1 para texto e fundo.&lt;/li>
+&lt;li>&lt;strong>Linguagem Simples&lt;/strong>: Conteúdo claro e direto, ideal para pessoas com dificuldades cognitivas.&lt;/li>
+&lt;li>&lt;strong>Legendas para Áudio ao Vivo&lt;/strong>: Necessárias em transmissões como webinars.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="ferramentas-para-começar">Ferramentas Para Começar
+&lt;/h2>&lt;p>Agora que você sabe o que é WCAG e seus níveis, como testar e implementar acessibilidade? Aqui estão algumas ferramentas úteis:&lt;/p>
+&lt;h3 id="extensões-para-navegadores">&lt;strong>Extensões para Navegadores&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/accessible-web-helper/gdnpkbipbholkoaggmlblpbmgemddbgb" target="_blank" rel="noopener"
+>Accessible Web Helper&lt;/a>&lt;/strong>: Gera relatórios e verifica contraste de cores.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener"
+>axe DevTools&lt;/a>&lt;/strong>: Testa acessibilidade diretamente no DevTools do navegador.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn" target="_blank" rel="noopener"
+>Siteimprove Accessibility Checker&lt;/a>&lt;/strong>: Simples e eficiente, ideal para iniciantes (admito minha preferência por esse. Foi o primeiro que eu conheci)&lt;/li>
+&lt;/ul>
+&lt;h3 id="leitores-de-tela">&lt;strong>Leitores de Tela&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener"
+>NVDA&lt;/a>&lt;/strong> (Windows) : Gratuito e amplamente utilizado.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://help.gnome.org/users/orca/stable/index.html.en" target="_blank" rel="noopener"
+>Orca Screen Reader&lt;/a>&lt;/strong> (Linux): Vem pré-instalado na maior parte das distribuições Linux, mas pode exigir ajustes nas configurações de voz.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>&lt;em>Atualizações&lt;/em>&lt;/strong>&lt;br>
+Pesquisando para escrever sobre outra post, encontrei mais algumas dicas de leitores de tela:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://support.google.com/chromebook/answer/7031755" target="_blank" rel="noopener"
+>ChromeVox&lt;/a>&lt;/strong> (Chromebooks): Já vem pré-instalado nos Chromebooks, sendo ideal para quem utiliza o Google Chrome.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.apple.com/accessibility/vision/" target="_blank" rel="noopener"
+>VoiceOver&lt;/a>&lt;/strong> (macOS e iOS): Integrado ao sistema, bastante confiável para usuários Apple.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback" target="_blank" rel="noopener"
+>TalkBack&lt;/a>&lt;/strong> (Android): Leitor de tela nativo para dispositivos Android.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="o-próximo-passo-é-seu-é-nosso">O Próximo Passo é Seu! É nosso!
+&lt;/h1>&lt;p>Agora é hora de agir. Revise seus projetos, explore as ferramentas, leia a &lt;a class="link" href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener"
+>documentação&lt;/a> e comece a aplicar as boas práticas de acessibilidade. Lembre-se: desenvolver com acessibilidade é desenvolver para todos.&lt;/p>
+&lt;p>Se você gostou deste conteúdo ou tem dúvidas sobre como começar, deixe um comentário. Vamos juntos tornar a web mais inclusiva :)&lt;/p></description></item></channel></rss>
