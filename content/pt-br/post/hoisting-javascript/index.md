@@ -136,7 +136,7 @@ O **hoisting** em si não é uma técnica ou recurso que você escolhe usar dire
 ### **Casos Onde Faz Sentido**
 
 1. **Scripts Legados com var**  
-   Em projetos mais antigos que ainda utilizam var, o hoisting pode ser útil para entender como variáveis são tratadas. No entanto, não é recomendado adotar var em novos projetos, pois ele é propenso a causar confusão e bugs.
+   Em projetos mais antigos que ainda utilizam `var`, o hoisting pode ser útil para entender como variáveis são tratadas. No entanto, não é recomendado adotar `var` em novos projetos, pois ele é propenso a causar confusão e bugs.
 
 2. **Bibliotecas e Frameworks Antigos**  
    Se você trabalha com bibliotecas ou frameworks que não adotaram padrões modernos (como ES6), entender o hoisting é crucial para depurar e evitar erros.
@@ -163,7 +163,7 @@ Brincadeiras à parte, o hoisting ainda é útil em situações específicas, co
 
 Aqui vão algumas dicas para lidar com variáveis e evitar problemas:
 
-- Prefira let e const.
+- Prefira `let` e `const`.
 - Declare variáveis no início do escopo onde serão usadas.
 - Evite confiar no comportamento implícito do hoisting para garantir um código mais legível e previsível.
 
