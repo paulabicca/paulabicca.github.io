@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>W3C on Paula Bicca</title><link>https://paulabicca.github.io/en/tags/w3c/</link><description>Recent content in W3C on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 15 Nov 2024 20:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/en/tags/w3c/index.xml" rel="self" type="application/rss+xml"/><item><title>Shall We Talk About Web Accessibility?</title><link>https://paulabicca.github.io/en/p/shall-we-talk-about-web-accessibility/</link><pubDate>Fri, 15 Nov 2024 20:00:00 +0000</pubDate><guid>https://paulabicca.github.io/en/p/shall-we-talk-about-web-accessibility/</guid><description>&lt;p>Did you know that the first accessibility law in Brazil was enacted in 2000? The &lt;strong>Law No. 10.098&lt;/strong>, dated December 19, 2000, was a starting point for promoting greater inclusion. Even so, despite being over two decades old, accessibility, especially on the web, continues to be a major challenge.&lt;/p>
+&lt;p>How many times have you stopped to ask yourself: &lt;strong>&amp;ldquo;Can my site be accessed by everyone?&amp;rdquo;&lt;/strong>&lt;/p>
+&lt;p>The reality is that, most of the time, accessibility is not discussed because the information simply doesn&amp;rsquo;t reach people. And without knowledge, it&amp;rsquo;s impossible to make changes. So, how about starting now? Let&amp;rsquo;s explore a little about web accessibility.&lt;/p>
+&lt;hr>
+&lt;h2 id="what-is-web-accessibility">What is Web Accessibility?
+&lt;/h2>&lt;p>Web accessibility goes far beyond catering to people with disabilities. It&amp;rsquo;s about designing digital experiences that are universal, &lt;strong>meaning accessible to everyone&lt;/strong>. This includes people with:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Hearing disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Cognitive disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Neurological disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Physical disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Visual disabilities&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Speech disabilities&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>But the benefits don&amp;rsquo;t stop there. Accessibility also helps:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mobile device users, such as those using cell phones or smartwatches.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Elderly people, whose abilities change with aging.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Users with temporary limitations, like a broken arm or lost glasses.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>People facing challenging situations, like using their phone in intense sunlight or in a noisy environment.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Those with slow or expensive connections, who need light and optimized content.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Accessibility is about universal inclusion, and we all benefit from it.&lt;/p>
+&lt;hr>
+&lt;h2 id="simplifying-wcag-and-its-levels">Simplifying: WCAG and Its Levels
+&lt;/h2>&lt;p>The &lt;strong>Web Content Accessibility Guidelines (WCAG)&lt;/strong> were created by the &lt;strong>Web Accessibility Initiative (WAI)&lt;/strong> of the &lt;strong>W3C&lt;/strong>. They provide clear guidelines to make websites, apps, and other digital content more accessible.&lt;/p>
+&lt;h3 id="compliance-levels">Compliance Levels
+&lt;/h3>&lt;p>The WCAG have three levels of compliance to help measure accessibility:&lt;/p>
+&lt;h3 id="level-a-the-basics">&lt;strong>Level A&lt;/strong>: The Basics
+&lt;/h3>&lt;p>These are the essential criteria to ensure basic accessibility:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Text Alternatives: Images must have descriptions (&lt;code>alt&lt;/code>) explaining their content.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Content Control: Users must be able to pause or stop animations, videos, and other moving elements.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Keyboard Navigation: The entire site must be usable with just the keyboard.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="level-aa-advanced-accessibility">&lt;strong>Level AA&lt;/strong>: Advanced Accessibility
+&lt;/h3>&lt;p>Goes beyond the basics and addresses more barriers, such as:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Color Contrast: A minimum contrast of 4.5:1 between text and background.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Labels and Instructions: Form fields must be clearly labeled.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Resizable Text: Content must be legible even when enlarged by 200%.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="level-aaa-ideal-standard">&lt;strong>Level AAA&lt;/strong>: Ideal Standard
+&lt;/h3>&lt;p>This is the highest level, requiring:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Advanced Contrast: A minimum contrast of 7:1 for text and background.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Simple Language: Clear and direct content, ideal for people with cognitive difficulties.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Live Audio Captions: Required for live broadcasts such as webinars.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="tools-to-get-started">Tools to Get Started
+&lt;/h2>&lt;p>Now that you know what WCAG is and its levels, how can you test and implement accessibility? Here are some useful tools:&lt;/p>
+&lt;h3 id="browser-extensions">&lt;strong>Browser Extensions&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/accessible-web-helper/gdnpkbipbholkoaggmlblpbmgemddbgb" target="_blank" rel="noopener"
+>Accessible Web Helper&lt;/a>&lt;/strong>: Generates reports and checks color contrast.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd" target="_blank" rel="noopener"
+>axe DevTools&lt;/a>&lt;/strong>: Tests accessibility directly in the browser&amp;rsquo;s DevTools.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://chromewebstore.google.com/detail/siteimprove-accessibility/djcglbmbegflehmbfleechkjhmedcopn" target="_blank" rel="noopener"
+>Siteimprove Accessibility Checker&lt;/a>&lt;/strong>: Simple and efficient, ideal for beginners (I admit, this is my favorite. It was the first one I came across).&lt;/li>
+&lt;/ul>
+&lt;h3 id="screen-readers">&lt;strong>Screen Readers&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>&lt;a class="link" href="https://www.nvaccess.org/download/" target="_blank" rel="noopener"
+>NVDA&lt;/a>&lt;/strong> (Windows): Free and widely used.&lt;/li>
+&lt;li>&lt;strong>&lt;a class="link" href="https://help.gnome.org/users/orca/stable/index.html.en" target="_blank" rel="noopener"
+>Orca Screen Reader&lt;/a>&lt;/strong> (Linux): Pre-installed on most Linux distributions but may require adjustments to voice settings.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>&lt;em>Updates&lt;/em>&lt;/strong>&lt;br>
+While researching to write another post, I found some more screen readers tips:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://support.google.com/chromebook/answer/7031755" target="_blank" rel="noopener"
+>ChromeVox&lt;/a>&lt;/strong> (Chromebooks): It comes pre-installed on Chromebooks, making it ideal for those who use Google Chrome.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://www.apple.com/accessibility/vision/" target="_blank" rel="noopener"
+>VoiceOver&lt;/a>&lt;/strong> (macOS e iOS): Integrated into the system, highly reliable for Apple users.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a class="link" href="https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback" target="_blank" rel="noopener"
+>TalkBack&lt;/a>&lt;/strong> (Android): Native screen reader for Android devices.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="the-next-step-is-yours-its-ours">The Next Step is Yours! It’s Ours!
+&lt;/h1>&lt;p>Now it’s time to take action. Review your projects, explore the tools, read the &lt;a class="link" href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener"
+>documentation&lt;/a> , and start applying accessibility best practices. Remember: developing with accessibility is developing for everyone.&lt;/p>
+&lt;p>If you liked this content or have questions about how to get started, leave a comment. Let’s work together to make the web more inclusive :)&lt;/p></description></item></channel></rss>

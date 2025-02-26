@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Wai-Aria on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/tags/wai-aria/</link><description>Recent content in Wai-Aria on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/tags/wai-aria/index.xml" rel="self" type="application/rss+xml"/><item><title>HTML semântico e WAI-ARIA : mais que amigos, friends</title><link>https://paulabicca.github.io/pt-br/p/wai-aria-html-semantico-mais-que-amigos-friends/</link><pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/wai-aria-html-semantico-mais-que-amigos-friends/</guid><description>&lt;p>Quando falamos sobre desenvolvimento web, o &lt;strong>HTML semântico&lt;/strong> e o &lt;strong>WAI-ARIA&lt;/strong> são como dois parceiros inseparáveis, trabalhando juntos para tornar seu site mais acessível e fácil de entender. Você provavelmente já conhece o &lt;strong>HTML semântico&lt;/strong>, mas o que é o &lt;strong>WAI-ARIA&lt;/strong>? Vamos desvendar os dois de maneira simples e sem complicação!&lt;/p>
+&lt;hr>
+&lt;h2 id="html-semântico-o-básico-da-estrutura">HTML Semântico: O Básico da Estrutura
+&lt;/h2>&lt;p>Primeiro, vamos falar sobre &lt;strong>HTML semântico&lt;/strong>. O que isso significa? Basicamente, é o uso de tags HTML que têm um significado claro e bem definido, tanto para o navegador quanto para os usuários. Ao usar elementos semânticos, você está criando um código que não só faz mais sentido para os desenvolvedores, mas também melhora a experiência dos usuários, especialmente aqueles com deficiência.&lt;/p>
+&lt;p>Por exemplo, em vez de usar &lt;code>&amp;lt;div&amp;gt;&lt;/code> e adicionar atributos de estilo para que ela se comporte como um botão, você deve usar a tag &lt;code>&amp;lt;button&amp;gt;&lt;/code>, que já é semanticamente definida para essa função. Isso ajuda na acessibilidade e torna o código mais fácil de entender.&lt;/p>
+&lt;p>Exemplo de HTML Semântico:&lt;/p>
+&lt;p>&lt;strong>Evite:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">div&lt;/span> &lt;span class="na">role&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;button&amp;#34;&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enviar&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">div&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Prefira:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-html" data-lang="html">&lt;span class="line">&lt;span class="cl">&lt;span class="p">&amp;lt;&lt;/span>&lt;span class="nt">button&lt;/span> &lt;span class="na">aria-label&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s">&amp;#34;Enviar&amp;#34;&lt;/span>&lt;span class="p">&amp;gt;&amp;lt;/&lt;/span>&lt;span class="nt">button&lt;/span>&lt;span class="p">&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Optar por &lt;strong>HTML semântico&lt;/strong>, como &lt;code>&amp;lt;button&amp;gt;&lt;/code>, não só melhora a acessibilidade, mas também oferece outros benefícios:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Melhor desempenho em dispositivos móveis:&lt;/strong> O HTML semântico é mais leve e facilita a criação de layouts responsivos.&lt;/li>
+&lt;li>&lt;strong>Melhor SEO:&lt;/strong> Os mecanismos de busca dão mais relevância a elementos semânticos, como títulos e links, facilitando a indexação do seu conteúdo.&lt;/li>
+&lt;li>&lt;strong>Facilidade no desenvolvimento:&lt;/strong> O código é mais limpo, intuitivo e fácil de entender.&lt;/li>
+&lt;/ul>
+&lt;p>Agora vamos com alguns exemplos?&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>&lt;strong>Exemplo Genérico&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Exemplo Semântico&lt;/strong>&lt;/th>
+&lt;th>&lt;strong>Descrição&lt;/strong>&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;header&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define o cabeçalho de uma página ou seção.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;nav&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;nav&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define um bloco de navegação.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;article&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;article&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa um conteúdo independente, como uma postagem.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;section&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;section&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define uma seção ou parte do conteúdo com um título.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;footer&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa o rodapé de uma página ou seção.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;main&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;main&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Define o conteúdo principal da página.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div id=&amp;quot;aside&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;aside&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa conteúdo relacionado, mas não essencial.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;heading&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1&amp;gt;&lt;/code>, &lt;code>&amp;lt;h2&amp;gt;&lt;/code>, &lt;code>&amp;lt;h3&amp;gt;&lt;/code>, etc.&lt;/td>
+&lt;td>Define títulos e subtítulos, estruturando o conteúdo.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>&amp;lt;div class=&amp;quot;button&amp;quot;&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>&amp;lt;button&amp;gt;&lt;/code>&lt;/td>
+&lt;td>Representa um botão de ação.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="wai-aria-dando-uma-mãozinha-na-acessibilidade">WAI-ARIA: Dando uma Mãozinha na Acessibilidade
+&lt;/h2>&lt;p>Agora, o &lt;strong>WAI-ARIA&lt;/strong> (Accessible Rich Internet Applications) entra em cena. Ele é como um assistente extra, ajudando a tornar o seu site acessível quando o &lt;strong>HTML semântico&lt;/strong> não é o suficiente para descrever a funcionalidade de um elemento, como em aplicativos dinâmicos ou interfaces mais complexas. O &lt;strong>WAI-ARIA&lt;/strong> oferece &amp;ldquo;informações extras&amp;rdquo; para tecnologias assistivas, como leitores de tela, para garantir que todos os usuários, independentemente de suas limitações, possam interagir com o conteúdo de forma eficiente.&lt;/p>
+&lt;p>Agora que você sabe o que é &lt;strong>WAI-ARIA&lt;/strong> vamos falar de dois atributos deles: &lt;strong>aria&lt;/strong> e &lt;strong>role&lt;/strong>.&lt;/p>
+&lt;hr>
+&lt;h3 id="atributos-aria">Atributos ARIA
+&lt;/h3>&lt;p>Os &lt;strong>atributos ARIA&lt;/strong> são usados para fornecer informações adicionais a tecnologias assistivas, como leitores de tela, quando o HTML padrão não é suficiente para descrever a funcionalidade ou o estado de um elemento de forma clara.&lt;/p>
+&lt;p>A seguir, apresento alguns &lt;strong>atributos ARIA&lt;/strong> comuns que podem ser muito úteis no seu dia a dia de desenvolvimento. Para uma lista completa, consulte a documentação &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Exemplos de Atributos ARIA:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Atributo ARIA&lt;/th>
+&lt;th>Descrição&lt;/th>
+&lt;th>Exemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>aria-label&lt;/strong>&lt;/td>
+&lt;td>Fornece um texto descritivo para elementos de interface sem texto visível.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-label=&amp;quot;Fechar&amp;quot;&amp;gt;X&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-hidden&lt;/strong>&lt;/td>
+&lt;td>Esconde um elemento para leitores de tela, sem afetar sua visibilidade.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-hidden=&amp;quot;true&amp;quot;&amp;gt;Este conteúdo não será lido pelo leitor de tela&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-description&lt;/strong>&lt;/td>
+&lt;td>Fornece uma descrição mais detalhada sobre um elemento.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div aria-description=&amp;quot;Este botão envia o formulário&amp;quot;&amp;gt;Enviar&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>contenteditable&lt;/strong>&lt;/td>
+&lt;td>Indica que um campo é editável, útil quando usamos uma &lt;code>&amp;lt;div&amp;gt;&lt;/code> em vez de um &lt;code>&amp;lt;input&amp;gt;&lt;/code>.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div contenteditable=&amp;quot;true&amp;quot;&amp;gt;Edite este texto&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-required&lt;/strong>&lt;/td>
+&lt;td>Marca um campo de formulário como obrigatório.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-required=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-invalid&lt;/strong>&lt;/td>
+&lt;td>Indica que um campo contém um valor inválido.&lt;/td>
+&lt;td>&lt;code>&amp;lt;input type=&amp;quot;text&amp;quot; aria-invalid=&amp;quot;true&amp;quot; /&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-expanded&lt;/strong>&lt;/td>
+&lt;td>Informa se um menu ou acordeão está expandido ou contraído.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-expanded=&amp;quot;false&amp;quot;&amp;gt;Menu&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-labelledby&lt;/strong>&lt;/td>
+&lt;td>Referencia outro elemento para fornecer um nome acessível.&lt;/td>
+&lt;td>&lt;code>&amp;lt;h1 id=&amp;quot;header&amp;quot;&amp;gt;Título&amp;lt;/h1&amp;gt;&amp;lt;div aria-labelledby=&amp;quot;header&amp;quot;&amp;gt;Conteúdo associado ao título&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>aria-details&lt;/strong>&lt;/td>
+&lt;td>Fornece informações adicionais ou descrições mais detalhadas sobre um elemento.&lt;/td>
+&lt;td>&lt;code>&amp;lt;button aria-details=&amp;quot;info&amp;quot;&amp;gt;Mais informações&amp;lt;/button&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h3 id="funções-aria-roles">Funções ARIA: Roles
+&lt;/h3>&lt;p>Por padrão, muitos elementos &lt;strong>HTML semânticos&lt;/strong> já têm funções definidas. Por exemplo, um &lt;code>&amp;lt;input type=&amp;quot;radio&amp;quot;&amp;gt;&lt;/code> tem a função de &amp;ldquo;radio&amp;rdquo;. Elementos não semânticos, como &lt;code>&amp;lt;div&amp;gt;&lt;/code> e &lt;code>&amp;lt;span&amp;gt;&lt;/code>, precisam do atributo role para definir sua função.&lt;/p>
+&lt;p>A seguir, apresento alguns roles comuns que podem ser muito úteis no seu dia a dia de desenvolvimento. Para uma lista completa, consulte a documentação &lt;a class="link" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>Exemplos de Roles:&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Função ARIA (Role)&lt;/th>
+&lt;th>Descrição&lt;/th>
+&lt;th>Exemplo&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;alert&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Comunica uma mensagem importante e geralmente sensível ao tempo ao usuário.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;alert&amp;quot;&amp;gt;Erro: campo obrigatório não preenchido.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;definition&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento contém a definição de um termo ou conceito.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;definition&amp;quot;&amp;gt;Acessibilidade: prática de tornar a web acessível para todos.&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;search&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Define a área de pesquisa da página.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;search&amp;quot;&amp;gt;Caixa de pesquisa&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;modal&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento é um modal.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;modal&amp;quot;&amp;gt;Este é um modal&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>role=&amp;ldquo;dialog&amp;rdquo;&lt;/strong>&lt;/td>
+&lt;td>Indica que o elemento é uma janela de diálogo.&lt;/td>
+&lt;td>&lt;code>&amp;lt;div role=&amp;quot;dialog&amp;quot;&amp;gt;Esta é uma janela de diálogo&amp;lt;/div&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="vamos-colocar-em-prática">Vamos Colocar em Prática?
+&lt;/h2>&lt;p>E aí está! Agora você já sabe como o &lt;strong>HTML semântico&lt;/strong> e o &lt;strong>WAI-ARIA&lt;/strong> podem trabalhar juntos para melhorar a acessibilidade do seu site. Usar &lt;strong>HTML semântico&lt;/strong> é como construir uma casa com uma estrutura sólida e bem planejada, enquanto o &lt;strong>WAI-ARIA&lt;/strong> é aquele toque final que garante que todo mundo consiga acessar e interagir com ela, independentemente de limitações. Ao aplicar essas práticas, você não só torna seu site mais inclusivo, mas também otimiza a experiência do usuário e ajuda a melhorar o SEO.&lt;/p>
+&lt;p>A acessibilidade na web é mais do que uma boa prática — é um compromisso com um mundo digital mais justo e acessível para todos.&lt;/p>
+&lt;p>Agora que você já sabe o básico, que tal começar a aplicar esses conceitos no seu próximo projeto? Lembre-se: cada pequeno passo conta!&lt;/p></description></item></channel></rss>

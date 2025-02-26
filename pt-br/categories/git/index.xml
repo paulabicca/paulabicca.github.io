@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/categories/git/</link><description>Recent content in Git on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Como o Cherry-pick pode salvar você</title><link>https://paulabicca.github.io/pt-br/p/como-cherry-pick-pode-salvar-voce/</link><pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/como-cherry-pick-pode-salvar-voce/</guid><description>&lt;p>Já aconteceu de você resolver um bug na branch errada ou precisar reutilizar uma solução sem levar tudo junto? É aqui que o cherry-pick entra em cena! Esse comando do Git é o equivalente a escolher a fruta perfeita numa árvore: você pega exatamente o que precisa, sem o “pacote completo”.&lt;/p>
+&lt;p>Imagine recuperar aquele código perdido ou levar uma solução para outra branch sem refazer tudo. Curioso? Então vamos explorar como o cherry-pick pode te salvar desse problema!&lt;/p>
+&lt;hr>
+&lt;h2 id="o-que-é-cherry-pick">&lt;strong>O que é Cherry-Pick?&lt;/strong>
+&lt;/h2>&lt;p>O comando git &lt;code>cherry-pick&lt;/code> permite aplicar um commit específico de uma branch em outra. Em vez de trazer todo o histórico, como no merge ou rebase, ele foca apenas no que você apontar.&lt;/p>
+&lt;p>Funciona assim: você localiza o hash do commit desejado, e o Git transporta as mudanças para a branch atual. Ideal para situações pontuais em que você precisa de ajustes sem bagunçar o fluxo de trabalho.&lt;/p>
+&lt;p>Por que usar? Para evitar retrabalho, recuperar mudanças perdidas ou garantir que correções estejam nas branches certas.&lt;/p>
+&lt;hr>
+&lt;h2 id="quando-o-cherry-pick-é-a-melhor-opção">&lt;strong>Quando o Cherry-Pick é a Melhor Opção?&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>1. Recuperar um commit específico para outra branch&lt;/strong>&lt;br>
+Você corrigiu um bug, mas percebeu que estava na branch errada. Sem desespero! Basta aplicar o commit na branch correta.&lt;/p>
+&lt;p>&lt;strong>2. Incorporar soluções entre branches sem um merge completo&lt;/strong>&lt;br>
+Precisa de uma funcionalidade pronta, mas não quer carregar toda a bagagem de outra branch? Cherry-pick resolve.&lt;/p>
+&lt;p>&lt;strong>3. Erro ao fazer commit direto na main&lt;/strong>&lt;br>
+Um commit acidental na main pode ser levado para a branch correta rapidamente, mantendo o histórico limpo.&lt;/p>
+&lt;hr>
+&lt;h2 id="como-usar-cherry-pick-na-prática">&lt;strong>Como Usar Cherry-Pick na Prática&lt;/strong>
+&lt;/h2>&lt;p>&lt;strong>Passo 1: Encontre o hash do commit&lt;/strong>&lt;br>
+Primeiro, localize o commit que você deseja aplicar. Use o comando &lt;code>git log&lt;/code> ou uma interface gráfica para encontrar o hash.&lt;/p>
+&lt;p>Se você não sabe o que é um hash de commit, aqui vai um exemplo para ajudar:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">commit e0c3d682014f6b2bf8d2814512bc8c00c2968b40 &lt;span class="o">(&lt;/span>origin/development&lt;span class="o">)&lt;/span> &lt;span class="c1"># Isso é um hash&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Author: Jane Doe &amp;lt;jane.doe@gmail.com&amp;gt;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Tue Nov &lt;span class="m">21&lt;/span> 14:32:01 &lt;span class="m">2024&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 2: Aplique o commit na branch desejada&lt;/strong>&lt;/p>
+&lt;p>Agora, vá para a branch onde você quer aplicar esse commit.
+Sempre verifique se você está na branch correta. Por exemplo, se você deseja trazer um commit da da branch &lt;code>development&lt;/code> para a branch &lt;code>feature-login&lt;/code>, verifique se está nela com um &lt;code>git log&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick &amp;lt;hash-do-commit&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 3: Resolva conflitos (se houver)&lt;/strong>&lt;/p>
+&lt;p>Se o commit causar conflitos, o Git mostrará quais arquivos precisam ser ajustados. Resolva os conflitos manualmente editando os arquivos indicados.&lt;/p>
+&lt;p>Depois de resolver, finalize o processo com:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --continue
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Se precisar cancelar o cherry-pick por algum motivo, use:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git cherry-pick --abort
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>Passo 4: Confirme o resultado&lt;/strong>&lt;/p>
+&lt;p>Por fim, confira se o commit foi aplicado corretamente. Use o comando git log para verificar se o commit aparece no histórico da branch atual.&lt;/p>
+&lt;p>Se tudo deu certo, o cherry-pick trouxe exatamente o que você precisava para a branch feature-login!&lt;/p>
+&lt;hr>
+&lt;h2 id="cuidados-e-boas-práticas">&lt;strong>Cuidados e Boas Práticas&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Contexto é tudo:&lt;/strong> Entende se você realmente precisa de cherry-pick na branch atual. Para cenários maiores use o merge ou rebase que são escolhas mais organizadas.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Organização primeiro:&lt;/strong> Não use cherry-pick como “jeitinho” para corrigir má gestão de branches.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Conflitos frequentes:&lt;/strong> Trabalhe em equipe para evitar retrabalho e reduza pontos de conflito.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="ferramentas-e-documentação">&lt;strong>Ferramentas e Documentação&lt;/strong>
+&lt;/h2>&lt;p>O cherry-pick é uma ferramenta super utíl que torna possível corrigir erros, reutilizar código e otimizar fluxos de trabalho.&lt;/p>
+&lt;p>Quer se aprofundar no assunto? Dá uma olhada na &lt;a class="link" href="https://git-scm.com/docs/git-cherry-pick" target="_blank" rel="noopener"
+>documentação oficial do Git&lt;/a>. É completíssima e vai te deixar um expert no assunto.&lt;/p>
+&lt;p>E para facilitar ainda mais a sua vida, que tal usar extensões do VS Code? Aqui estão algumas que podem te ajudar na hora de dar um cherry-pick sem complicação:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>GitLens&lt;/strong>: Traz uma visualização detalhada de commits e histórico, facilitando a identificação do commit certo.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Git Graph&lt;/strong>: Exibe o histórico do repositório em um gráfico super intuitivo, perfeito para localizar aquele hash específico.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>GitKraken&lt;/strong> (ferramenta externa, mas vale citar): Para quem prefere interfaces gráficas amigáveis ao invés da linha de comando.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>Agora é sua vez: já teve uma situação em que o cherry-pick teria salvado seu dia? Me conte nos comentários!&lt;/p></description></item></channel></rss>

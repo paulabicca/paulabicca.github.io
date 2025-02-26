@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSS on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/categories/css/</link><description>Recent content in CSS on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Sun, 15 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/categories/css/index.xml" rel="self" type="application/rss+xml"/><item><title>Porque você deveria começar a usar prefers-reduced-motion</title><link>https://paulabicca.github.io/pt-br/p/porque-voce-deveria-comecar-a-usar-prefers-reduced-motion/</link><pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/porque-voce-deveria-comecar-a-usar-prefers-reduced-motion/</guid><description>&lt;p>Na web, as animações e efeitos visuais são recursos populares para tornar as páginas mais dinâmicas e envolventes. No entanto, para alguns usuários, especialmente aqueles sensíveis a movimentos rápidos ou excessivos, esses recursos podem causar desconforto, como náusea ou tontura.&lt;br>
+Felizmente, podemos usar o &lt;code>prefers-reduced-motion&lt;/code>, que permite ajustar ou desativar animações, oferecendo uma alternativa mais suave para quem prefere uma navegação mais estável. Neste texto, vamos explorar o que é o&lt;code>prefers-reduced-motion&lt;/code>, como implementá-lo em seu site e como os usuários(e você, caso queira) podem modificar suas preferências para uma experiência mais confortável.&lt;/p>
+&lt;h2 id="o-que-é-prefers-reduced-motion">&lt;strong>O que é prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>&lt;code>prefers-reduced-motion&lt;/code> é um recurso do CSS que permite aos desenvolvedores ajustar a experiência de navegação para usuários que preferem reduzir ou eliminar animações e movimentos na interface. Isso é especialmente importante para aqueles que se sentem desconfortáveis com movimentos excessivos na tela, como efeitos visuais ou vídeos automáticos.&lt;/p>
+&lt;p>A configuração &amp;ldquo;reduzir movimento&amp;rdquo; pode ser ativada diretamente nas preferências do sistema do usuário. Quando ativada, o navegador envia essa preferência, permitindo que os desenvolvedores adaptem o conteúdo da página, seja desativando animações ou diminuindo sua intensidade. Isso pode incluir desde a desativação da reprodução automática de vídeos até a reestruturação da interação com a interface, tornando-a mais estável e simplificada para quem prefere uma navegação sem movimentos excessivos.&lt;/p>
+&lt;h2 id="como-modificar-suas-preferências">&lt;strong>Como modificar suas preferências&lt;/strong>
+&lt;/h2>&lt;p>A configuração de &amp;ldquo;reduzir movimento&amp;rdquo; pode ser ativada diretamente nas configurações do seu dispositivo. Veja como modificar as preferências em diferentes sistemas:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Windows 10&lt;/strong>: Configurações &amp;gt; Facilidade de Acesso &amp;gt; Vídeo &amp;gt; Mostrar animações no Windows.&lt;/li>
+&lt;li>&lt;strong>Windows 11&lt;/strong>: Configurações &amp;gt; Acessibilidade &amp;gt; Efeitos visuais &amp;gt; Efeitos de animação.&lt;/li>
+&lt;li>&lt;strong>macOS&lt;/strong>: Preferências do Sistema &amp;gt; Acessibilidade &amp;gt; Tela &amp;gt; Reduzir movimento.&lt;/li>
+&lt;li>&lt;strong>iOS&lt;/strong>: Ajustes &amp;gt; Acessibilidade &amp;gt; Movimento.&lt;/li>
+&lt;li>&lt;strong>Android 9+&lt;/strong>: Configurações &amp;gt; Acessibilidade &amp;gt; Remover animações.&lt;/li>
+&lt;/ul>
+&lt;h2 id="por-que-usar-prefers-reduced-motion-é-importante-para-a-acessibilidade">&lt;strong>Por que usar prefers-reduced-motion é importante para a acessibilidade?&lt;/strong>
+&lt;/h2>&lt;p>Implementar essa funcionalidade é um aspecto crucial da acessibilidade web, particularmente no critério AAA da WCAG (Web Content Accessibility Guidelines), especificamente no item 2.3.3: Animação a partir de Interações. Veja mais sobre isso &lt;a class="link" href="https://www.w3.org/WAI/WCAG21/Techniques/css/C39" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;p>Alguns usuários, especialmente aqueles com condições vestibulares, podem sofrer efeitos colaterais indesejados de animações, como tontura ou náusea. Por exemplo, em páginas com rolagem parallax (onde o fundo se move em um ritmo diferente do conteúdo principal), o movimento extra pode ser um gatilho para esses distúrbios, mesmo que o movimento de rolagem por si só seja controlado pelo usuário.&lt;/p>
+&lt;p>Portanto, ao integrar &lt;code>prefers-reduced-motion&lt;/code>, você oferece uma alternativa mais confortável para esses usuários, garantindo uma experiência mais inclusiva.&lt;/p>
+&lt;h2 id="como-implementar-prefers-reduced-motion-em-css">&lt;strong>Como Implementar prefers-reduced-motion em CSS&lt;/strong>
+&lt;/h2>&lt;p>A implementação de &lt;code>prefers-reduced-motion&lt;/code> em CSS é simples. Basta adicionar uma consulta de mídia que detecta a preferência do usuário e aplicar estilos alternativos quando a configuração estiver ativada. Veja o exemplo:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="p">@&lt;/span>&lt;span class="k">media&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="nt">prefers-reduced-motion&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="nt">reduce&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">.&lt;/span>&lt;span class="nc">notification&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">animation&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">transition&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">none&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/wBwgwYo" target="_blank" rel="noopener"
+>Experimente na prática no CodePen!&lt;/a>&lt;br>
+(&lt;em>Não se esqueça de desativar os &amp;ldquo;Efeitos de animação&amp;rdquo; nas configurações do seu sistema operacional.&lt;/em>)&lt;/p>
+&lt;h2 id="como-implementar-prefers-reduced-motion-em-javascript">&lt;strong>Como Implementar prefers-reduced-motion em JavaScript&lt;/strong>
+&lt;/h2>&lt;p>No JavaScript, você pode usar a propriedade &lt;code>window.matchMedia&lt;/code> para detectar a preferência do usuário por animações reduzidas e alterar o comportamento da página com base nessa preferência. Veja como isso pode ser feito:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">prefersReducedMotion&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">window&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">matchMedia&lt;/span>&lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s2">&amp;#34;(prefers-reduced-motion: reduce)&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;a class="link" href="https://codepen.io/paulabicca/pen/zxONOym" target="_blank" rel="noopener"
+>Experimente na prática no CodePen!&lt;/a>&lt;br>
+(&lt;em>Não se esqueça de desativar os &amp;ldquo;Efeitos de animação&amp;rdquo; nas configurações do seu sistema operacional.&lt;/em>)&lt;/p>
+&lt;h2 id="por-que-você-deveria-começar-a-usar-prefers-reduced-motion">&lt;strong>Por que você deveria começar a usar prefers-reduced-motion?&lt;/strong>
+&lt;/h2>&lt;p>Incorporar o &lt;code>prefers-reduced-motion&lt;/code> em seu site não é apenas uma questão técnica, mas um compromisso com a inclusão. Ao permitir que os usuários escolham como querem interagir com sua página, você proporciona uma experiência mais confortável e acessível para todos. Além disso, essa prática melhora a conformidade com as diretrizes de acessibilidade, garantindo que sua página seja acessível para um público maior, incluindo pessoas com condições que tornam animações excessivas um desafio. Portanto, sempre que possível, implemente soluções que respeitem a preferência por menos movimento, promovendo uma web mais inclusiva e menos cansativa para todos.&lt;/p></description></item></channel></rss>

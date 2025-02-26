@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on Paula Bicca</title><link>https://paulabicca.github.io/pt-br/categories/javascript/</link><description>Recent content in Javascript on Paula Bicca</description><generator>Hugo -- gohugo.io</generator><language>pt-br</language><lastBuildDate>Sat, 15 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://paulabicca.github.io/pt-br/categories/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Como o 'Boring Stack' me fez enxergar tecnologia de outro jeito</title><link>https://paulabicca.github.io/pt-br/p/como-o-boring-stack-me-fez-enxergar-tecnologia-de-outro-jeito/</link><pubDate>Sat, 15 Feb 2025 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/como-o-boring-stack-me-fez-enxergar-tecnologia-de-outro-jeito/</guid><description>&lt;p>A primeira vez que ouvi falar sobre o termo &amp;ldquo;Boring Stack&amp;rdquo; foi enquanto testava a IA DeepSeek. Estava curiosa para ver como ela responderia, então usei o mesmo prompt que costumo aplicar no ChatGPT: sugerir temas interessantes para o meu blog. Para minha surpresa, a IA trouxe o seguinte assunto: &lt;strong>&amp;ldquo;Por que Devs Sêniores Estão Migrando para Stack ‘Boring’&amp;rdquo;&lt;/strong>.&lt;br>
+Intrigada, perguntei: o que exatamente seria um &amp;ldquo;Boring Stack&amp;rdquo;?&lt;br>
+E é justamente essa resposta que compartilho com você neste post.&lt;/p>
+&lt;h2 id="o-que-é-boring-stack">O que é &amp;ldquo;Boring Stack&amp;rdquo;?
+&lt;/h2>&lt;p>O termo &amp;ldquo;Boring Stack&amp;rdquo; foi popularizado por Dan McKinley, ex-engenheiro da Etsy, em um artigo que você pode conferir &lt;a class="link" href="https://mcfunley.com/choose-boring-technology" target="_blank" rel="noopener"
+>aqui&lt;/a>.
+Nesse texto, ele apresenta uma abordagem de desenvolvimento focada em tecnologias maduras e bem testadas. Ao contrário da busca incessante por novas ferramentas e soluções inovadoras, o &amp;ldquo;Boring Stack&amp;rdquo; valoriza &lt;strong>tecnologias comprovadas, simples e estáveis&lt;/strong>. A ideia central é minimizar os riscos ao escolher tecnologias que já estão estabelecidas e que são bem conhecidas pela comunidade. Essa abordagem prioriza &lt;strong>estabilidade, manutenção&lt;/strong> e &lt;strong>produtividade a longo prazo&lt;/strong> em detrimento do apelo de soluções modernas, mas incertas.
+Exemplos típicos de um &amp;ldquo;Boring Stack&amp;rdquo; incluem:&lt;/p>
+&lt;ul>
+&lt;li>MySQL, PHP, Vanilla JS e Python&lt;/li>
+&lt;/ul>
+&lt;h2 id="características-do-boring-stack">Características do &amp;ldquo;Boring Stack&amp;rdquo;
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Simplicidade&lt;/strong>: As tecnologias escolhidas são intuitivas e fáceis de usar. Isso permite que os desenvolvedores se concentrem na resolução de problemas de negócios, em vez de se perderem em complexidades técnicas.&lt;/li>
+&lt;li>&lt;strong>Eficiência&lt;/strong>: Ferramentas bem documentadas e amplamente conhecidas tornam o desenvolvimento mais rápido e eficiente. Problemas comuns são mais fáceis de resolver, e o time pode avançar sem perder tempo com novas dificuldades inesperadas.&lt;/li>
+&lt;li>&lt;strong>Manutenção&lt;/strong>: Tecnologias estabelecidas geralmente possuem um ciclo de vida mais longo e são mais fáceis de manter ao longo do tempo. Isso é essencial para ambientes corporativos, onde a manutenção e os custos a longo prazo podem se tornar um desafio.&lt;/li>
+&lt;li>&lt;strong>Escalabilidade&lt;/strong>: Apesar de priorizar a simplicidade, o Boring Stack ainda pode ser escalável. A escolha de frameworks e ferramentas que oferecem suporte a mudanças e crescimento é uma característica importante dessa abordagem.&lt;/li>
+&lt;/ol>
+&lt;h2 id="vantagens-do-boring-stack">Vantagens do &amp;ldquo;Boring Stack&amp;rdquo;
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Redução do Risco&lt;/strong>: Ao adotar tecnologias comprovadas, os desenvolvedores minimizam os riscos de falhas inesperadas que podem ocorrer ao usar novas soluções não testadas.&lt;/li>
+&lt;li>&lt;strong>Comunidade e Suporte&lt;/strong>: Tecnologias maduras geralmente possuem comunidades grandes e ativas, o que facilita o suporte, a resolução de problemas e a troca de experiências.&lt;/li>
+&lt;li>&lt;strong>Menor Curva de Aprendizado&lt;/strong>: Como essas tecnologias são amplamente utilizadas, os desenvolvedores podem rapidamente adaptar-se ao projeto sem a necessidade de aprender novas ferramentas ou conceitos complicados.&lt;/li>
+&lt;/ul>
+&lt;h2 id="desvantagens-do-boring-stack">Desvantagens do &amp;ldquo;Boring Stack&amp;rdquo;
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Falta de Inovação&lt;/strong>: O maior risco de adotar um &amp;ldquo;Boring Stack&amp;rdquo; é a falta de inovação. Tecnologias que são bem testadas podem não ser tão ousadas ou revolucionárias quanto as mais novas, resultando em soluções que podem parecer desatualizadas.&lt;/li>
+&lt;li>&lt;strong>Limitações de Escalabilidade&lt;/strong>: Embora muitas das tecnologias mais antigas sejam robustas, elas podem não ser tão escaláveis quanto soluções mais modernas que foram desenvolvidas para atender a novos padrões arquitetônicos.&lt;/li>
+&lt;li>&lt;strong>Menos Flexibilidade&lt;/strong>: O uso de tecnologias estabelecidas pode limitar a flexibilidade em termos de adaptação às mudanças de mercado ou às novas demandas tecnológicas.&lt;/li>
+&lt;/ol>
+&lt;h2 id="a-filosofia-por-trás-da-escolha-do-boring-stack">A Filosofia por Trás da Escolha do &amp;ldquo;Boring Stack&amp;rdquo;
+&lt;/h2>&lt;p>De acordo com Dan McKinley, a migração para stacks mais simples tem uma lógica clara. Ele explica que cada empresa recebe um número limitado de &amp;ldquo;tokens de inovação&amp;rdquo;. Cada escolha tecnológica ousada, como a adoção de um banco de dados novo ou a utilização de uma linguagem menos popular, consome um desses tokens. Com o tempo, as empresas devem ser mais criteriosas ao gastar esses tokens, pois inovar constantemente pode resultar em uma sobrecarga de complexidade e uma perda de foco nas metas principais da empresa.&lt;/p>
+&lt;p>McKinley compartilha a visão de que a tecnologia &amp;ldquo;chata&amp;rdquo; pode ser uma escolha muito sensata em muitos casos. Bancos de dados como &lt;strong>MySQL&lt;/strong> e &lt;strong>Postgres&lt;/strong>, por exemplo, podem ser considerados sem graça, mas são sólidos, escaláveis e bem compreendidos. O problema com tecnologias mais recentes e inovadoras é o grande número de incógnitas desconhecidas que elas trazem. Um banco de dados novo pode ter problemas de performance imprevistos ou falhas que só se tornam evidentes em condições específicas.&lt;/p>
+&lt;h2 id="a-sabedoria-por-trás-da-escolha-de-tecnologia">A Sabedoria por Trás da Escolha de Tecnologia
+&lt;/h2>&lt;p>A escolha de tecnologias não é um processo isolado. Cada escolha impacta toda a organização, aumentando a complexidade do sistema e exigindo mais recursos para manutenção e operação. Como McKinley observa, a &amp;ldquo;melhor ferramenta para o trabalho&amp;rdquo; nem sempre é a que parece mais avançada, mas sim a que tem o menor custo total de operação e manutenção. As escolhas tecnológicas devem ser feitas com uma visão a longo prazo, onde o objetivo principal é manter o sistema funcionando de forma confiável e eficiente, sem ser sobrecarregado por inovações que podem não agregar valor imediato.&lt;/p>
+&lt;h2 id="conclusão-a-liberdade-na-escolha-consciente">Conclusão: A Liberdade na Escolha Consciente
+&lt;/h2>&lt;p>Adotar um stack &amp;ldquo;boring&amp;rdquo; não significa abrir mão da inovação, mas sim garantir que as escolhas tecnológicas estejam alinhadas com os objetivos de longo prazo da empresa. Desenvolvedores experientes sabem que, muitas vezes, a chave para o sucesso é a capacidade de fazer escolhas tecnológicas sensatas e fundamentadas, sem se deixar levar pelo hype das últimas novidades.&lt;/p>
+&lt;p>A verdadeira liberdade no desenvolvimento vem de fazer escolhas conscientes e bem-informadas, onde a estabilidade e a eficiência são priorizadas, permitindo que a equipe se concentre no que realmente importa: resolver problemas e criar soluções de qualidade.&lt;/p>
+&lt;p>Se você está pensando em adotar um &amp;ldquo;Boring Stack&amp;rdquo; para o seu próximo projeto, lembre-se de que o simples pode ser poderoso, e a sabedoria muitas vezes reside na escolha das tecnologias que, embora aparentemente sem graça, garantem um futuro mais seguro e sustentável para seus projetos.&lt;/p></description></item><item><title>Vanilla JavaScript está morto?</title><link>https://paulabicca.github.io/pt-br/p/vanilla-javascript-esta-morto/</link><pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/vanilla-javascript-esta-morto/</guid><description>&lt;p>Se você é desenvolvedor front-end, deve ter notado que as vagas de &amp;ldquo;desenvolvedor front-end&amp;rdquo; estão cada vez mais raras. Hoje, o mercado busca por desenvolvedores de &lt;strong>React&lt;/strong>, &lt;strong>Angular&lt;/strong> ou &lt;strong>Vue.js&lt;/strong>, e a experiência em &lt;strong>JavaScript&lt;/strong> muitas vezes é considerada um “plus” ou nem chega a ser solicitada. Isso nos leva a uma pergunta: será que o Vanilla JavaScript está realmente &amp;ldquo;morto&amp;rdquo;?&lt;/p>
+&lt;h2 id="o-que-é-vanilla-javascript">O que é Vanilla JavaScript?
+&lt;/h2>&lt;p>&amp;ldquo;Vanilla JavaScript&amp;rdquo; refere-se ao uso do JavaScript em seu estado puro, ou seja, sem a dependência de frameworks ou bibliotecas adicionais. Trata-se da linguagem JavaScript básica, que pode ser executada diretamente no navegador, sem a necessidade de ferramentas como &lt;strong>React&lt;/strong>, &lt;strong>Angular&lt;/strong> ou &lt;strong>Vue.js&lt;/strong>.&lt;/p>
+&lt;p>Quando falamos de Vanilla JavaScript, estamos nos referindo ao uso da linguagem com seus recursos nativos, aproveitando as APIs do navegador e os recursos fundamentais da linguagem.&lt;/p>
+&lt;h2 id="por-que-os-frameworks-dominaram-o-desenvolvimento-front-end">Por que os frameworks dominaram o desenvolvimento front-end?
+&lt;/h2>&lt;p>Não é difícil entender por que frameworks como &lt;strong>React&lt;/strong>, &lt;strong>Angular&lt;/strong> e &lt;strong>Vue.js&lt;/strong> ganharam tanto espaço. Esses frameworks oferecem uma série de vantagens para o desenvolvimento, especialmente em projetos de grande escala, como:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Componentização&lt;/strong>: Estruturas que tornam o código mais modular e reutilizável.&lt;/li>
+&lt;li>&lt;strong>Gerenciamento de Estado&lt;/strong>: Ferramentas para lidar com estados complexos em grandes aplicações.&lt;/li>
+&lt;li>&lt;strong>Desempenho Aprimorado&lt;/strong>: Algoritmos que atualizam o DOM de maneira mais eficiente.&lt;/li>
+&lt;li>&lt;strong>Facilidade de Desenvolvimento&lt;/strong>: Recursos prontos, como roteamento e validação de formulários, economizando tempo no desenvolvimento.&lt;/li>
+&lt;/ul>
+&lt;p>Essas funcionalidades tornaram a vida do desenvolvedor muito mais fácil e ajudaram a acelerar o desenvolvimento de aplicações complexas. Por isso, não é surpreendente que frameworks como React tenham se tornado a escolha preferida de muitas empresas e desenvolvedores.&lt;/p>
+&lt;h2 id="então-vanilla-javascript-está-realmente-morto">Então Vanilla JavaScript está realmente &amp;ldquo;morto&amp;rdquo;?
+&lt;/h2>&lt;p>A resposta é &lt;strong>não&lt;/strong>. Embora o mercado de trabalho esteja focado em frameworks, o &lt;strong>Vanilla JavaScript&lt;/strong> segue muito relevante. De acordo com as métricas do &lt;a class="link" href="https://innovationgraph.github.com/global-metrics/programming-languages" target="_blank" rel="noopener"
+>GitHub de 2024&lt;/a>, JavaScript ainda é uma das linguagens mais utilizadas no mundo. Mesmo com o crescimento do &lt;a class="link" href="https://github.blog/news-insights/octoverse/octoverse-2024/" target="_blank" rel="noopener"
+>TypeScript&lt;/a>, que adiciona tipagem estática ao JavaScript, o conhecimento de Vanilla JavaScript continua essencial.&lt;/p>
+&lt;p>JavaScript é a base dos frameworks modernos. Mesmo que você esteja trabalhando com React ou Vue, é importante entender como o &lt;strong>DOM&lt;/strong> funciona, como manipular elementos e compreender os conceitos fundamentais do JavaScript, que são essenciais para trabalhar de forma eficaz com esses frameworks.&lt;/p>
+&lt;h2 id="qual-o-futuro-do-vanilla-javascript">Qual o futuro do Vanilla JavaScript?
+&lt;/h2>&lt;p>Com 25 anos de existência e uma vasta comunidade por trás, o JavaScript oferece uma ampla gama de opções e ferramentas para desenvolvedores de todos os níveis, desde iniciantes até avançados. Sua flexibilidade permite que seja executado tanto no lado do cliente quanto no lado do servidor, adaptando-se às necessidades de diversos tipos de projetos.&lt;/p>
+&lt;p>Ao contrário do que alguns possam pensar, o JavaScript continua sendo uma base sólida para quem deseja entender profundamente como a web funciona. Com o avanço das &lt;strong>APIs&lt;/strong> e a chegada de recursos modernos como o &lt;strong>ES6+&lt;/strong>, a linguagem se tornou ainda mais poderosa e prática. A comunidade também contribuiu significativamente, criando uma grande variedade de plugins, bibliotecas e frameworks que consolidaram o JavaScript como uma linguagem essencial para o desenvolvimento web.&lt;/p>
+&lt;p>Além disso, tendências como os &lt;strong>Web Components&lt;/strong> — uma especificação nativa para a criação de componentes reutilizáveis — estão incentivando o uso de Vanilla JavaScript em conjunto com HTML e CSS. Isso reafirma que, mesmo em cenários mais avançados de desenvolvimento, o JavaScript continuará sendo relevante e fundamental.&lt;/p>
+&lt;h2 id="frameworks-ou-javascript">Frameworks ou JavaScript?
+&lt;/h2>&lt;p>Se você está começando no desenvolvimento web, é natural se perguntar: &amp;ldquo;Por onde devo começar?&amp;rdquo; A resposta depende do seu tempo e dos seus objetivos.&lt;/p>
+&lt;p>Se você tem tempo disponível, o ideal é começar com &lt;strong>JavaScript&lt;/strong>. Ele é a base de tudo no desenvolvimento web, e dominar o Vanilla JavaScript vai te ajudar a entender mais facilmente qualquer framework ou biblioteca no futuro.&lt;/p>
+&lt;p>Porém, se o tempo for mais curto e você precisar começar com um framework, escolha o seu favorito. Mas, mesmo assim, não deixe de estudar JavaScript paralelamente. Esse conhecimento será essencial para o seu crescimento como desenvolvedor, ajudando a solidificar a base sobre a qual os frameworks se constroem.&lt;/p></description></item><item><title>Você já ouviu falar em Hoisting?</title><link>https://paulabicca.github.io/pt-br/p/voce-ja-ouviu-sobre-hoisting/</link><pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate><guid>https://paulabicca.github.io/pt-br/p/voce-ja-ouviu-sobre-hoisting/</guid><description>&lt;p>Já se deparou com um código onde uma variável parecia ser usada antes de sua declaração e ficou confuso sobre o que estava acontecendo? Isso é o &lt;strong>hoisting&lt;/strong> em JavaScript!
+Vamos explorar esse conceito básico, como os escopos importam para esse conceito e suas implicações.&lt;/p>
+&lt;hr>
+&lt;h2 id="escopo-um-contexto-para-o-hoisting">&lt;strong>Escopo: Um contexto para o Hoisting&lt;/strong>
+&lt;/h2>&lt;p>Antes de conversamos sobre o que é &lt;strong>hoisting&lt;/strong>, primeiro precisamos entender um pouco melhor sobre escopos. Em JavaScript, o escopo é o contexto onde uma variável pode ser acessada ou utilizada.&lt;br>
+Existem três tipos principais de escopo:&lt;/p>
+&lt;h2 id="tipos-de-escopo">&lt;strong>Tipos de Escopo&lt;/strong>
+&lt;/h2>&lt;h3 id="escopo-global">&lt;strong>Escopo Global&lt;/strong>
+&lt;/h3>&lt;p>Variáveis declaradas fora de qualquer função ou bloco estão no escopo global, acessíveis de qualquer lugar no código.&lt;/p>
+&lt;p>&lt;strong>Exemplo:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">var&lt;/span> &lt;span class="nx">globalVar&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Estou no escopo global!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">mostrarGlobal&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">globalVar&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">mostrarGlobal&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">A saída do código acima é: &amp;#34;Estou no escopo global!&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="escopo-local-ou-de-função">&lt;strong>Escopo Local (ou de Função)&lt;/strong>
+&lt;/h3>&lt;p>Variáveis declaradas dentro de uma função só podem ser acessadas dentro dela.&lt;/p>
+&lt;p>&lt;strong>Exemplo:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">minhaFuncao&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">let&lt;/span> &lt;span class="nx">localVar&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Estou no escopo local!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">localVar&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// &amp;#34;Estou no escopo local!&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">minhaFuncao&lt;/span>&lt;span class="p">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">localVar&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// ReferenceError: localVar is not defined
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="escopo-de-bloco">&lt;strong>Escopo de Bloco&lt;/strong>
+&lt;/h3>&lt;p>Introduzido no ES6, as variáveis declaradas com &lt;code>let&lt;/code> ou &lt;code>const&lt;/code> dentro de um bloco {} são limitadas a esse bloco.&lt;/p>
+&lt;p>&lt;strong>Exemplo:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">let&lt;/span> &lt;span class="nx">blocoVar&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Estou no escopo de bloco!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">blocoVar&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// &amp;#34;Estou no escopo de bloco!&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">blocoVar&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// ReferenceError: blocoVar is not defined
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;p>Agora que entendemos sobre escopo, vamos entender melhor o que é &lt;strong>Hoisting&lt;/strong> .&lt;/p>
+&lt;h2 id="o-que-é-hoisting">&lt;strong>O Que é Hoisting?&lt;/strong>
+&lt;/h2>&lt;p>O &lt;strong>hoisting&lt;/strong> é um comportamento do JavaScript que permite utilizar uma função ou variável antes de sua declaração. Isso ocorre porque o mecanismo de hoisting eleva as declarações para o topo do escopo, tornando-as acessíveis antes mesmo de serem definidas no código.
+Caso você queira uma explicação mais detalhada você encontra &lt;a class="link" href="https://developer.mozilla.org/pt-BR/docs/Glossary/Hoisting" target="_blank" rel="noopener"
+>aqui&lt;/a>.&lt;/p>
+&lt;p>Agora que você possui uma explicação. Vamos aos exemplos.&lt;/p>
+&lt;h3 id="exemplos-de-hoisting">&lt;strong>Exemplos de Hoisting&lt;/strong>
+&lt;/h3>&lt;h4 id="com-variável">&lt;strong>Com variável&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">minhaVariavel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">//Inicializa minhaVariavel
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;aqui será 3:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">minhaVariavel&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// a saída será 3
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">var&lt;/span> &lt;span class="nx">minhaVariavel&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">//Declara minhaVariavel para hoisting
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Aqui, a variável &lt;code>minhaVariavel&lt;/code> foi &amp;lsquo;içada&amp;rsquo; para o topo do código e por isso que no meu console log a saída é &lt;code>3&lt;/code>.&lt;/p>
+&lt;hr>
+&lt;h4 id="com-função">&lt;strong>Com função&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">fullName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Jane&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;Doe&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">fullName&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">lastName&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sb">`Meu nome é &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">name&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb"> &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nx">lastName&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="sb">`&lt;/span>&lt;span class="p">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">/*
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">A saída do código acima é: &amp;#34;Meu nome é Jane Doe&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cm">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Mesmo que chamemos a função em nosso código primeiro, antes que a função seja escrita, o código ainda funciona.&lt;/p>
+&lt;h4 id="com-let-e-const">&lt;strong>Com &lt;code>let&lt;/code> e &lt;code>const&lt;/code>&lt;/strong>
+&lt;/h4>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-javascript" data-lang="javascript">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">minhaVariavel&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// ReferenceError: Cannot access &amp;#39;minhaVariavel&amp;#39; before initialization
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="nx">console&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">log&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">minhaVariavelConst&lt;/span>&lt;span class="p">);&lt;/span> &lt;span class="c1">// SyntaxError: Missing initializer in const declaration
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">let&lt;/span> &lt;span class="nx">minhaVariavel&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Olá, Mundo!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">minhaVariavelConst&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s2">&amp;#34;Olá, Mundo!&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Ao contrário de &lt;code>var&lt;/code>, variáveis declaradas com &lt;code>let&lt;/code> ou &lt;code>const&lt;/code> são içadas, mas permanecem em um estado de &amp;ldquo;&lt;strong>Temporal Dead Zone (TDZ)&lt;/strong>&amp;rdquo; até serem declaradas.&lt;/p>
+&lt;h4 id="o-que-é-temporal-dead-zone">&lt;strong>O que é Temporal Dead Zone?&lt;/strong>
+&lt;/h4>&lt;p>A TDZ é o período entre a criação de uma variável e a sua declaração no código. Durante a TDZ, a variável existe, mas ainda não foi inicializada, e acessar ela nesse intervalo gera um erro de referência (ReferenceError). A TDZ afeta principalmente variáveis declaradas com &lt;code>let&lt;/code> e &lt;code>const&lt;/code>, já que elas seguem seus escopos, ao contrário de variáveis com &lt;code>var&lt;/code>.&lt;/p>
+&lt;hr>
+&lt;h2 id="casos-de-possíveis-usos">&lt;strong>Casos de (possíveis) usos&lt;/strong>
+&lt;/h2>&lt;p>O &lt;strong>hoisting&lt;/strong> em si não é uma técnica ou recurso que você escolhe usar diretamente, mas sim um comportamento do JavaScript. Então, a questão não é usar &lt;strong>hoisting&lt;/strong> , mas compreender como ele funciona para evitar armadilhas e tirar proveito de situações específicas.&lt;/p>
+&lt;h3 id="casos-onde-faz-sentido">&lt;strong>Casos Onde Faz Sentido&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Scripts Legados com var&lt;/strong>&lt;br>
+Em projetos mais antigos que ainda utilizam &lt;code>var&lt;/code>, o hoisting pode ser útil para entender como variáveis são tratadas. No entanto, não é recomendado adotar &lt;code>var&lt;/code> em novos projetos, pois ele é propenso a causar confusão e bugs.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Bibliotecas e Frameworks Antigos&lt;/strong>&lt;br>
+Se você trabalha com bibliotecas ou frameworks que não adotaram padrões modernos (como ES6), entender o hoisting é crucial para depurar e evitar erros.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Protótipos de Código e Aprendizado&lt;/strong>&lt;br>
+Durante o aprendizado de JavaScript, o hoisting pode ajudar a entender como o JavaScript lida com variáveis e funções nos bastidores. No entanto, é importante entender as boas práticas desde o início, como sempre declarar variáveis antes de usá-las.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="casos-onde-não-faz-sentido">&lt;strong>Casos Onde Não Faz Sentido&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Novos Projetos Modernos&lt;/strong>&lt;br>
+Com &lt;code>let&lt;/code> e &lt;code>const&lt;/code>, o hoisting torna-se menos relevante porque essas variáveis não podem ser usadas antes da declaração. Isso cria uma abordagem mais previsível e menos propensa a erros.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Boas Práticas e Legibilidade&lt;/strong>&lt;br>
+Embora o hoisting permita executar código antes da declaração, não é uma prática recomendada, pois pode tornar o código confuso para outros desenvolvedores (ou até para você mesmo no futuro).&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="ainda-faz-sentido-nos-dias-de-hoje">&lt;strong>Ainda faz sentido nos dias de hoje?&lt;/strong>
+&lt;/h2>&lt;p>O hoisting ainda faz sentido hoje? Sim, não, depende&amp;hellip; hahaha!&lt;br>
+Brincadeiras à parte, o hoisting ainda é útil em situações específicas, como no uso de declarações de funções e na manutenção de projetos legados. Porém, em projetos modernos, o cenário é diferente.&lt;/p>
+&lt;p>Aqui vão algumas dicas para lidar com variáveis e evitar problemas:&lt;/p>
+&lt;ul>
+&lt;li>Prefira &lt;code>let&lt;/code> e &lt;code>const&lt;/code>.&lt;/li>
+&lt;li>Declare variáveis no início do escopo onde serão usadas.&lt;/li>
+&lt;li>Evite confiar no comportamento implícito do hoisting para garantir um código mais legível e previsível.&lt;/li>
+&lt;/ul>
+&lt;p>Embora o uso direto do conceito de hoisting seja cada vez menos comum, entender como ele funciona continua sendo uma habilidade essencial para todo desenvolvedor JavaScript.&lt;br>
+Afinal, conhecimento nunca é demais, certo? :)&lt;/p></description></item></channel></rss>
