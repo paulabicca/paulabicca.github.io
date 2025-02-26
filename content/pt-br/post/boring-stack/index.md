@@ -1,7 +1,7 @@
 ---
-title: Como o 'Boring Stack' mudou minha perspectiva sobre tecnologias
-description:  Entenda como o "Boring Stack" pode alterar sua abordagem sobre tecnologias antigas e novas
-slug: como-o-boring-stack-mudou-minha-perspectiva-sobre-tecnologias
+title: Como o 'Boring Stack' me fez enxergar tecnologia de outro jeito
+description:  Entenda como o "Boring Stack" pode mudar sua visão sobre tecnologias antigas e novas
+slug: como-o-boring-stack-me-fez-enxergar-tecnologia-de-outro-jeito
 date: 2025-02-15 00:00:00+0000
 tags:
   - Javascript
